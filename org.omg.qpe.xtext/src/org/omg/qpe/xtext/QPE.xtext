@@ -1,0 +1,52 @@
+grammar org.omg.qpe.QPE with org.eclipse.xtext.common.Terminals
+
+import "http://www.omg.org/spec/SST/QPE/1.0"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+QPE:
+        querynamespaces += QueryNamespace
+        pathexpressions += PathExpression
+;
+
+QueryNamespace:
+        'namespace' IRI=STRING ('as' prefix=ID)?      
+;
+
+PathExpression:
+	(isRelative?='.') '/' head=QueryElement
+;
+
+QueryElement:
+	( querynamespace=[QueryNamespace] '::' )? feature=[ecore::EStructuralFeature] /*CustomScope*/
+	( qualifier=Qualifier )?
+	( '/' next=QueryElement )?
+;
+
+Qualifier:
+	'[' (predicate += Predicate) (',' predicate += Predicate)* ']'
+;
+
+Predicate:
+	ClassifierPredicate | AttributePredicate | ReferencePredicate	
+;
+
+ClassifierPredicate:
+	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? classifier=[ecore::EClassifier] /*CustomScope*/
+;
+
+AttributePredicate:
+	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? attribute=[ecore::EAttribute] /*CustomScope*/ '=' value=VALUE
+;
+
+ReferencePredicate:
+	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? reference=[ecore::EReference] /*CustomScope*/ qualifier=Qualifier
+;
+
+
+VALUE returns ecore::EJavaObject: STRING | INT | LONG | DOUBLE | BOOLEAN;
+
+LONG returns ecore::ELong: INT ("L"|"l");
+DOUBLE returns ecore::EDouble: INT'.'INT;
+BOOLEAN returns ecore::EBoolean: "true" | "false";
+
+

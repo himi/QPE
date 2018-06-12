@@ -277,6 +277,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPredicate_Querynamespace() {
+		return (EReference)predicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClassifierPredicate() {
 		return classifierPredicateEClass;
 	}
@@ -340,7 +349,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReferencePredicate_Query() {
+	public EReference getReferencePredicate_Qualifier() {
 		return (EReference)referencePredicateEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -394,6 +403,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPathExpression_IsRelative() {
+		return (EAttribute)pathExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -433,6 +451,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(qualifierEClass, QUALIFIER__INDEX);
 
 		predicateEClass = createEClass(PREDICATE);
+		createEReference(predicateEClass, PREDICATE__QUERYNAMESPACE);
 
 		classifierPredicateEClass = createEClass(CLASSIFIER_PREDICATE);
 		createEReference(classifierPredicateEClass, CLASSIFIER_PREDICATE__CLASSIFIER);
@@ -443,7 +462,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		referencePredicateEClass = createEClass(REFERENCE_PREDICATE);
 		createEReference(referencePredicateEClass, REFERENCE_PREDICATE__REFERENCE);
-		createEReference(referencePredicateEClass, REFERENCE_PREDICATE__QUERY);
+		createEReference(referencePredicateEClass, REFERENCE_PREDICATE__QUALIFIER);
 
 		queryNamespaceEClass = createEClass(QUERY_NAMESPACE);
 		createEAttribute(queryNamespaceEClass, QUERY_NAMESPACE__IRI);
@@ -451,6 +470,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		pathExpressionEClass = createEClass(PATH_EXPRESSION);
 		createEReference(pathExpressionEClass, PATH_EXPRESSION__HEAD);
+		createEAttribute(pathExpressionEClass, PATH_EXPRESSION__IS_RELATIVE);
 	}
 
 	/**
@@ -505,6 +525,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getQualifier_Index(), ecorePackage.getEInt(), "index", "-1", 0, 1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(predicateEClass, Predicate.class, "Predicate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPredicate_Querynamespace(), this.getQueryNamespace(), null, "querynamespace", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classifierPredicateEClass, ClassifierPredicate.class, "ClassifierPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassifierPredicate_Classifier(), theEcorePackage.getEClassifier(), null, "classifier", null, 1, 1, ClassifierPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -515,7 +536,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(referencePredicateEClass, ReferencePredicate.class, "ReferencePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferencePredicate_Reference(), theEcorePackage.getEReference(), null, "reference", null, 1, 1, ReferencePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReferencePredicate_Query(), this.getQueryElement(), null, "query", null, 1, 1, ReferencePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferencePredicate_Qualifier(), this.getQualifier(), null, "qualifier", null, 1, 1, ReferencePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryNamespaceEClass, QueryNamespace.class, "QueryNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQueryNamespace_IRI(), ecorePackage.getEString(), "IRI", null, 1, 1, QueryNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -523,6 +544,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(pathExpressionEClass, PathExpression.class, "PathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPathExpression_Head(), this.getQueryElement(), null, "head", null, 1, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPathExpression_IsRelative(), theEcorePackage.getEBoolean(), "isRelative", "false", 0, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

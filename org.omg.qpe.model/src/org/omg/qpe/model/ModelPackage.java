@@ -232,13 +232,22 @@ public interface ModelPackage extends EPackage {
 	int PREDICATE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREDICATE__QUERYNAMESPACE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PREDICATE_FEATURE_COUNT = 0;
+	int PREDICATE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Predicate</em>' class.
@@ -258,6 +267,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CLASSIFIER_PREDICATE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' reference.
@@ -295,6 +313,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE_PREDICATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -343,6 +370,15 @@ public interface ModelPackage extends EPackage {
 	int REFERENCE_PREDICATE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
+
+	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,13 +388,13 @@ public interface ModelPackage extends EPackage {
 	int REFERENCE_PREDICATE__REFERENCE = PREDICATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' reference.
+	 * The feature id for the '<em><b>Qualifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PREDICATE__QUERY = PREDICATE_FEATURE_COUNT + 1;
+	int REFERENCE_PREDICATE__QUALIFIER = PREDICATE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Reference Predicate</em>' class.
@@ -444,13 +480,22 @@ public interface ModelPackage extends EPackage {
 	int PATH_EXPRESSION__HEAD = 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Relative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_EXPRESSION__IS_RELATIVE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Path Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_EXPRESSION_FEATURE_COUNT = 1;
+	int PATH_EXPRESSION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Path Expression</em>' class.
@@ -602,6 +647,17 @@ public interface ModelPackage extends EPackage {
 	EClass getPredicate();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.omg.qpe.model.Predicate#getQuerynamespace <em>Querynamespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Querynamespace</em>'.
+	 * @see org.omg.qpe.model.Predicate#getQuerynamespace()
+	 * @see #getPredicate()
+	 * @generated
+	 */
+	EReference getPredicate_Querynamespace();
+
+	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.ClassifierPredicate <em>Classifier Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,15 +732,15 @@ public interface ModelPackage extends EPackage {
 	EReference getReferencePredicate_Reference();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.omg.qpe.model.ReferencePredicate#getQuery <em>Query</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.omg.qpe.model.ReferencePredicate#getQualifier <em>Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Query</em>'.
-	 * @see org.omg.qpe.model.ReferencePredicate#getQuery()
+	 * @return the meta object for the containment reference '<em>Qualifier</em>'.
+	 * @see org.omg.qpe.model.ReferencePredicate#getQualifier()
 	 * @see #getReferencePredicate()
 	 * @generated
 	 */
-	EReference getReferencePredicate_Query();
+	EReference getReferencePredicate_Qualifier();
 
 	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.QueryNamespace <em>Query Namespace</em>}'.
@@ -738,6 +794,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPathExpression_Head();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.omg.qpe.model.PathExpression#isIsRelative <em>Is Relative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Relative</em>'.
+	 * @see org.omg.qpe.model.PathExpression#isIsRelative()
+	 * @see #getPathExpression()
+	 * @generated
+	 */
+	EAttribute getPathExpression_IsRelative();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -875,6 +942,14 @@ public interface ModelPackage extends EPackage {
 		EClass PREDICATE = eINSTANCE.getPredicate();
 
 		/**
+		 * The meta object literal for the '<em><b>Querynamespace</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PREDICATE__QUERYNAMESPACE = eINSTANCE.getPredicate_Querynamespace();
+
+		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.ClassifierPredicateImpl <em>Classifier Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -937,12 +1012,12 @@ public interface ModelPackage extends EPackage {
 		EReference REFERENCE_PREDICATE__REFERENCE = eINSTANCE.getReferencePredicate_Reference();
 
 		/**
-		 * The meta object literal for the '<em><b>Query</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Qualifier</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE_PREDICATE__QUERY = eINSTANCE.getReferencePredicate_Query();
+		EReference REFERENCE_PREDICATE__QUALIFIER = eINSTANCE.getReferencePredicate_Qualifier();
 
 		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.QueryNamespaceImpl <em>Query Namespace</em>}' class.
@@ -987,6 +1062,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATH_EXPRESSION__HEAD = eINSTANCE.getPathExpression_Head();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Relative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATH_EXPRESSION__IS_RELATIVE = eINSTANCE.getPathExpression_IsRelative();
 
 	}
 

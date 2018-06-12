@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.omg.qpe.model.PathExpression#getHead <em>Head</em>}</li>
+ *   <li>{@link org.omg.qpe.model.PathExpression#isIsRelative <em>Is Relative</em>}</li>
  * </ul>
  *
  * @see org.omg.qpe.model.ModelPackage#getPathExpression()
@@ -46,5 +47,32 @@ public interface PathExpression extends EObject {
 	 * @generated
 	 */
 	void setHead(QueryElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Relative</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Relative</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Relative</em>' attribute.
+	 * @see #setIsRelative(boolean)
+	 * @see org.omg.qpe.model.ModelPackage#getPathExpression_IsRelative()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsRelative();
+
+	/**
+	 * Sets the value of the '{@link org.omg.qpe.model.PathExpression#isIsRelative <em>Is Relative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Relative</em>' attribute.
+	 * @see #isIsRelative()
+	 * @generated
+	 */
+	void setIsRelative(boolean value);
 
 } // PathExpression

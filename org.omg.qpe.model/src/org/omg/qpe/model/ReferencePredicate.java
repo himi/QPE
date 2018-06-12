@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EReference;
  * </p>
  * <ul>
  *   <li>{@link org.omg.qpe.model.ReferencePredicate#getReference <em>Reference</em>}</li>
- *   <li>{@link org.omg.qpe.model.ReferencePredicate#getQuery <em>Query</em>}</li>
+ *   <li>{@link org.omg.qpe.model.ReferencePredicate#getQualifier <em>Qualifier</em>}</li>
  * </ul>
  *
  * @see org.omg.qpe.model.ModelPackage#getReferencePredicate()
@@ -49,29 +49,29 @@ public interface ReferencePredicate extends Predicate {
 	void setReference(EReference value);
 
 	/**
-	 * Returns the value of the '<em><b>Query</b></em>' reference.
+	 * Returns the value of the '<em><b>Qualifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Query</em>' reference isn't clear,
+	 * If the meaning of the '<em>Qualifier</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Query</em>' reference.
-	 * @see #setQuery(QueryElement)
-	 * @see org.omg.qpe.model.ModelPackage#getReferencePredicate_Query()
-	 * @model required="true"
+	 * @return the value of the '<em>Qualifier</em>' containment reference.
+	 * @see #setQualifier(Qualifier)
+	 * @see org.omg.qpe.model.ModelPackage#getReferencePredicate_Qualifier()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	QueryElement getQuery();
+	Qualifier getQualifier();
 
 	/**
-	 * Sets the value of the '{@link org.omg.qpe.model.ReferencePredicate#getQuery <em>Query</em>}' reference.
+	 * Sets the value of the '{@link org.omg.qpe.model.ReferencePredicate#getQualifier <em>Qualifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Query</em>' reference.
-	 * @see #getQuery()
+	 * @param value the new value of the '<em>Qualifier</em>' containment reference.
+	 * @see #getQualifier()
 	 * @generated
 	 */
-	void setQuery(QueryElement value);
+	void setQualifier(Qualifier value);
 
 } // ReferencePredicate

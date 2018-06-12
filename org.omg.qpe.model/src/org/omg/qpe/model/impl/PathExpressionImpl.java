@@ -24,6 +24,7 @@ import org.omg.qpe.model.QueryElement;
  * </p>
  * <ul>
  *   <li>{@link org.omg.qpe.model.impl.PathExpressionImpl#getHead <em>Head</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.PathExpressionImpl#isIsRelative <em>Is Relative</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +39,25 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 	 * @ordered
 	 */
 	protected QueryElement head;
+
+	/**
+	 * The default value of the '{@link #isIsRelative() <em>Is Relative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRelative()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_RELATIVE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsRelative() <em>Is Relative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRelative()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isRelative = IS_RELATIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,6 +126,27 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsRelative() {
+		return isRelative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsRelative(boolean newIsRelative) {
+		boolean oldIsRelative = isRelative;
+		isRelative = newIsRelative;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PATH_EXPRESSION__IS_RELATIVE, oldIsRelative, isRelative));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -125,6 +166,8 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 		switch (featureID) {
 			case ModelPackage.PATH_EXPRESSION__HEAD:
 				return getHead();
+			case ModelPackage.PATH_EXPRESSION__IS_RELATIVE:
+				return isIsRelative();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,6 +182,9 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 		switch (featureID) {
 			case ModelPackage.PATH_EXPRESSION__HEAD:
 				setHead((QueryElement)newValue);
+				return;
+			case ModelPackage.PATH_EXPRESSION__IS_RELATIVE:
+				setIsRelative((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,6 +201,9 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 			case ModelPackage.PATH_EXPRESSION__HEAD:
 				setHead((QueryElement)null);
 				return;
+			case ModelPackage.PATH_EXPRESSION__IS_RELATIVE:
+				setIsRelative(IS_RELATIVE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -169,8 +218,26 @@ public class PathExpressionImpl extends EObjectImpl implements PathExpression {
 		switch (featureID) {
 			case ModelPackage.PATH_EXPRESSION__HEAD:
 				return head != null;
+			case ModelPackage.PATH_EXPRESSION__IS_RELATIVE:
+				return isRelative != IS_RELATIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isRelative: ");
+		result.append(isRelative);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PathExpressionImpl

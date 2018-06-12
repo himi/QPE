@@ -1,0 +1,38 @@
+module org.omg.qpe.xtext.GenQPE
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+
+
+var grammar = "classpath:/org/omg/qpe/xtext/QPE.xtext"
+var file.ext = "qpe,QPE"
+var project = "org.omg.qpe.xtext"
+var rootPath = ".."
+
+Workflow {
+     component = XtextGenerator {
+        configuration = {
+            project = StandardProjectConfig {
+                baseName = project
+                rootPath = rootPath
+                eclipsePlugin = {
+                    enabled = true
+                }
+                createEclipseMetaData = true
+            }
+            code = {
+                encoding = "UTF-8"
+            }
+        }
+        language = StandardLanguage {
+            name = "org.omg.qpe.model"
+            fileExtensions = file.ext
+ 
+            serializer = {
+                generateStub = false
+            }
+        }
+    }
+}
+
+

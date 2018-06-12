@@ -4,6 +4,7 @@ package org.omg.qpe.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.omg.qpe.model.ModelPackage;
-import org.omg.qpe.model.QueryElement;
+import org.omg.qpe.model.Qualifier;
 import org.omg.qpe.model.ReferencePredicate;
 
 /**
@@ -23,7 +24,7 @@ import org.omg.qpe.model.ReferencePredicate;
  * </p>
  * <ul>
  *   <li>{@link org.omg.qpe.model.impl.ReferencePredicateImpl#getReference <em>Reference</em>}</li>
- *   <li>{@link org.omg.qpe.model.impl.ReferencePredicateImpl#getQuery <em>Query</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.ReferencePredicateImpl#getQualifier <em>Qualifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,14 +41,14 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 	protected EReference reference;
 
 	/**
-	 * The cached value of the '{@link #getQuery() <em>Query</em>}' reference.
+	 * The cached value of the '{@link #getQualifier() <em>Qualifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuery()
+	 * @see #getQualifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected QueryElement query;
+	protected Qualifier qualifier;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,16 +112,23 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryElement getQuery() {
-		if (query != null && query.eIsProxy()) {
-			InternalEObject oldQuery = (InternalEObject)query;
-			query = (QueryElement)eResolveProxy(oldQuery);
-			if (query != oldQuery) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.REFERENCE_PREDICATE__QUERY, oldQuery, query));
-			}
+	public Qualifier getQualifier() {
+		return qualifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQualifier(Qualifier newQualifier, NotificationChain msgs) {
+		Qualifier oldQualifier = qualifier;
+		qualifier = newQualifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE_PREDICATE__QUALIFIER, oldQualifier, newQualifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return query;
+		return msgs;
 	}
 
 	/**
@@ -128,8 +136,18 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryElement basicGetQuery() {
-		return query;
+	public void setQualifier(Qualifier newQualifier) {
+		if (newQualifier != qualifier) {
+			NotificationChain msgs = null;
+			if (qualifier != null)
+				msgs = ((InternalEObject)qualifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE_PREDICATE__QUALIFIER, null, msgs);
+			if (newQualifier != null)
+				msgs = ((InternalEObject)newQualifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.REFERENCE_PREDICATE__QUALIFIER, null, msgs);
+			msgs = basicSetQualifier(newQualifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE_PREDICATE__QUALIFIER, newQualifier, newQualifier));
 	}
 
 	/**
@@ -137,11 +155,13 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuery(QueryElement newQuery) {
-		QueryElement oldQuery = query;
-		query = newQuery;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REFERENCE_PREDICATE__QUERY, oldQuery, query));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.REFERENCE_PREDICATE__QUALIFIER:
+				return basicSetQualifier(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -155,9 +175,8 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 			case ModelPackage.REFERENCE_PREDICATE__REFERENCE:
 				if (resolve) return getReference();
 				return basicGetReference();
-			case ModelPackage.REFERENCE_PREDICATE__QUERY:
-				if (resolve) return getQuery();
-				return basicGetQuery();
+			case ModelPackage.REFERENCE_PREDICATE__QUALIFIER:
+				return getQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,8 +192,8 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 			case ModelPackage.REFERENCE_PREDICATE__REFERENCE:
 				setReference((EReference)newValue);
 				return;
-			case ModelPackage.REFERENCE_PREDICATE__QUERY:
-				setQuery((QueryElement)newValue);
+			case ModelPackage.REFERENCE_PREDICATE__QUALIFIER:
+				setQualifier((Qualifier)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,8 +210,8 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 			case ModelPackage.REFERENCE_PREDICATE__REFERENCE:
 				setReference((EReference)null);
 				return;
-			case ModelPackage.REFERENCE_PREDICATE__QUERY:
-				setQuery((QueryElement)null);
+			case ModelPackage.REFERENCE_PREDICATE__QUALIFIER:
+				setQualifier((Qualifier)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,8 +227,8 @@ public class ReferencePredicateImpl extends PredicateImpl implements ReferencePr
 		switch (featureID) {
 			case ModelPackage.REFERENCE_PREDICATE__REFERENCE:
 				return reference != null;
-			case ModelPackage.REFERENCE_PREDICATE__QUERY:
-				return query != null;
+			case ModelPackage.REFERENCE_PREDICATE__QUALIFIER:
+				return qualifier != null;
 		}
 		return super.eIsSet(featureID);
 	}

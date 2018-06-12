@@ -3,3 +3,6 @@
 *.log
 bin
 build
+.cache-main
+.antlr-generator-*-patch.jar
+
