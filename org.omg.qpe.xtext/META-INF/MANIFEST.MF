@@ -21,9 +21,14 @@ Require-Bundle: org.omg.qpe.model,
  org.apache.commons.logging;resolution:=optional,
  org.eclipse.xtend.lib,
  com.google.guava,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.ui,
- org.eclipse.xtext.ui.codetemplates.ui;bundle-version="2.12.0"
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
- 
+Export-Package: org.omg.qpe.serializer,
+ org.omg.qpe.validation,
+ org.omg.qpe,
+ org.omg.qpe.parser.antlr,
+ org.omg.qpe.scoping,
+ org.omg.qpe.services,
+ org.omg.qpe.parser.antlr.internal,
+ org.omg.qpe.generator

@@ -3,8 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Formal
 Bundle-SymbolicName: org.omg.qpe.formal
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.osgi;bundle-version="3.12.50",
+Require-Bundle: org.scala-lang.scala-library;bundle-version="2.11.8",
+ org.eclipse.osgi;bundle-version="3.12.50",
  org.eclipse.emf;bundle-version="2.6.0",
  org.omg.qpe.model;bundle-version="0.1.1",
  org.omg.qpe.model.edit;bundle-version="1.0.0",
  org.omg.qpe.xtext;bundle-version="0.1.1"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.omg.qpe.formal.Activator
