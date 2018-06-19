@@ -4,6 +4,7 @@ package org.omg.qpe.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -241,6 +242,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getQueryElement__GetEType() {
+		return queryElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQualifier() {
 		return qualifierEClass;
 	}
@@ -261,6 +271,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getQualifier_Index() {
 		return (EAttribute)qualifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getQualifier__GetEType() {
+		return qualifierEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -445,10 +464,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(queryElementEClass, QUERY_ELEMENT__PREV);
 		createEReference(queryElementEClass, QUERY_ELEMENT__QUALIFIER);
 		createEReference(queryElementEClass, QUERY_ELEMENT__FEATURE);
+		createEOperation(queryElementEClass, QUERY_ELEMENT___GET_ETYPE);
 
 		qualifierEClass = createEClass(QUALIFIER);
 		createEReference(qualifierEClass, QUALIFIER__PREDICATE);
 		createEAttribute(qualifierEClass, QUALIFIER__INDEX);
+		createEOperation(qualifierEClass, QUALIFIER___GET_ETYPE);
 
 		predicateEClass = createEClass(PREDICATE);
 		createEReference(predicateEClass, PREDICATE__QUERYNAMESPACE);
@@ -520,9 +541,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getQueryElement_Qualifier(), this.getQualifier(), null, "qualifier", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQueryElement_Feature(), theEcorePackage.getEStructuralFeature(), null, "feature", null, 1, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getQueryElement__GetEType(), theEcorePackage.getEClassifier(), "getEType", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(qualifierEClass, Qualifier.class, "Qualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQualifier_Predicate(), this.getPredicate(), null, "predicate", null, 1, -1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQualifier_Index(), ecorePackage.getEInt(), "index", "-1", 0, 1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getQualifier__GetEType(), theEcorePackage.getEClassifier(), "getEType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(predicateEClass, Predicate.class, "Predicate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPredicate_Querynamespace(), this.getQueryNamespace(), null, "querynamespace", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

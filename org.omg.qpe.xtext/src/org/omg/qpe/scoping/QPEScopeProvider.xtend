@@ -3,6 +3,29 @@
  */
 package org.omg.qpe.scoping
 
+import com.google.inject.Inject
+import java.util.Collection
+import java.util.HashSet
+import java.util.Set
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtext.resource.IResourceDescriptions
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.SimpleScope
+import org.omg.qpe.model.AttributePredicate
+import org.omg.qpe.model.ClassifierPredicate
+import org.omg.qpe.model.PathExpression
+import org.omg.qpe.model.Predicate
+import org.omg.qpe.model.QPE
+import org.omg.qpe.model.Qualifier
+import org.omg.qpe.model.QueryElement
+import org.omg.qpe.model.QueryNamespace
+import org.omg.qpe.model.ReferencePredicate
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +34,167 @@ package org.omg.qpe.scoping
  * on how and when to use it.
  */
 class QPEScopeProvider extends AbstractQPEScopeProvider {
-
+	@Inject
+    IResourceDescriptions resDescriptions;	
+	
+	def IScope scopeForFeature(Set<EClassifier> classifiers) {
+		val features = new HashSet<EStructuralFeature>();
+		classifiers.forEach[
+			switch(it) {
+				EClass : {
+					features.addAll(it.getEAllAttributes());
+					features.addAll(it.getEAllReferences());
+				}
+			}
+		]
+		return Scopes.scopeFor(features);		
+	}
+	
+	def IScope scopeForEClassifier(EClassifier classifier) {
+		switch (classifier) {
+			EClass : new SimpleScope(resDescriptions.getExportedObjectsByType(classifier))
+			default: IScope.NULLSCOPE
+		}
+	}
+	
+	def IScope scopeForEClassifier(EStructuralFeature feature) {
+		scopeForEClassifier(feature.EType)
+	}
+	
+	def IScope scopeForEAttribute(EClassifier ec) {
+		switch (ec) {
+			EClass : Scopes.scopeFor(ec.EAllAttributes)
+			default : IScope.NULLSCOPE
+		}
+	}
+	
+	def IScope scopeForEAttribute(Qualifier q) {
+		val ec = q.EType;
+		if (ec === null) {
+			switch qe : q.eContainer() {
+				QueryElement : scopeForEAttribute(qe.feature.EType)
+				default: IScope.NULLSCOPE 
+			}
+		} else {
+			return scopeForEAttribute(ec);
+		}
+	}
+	
+	def IScope scopeForEReference(EClassifier ec) {
+		switch (ec) {
+			EClass : Scopes.scopeFor(ec.EAllReferences)
+			default : IScope.NULLSCOPE
+		}
+	}
+	
+	def IScope scopeForEReference(Qualifier q) {
+		val ec = q.EType;
+		if (ec === null) {
+			switch qe : q.eContainer() {
+				QueryElement : scopeForEReference(qe.feature.EType)
+				default: IScope.NULLSCOPE 
+			}
+		} else {
+			return scopeForEReference(ec);
+		}
+	}
+	
+	def QPE getQPE(EObject eo) {
+		for  (var e = eo; eo !== null; e = e.eContainer()) {
+			if (eo instanceof QPE) return eo as QPE;
+		}
+		return null;
+	}
+	
+	def QueryNamespace getDefaultNS(EObject eo) {
+		val qpe = getQPE(eo);
+		if (qpe === null) return null;
+		for (qns : qpe.querynamespaces) {
+			if (qns.prefix === null) return qns;
+		}
+		return null;
+	}
+	
+	val INVALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5.0";
+	val VALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5";
+	
+	def EPackage getEPackage(QueryNamespace qns) {
+		if (qns === null) return null;
+		val iri = qns.IRI;
+		if (INVALID_NOMAGIC_NSURI == iri) {
+			throw new IllegalArgumentException("The use of " + INVALID_NOMAGIC_NSURI + " is prohibited.  Use " + VALID_NOMAGIC_NSURI + " instead");
+		}
+		val ep = EPackage.Registry.INSTANCE.getEPackage(iri);
+		if (ep !== null) return ep;
+		if (iri == VALID_NOMAGIC_NSURI) {
+			// Try to load No Magic Ecore with "http://www.nomagic.com/magicdraw/UML/2.5.0"
+            EPackage.Registry.INSTANCE.getEPackage(INVALID_NOMAGIC_NSURI);
+			return EPackage.Registry.INSTANCE.getEPackage(iri);
+		}
+		return null;
+	}
+	
+	def addAllClassifiers(QueryNamespace qns, Collection<EClassifier> classifiers) {
+		val ep = getEPackage(qns);
+		if (ep === null) return;
+		classifiers.addAll(ep.EClassifiers);
+	}
+	
+	def IScope scope_QueryElement_feature(QueryElement context, EReference ref) {
+		val classifiers = new HashSet<EClassifier>;
+		val qns = context.getQuerynamespace();
+		if (qns === null) {
+			val prev = context.prev;
+			if (prev !== null) {
+				classifiers.add(prev.EType);
+			} else {
+				val container = context.eContainer();
+				if (container instanceof PathExpression) {
+					val pe = container as PathExpression;
+					if (pe.isRelative) {
+						addAllClassifiers(getDefaultNS(context), classifiers);
+					} else {
+						
+					}
+				}
+			}
+			
+		} else {
+			addAllClassifiers(qns, classifiers);
+		}
+		
+		return scopeForFeature(classifiers);
+	}
+	
+	// Qualifier's predicate context->Qualifier->(QueryElement | ReferencePredicate)
+	
+	def Qualifier getQualifier(Predicate context) {
+		val parent = context.eContainer();
+		if (!(parent instanceof Qualifier)) return null;
+		return parent as Qualifier;
+	}
+	
+	def IScope scope_ClassifierPredicate_classifier(ClassifierPredicate context, EReference ref) {
+		val q = getQualifier(context);
+		if (q === null) return IScope.NULLSCOPE;
+		val gp = q.eContainer();
+		switch (gp) {
+			QueryElement: scopeForEClassifier(gp.feature)
+			ReferencePredicate: scopeForEClassifier(gp.reference.EReferenceType)
+			default: IScope.NULLSCOPE
+		}
+		
+	}
+	
+	def IScope scope_AttributePredicate_attribute(AttributePredicate context, EReference ref) {
+		val q = getQualifier(context);
+		if (q === null) return IScope.NULLSCOPE;
+		return scopeForEAttribute(q);
+	}
+	
+	def IScope scope_ReferencePredicate_reference(ReferencePredicate context, EReference ref) {
+		val q = getQualifier(context);
+		if (q === null) return IScope.NULLSCOPE;
+		return scopeForEReference(q);
+	}
 }

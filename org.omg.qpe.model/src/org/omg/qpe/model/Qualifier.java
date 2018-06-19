@@ -4,6 +4,7 @@ package org.omg.qpe.model;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -66,5 +67,13 @@ public interface Qualifier extends EObject {
 	 * @generated
 	 */
 	void setIndex(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EClassifier getEType();
 
 } // Qualifier

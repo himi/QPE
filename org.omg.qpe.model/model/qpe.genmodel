@@ -18,10 +18,12 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/prev"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/qualifier"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/feature"/>
+      <genOperations ecoreOperation="qpe.ecore#//QueryElement/getEType"/>
     </genClasses>
     <genClasses ecoreClass="qpe.ecore#//Qualifier">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//Qualifier/predicate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qpe.ecore#//Qualifier/index"/>
+      <genOperations ecoreOperation="qpe.ecore#//Qualifier/getEType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="qpe.ecore#//Predicate">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//Predicate/querynamespace"/>

@@ -2,10 +2,13 @@
  */
 package org.omg.qpe.model.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -302,6 +305,20 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EClassifier getEType() {
+		Qualifier q = getQualifier();
+		if (q != null) {
+			EClassifier c = q.getEType();
+			if (c != null) return c;
+		}
+		return feature.getEType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -449,6 +466,20 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 				return feature != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.QUERY_ELEMENT___GET_ETYPE:
+				return getEType();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //QueryElementImpl

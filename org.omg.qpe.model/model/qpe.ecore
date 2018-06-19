@@ -8,6 +8,7 @@
         eType="#//QueryNamespace" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QueryElement">
+    <eOperations name="getEType" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="querynamespace" eType="#//QueryNamespace"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//QueryElement"
         containment="true" eOpposite="#//QueryElement/prev"/>
@@ -19,6 +20,7 @@
         eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Qualifier">
+    <eOperations name="getEType" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" lowerBound="1"
         upperBound="-1" eType="#//Predicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

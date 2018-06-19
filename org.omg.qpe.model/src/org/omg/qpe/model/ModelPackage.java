@@ -4,6 +4,7 @@ package org.omg.qpe.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -167,13 +168,22 @@ public interface ModelPackage extends EPackage {
 	int QUERY_ELEMENT_FEATURE_COUNT = 5;
 
 	/**
+	 * The operation id for the '<em>Get EType</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_ELEMENT___GET_ETYPE = 0;
+
+	/**
 	 * The number of operations of the '<em>Query Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_ELEMENT_OPERATION_COUNT = 0;
+	int QUERY_ELEMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.omg.qpe.model.impl.QualifierImpl <em>Qualifier</em>}' class.
@@ -213,13 +223,22 @@ public interface ModelPackage extends EPackage {
 	int QUALIFIER_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Get EType</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER___GET_ETYPE = 0;
+
+	/**
 	 * The number of operations of the '<em>Qualifier</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUALIFIER_OPERATION_COUNT = 0;
+	int QUALIFIER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.omg.qpe.model.impl.PredicateImpl <em>Predicate</em>}' class.
@@ -605,6 +624,16 @@ public interface ModelPackage extends EPackage {
 	EReference getQueryElement_Feature();
 
 	/**
+	 * Returns the meta object for the '{@link org.omg.qpe.model.QueryElement#getEType() <em>Get EType</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get EType</em>' operation.
+	 * @see org.omg.qpe.model.QueryElement#getEType()
+	 * @generated
+	 */
+	EOperation getQueryElement__GetEType();
+
+	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.Qualifier <em>Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,6 +664,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQualifier_Index();
+
+	/**
+	 * Returns the meta object for the '{@link org.omg.qpe.model.Qualifier#getEType() <em>Get EType</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get EType</em>' operation.
+	 * @see org.omg.qpe.model.Qualifier#getEType()
+	 * @generated
+	 */
+	EOperation getQualifier__GetEType();
 
 	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.Predicate <em>Predicate</em>}'.
@@ -906,6 +945,14 @@ public interface ModelPackage extends EPackage {
 		EReference QUERY_ELEMENT__FEATURE = eINSTANCE.getQueryElement_Feature();
 
 		/**
+		 * The meta object literal for the '<em><b>Get EType</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUERY_ELEMENT___GET_ETYPE = eINSTANCE.getQueryElement__GetEType();
+
+		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.QualifierImpl <em>Qualifier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -930,6 +977,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUALIFIER__INDEX = eINSTANCE.getQualifier_Index();
+
+		/**
+		 * The meta object literal for the '<em><b>Get EType</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation QUALIFIER___GET_ETYPE = eINSTANCE.getQualifier__GetEType();
 
 		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.PredicateImpl <em>Predicate</em>}' class.

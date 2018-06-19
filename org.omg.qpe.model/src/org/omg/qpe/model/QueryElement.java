@@ -2,6 +2,7 @@
  */
 package org.omg.qpe.model;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -159,5 +160,13 @@ public interface QueryElement extends EObject {
 	 * @generated
 	 */
 	void setFeature(EStructuralFeature value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EClassifier getEType();
 
 } // QueryElement

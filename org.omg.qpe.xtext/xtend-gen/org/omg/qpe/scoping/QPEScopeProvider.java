@@ -3,6 +3,33 @@
  */
 package org.omg.qpe.scoping;
 
+import com.google.common.base.Objects;
+import com.google.inject.Inject;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Consumer;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.scoping.impl.SimpleScope;
+import org.omg.qpe.model.AttributePredicate;
+import org.omg.qpe.model.ClassifierPredicate;
+import org.omg.qpe.model.PathExpression;
+import org.omg.qpe.model.Predicate;
+import org.omg.qpe.model.QPE;
+import org.omg.qpe.model.Qualifier;
+import org.omg.qpe.model.QueryElement;
+import org.omg.qpe.model.QueryNamespace;
+import org.omg.qpe.model.ReferencePredicate;
 import org.omg.qpe.scoping.AbstractQPEScopeProvider;
 
 /**
@@ -13,4 +40,250 @@ import org.omg.qpe.scoping.AbstractQPEScopeProvider;
  */
 @SuppressWarnings("all")
 public class QPEScopeProvider extends AbstractQPEScopeProvider {
+  @Inject
+  private IResourceDescriptions resDescriptions;
+  
+  public IScope scopeForFeature(final Set<EClassifier> classifiers) {
+    final HashSet<EStructuralFeature> features = new HashSet<EStructuralFeature>();
+    final Consumer<EClassifier> _function = (EClassifier it) -> {
+      boolean _matched = false;
+      if (it instanceof EClass) {
+        _matched=true;
+        features.addAll(((EClass)it).getEAllAttributes());
+        features.addAll(((EClass)it).getEAllReferences());
+      }
+    };
+    classifiers.forEach(_function);
+    return Scopes.scopeFor(features);
+  }
+  
+  public IScope scopeForEClassifier(final EClassifier classifier) {
+    IScope _switchResult = null;
+    boolean _matched = false;
+    if (classifier instanceof EClass) {
+      _matched=true;
+      Iterable<IEObjectDescription> _exportedObjectsByType = this.resDescriptions.getExportedObjectsByType(((EClass)classifier));
+      _switchResult = new SimpleScope(_exportedObjectsByType);
+    }
+    if (!_matched) {
+      _switchResult = IScope.NULLSCOPE;
+    }
+    return _switchResult;
+  }
+  
+  public IScope scopeForEClassifier(final EStructuralFeature feature) {
+    return this.scopeForEClassifier(feature.getEType());
+  }
+  
+  public IScope scopeForEAttribute(final EClassifier ec) {
+    IScope _switchResult = null;
+    boolean _matched = false;
+    if (ec instanceof EClass) {
+      _matched=true;
+      _switchResult = Scopes.scopeFor(((EClass)ec).getEAllAttributes());
+    }
+    if (!_matched) {
+      _switchResult = IScope.NULLSCOPE;
+    }
+    return _switchResult;
+  }
+  
+  public IScope scopeForEAttribute(final Qualifier q) {
+    IScope _xblockexpression = null;
+    {
+      final EClassifier ec = q.getEType();
+      IScope _xifexpression = null;
+      if ((ec == null)) {
+        IScope _switchResult = null;
+        EObject _eContainer = q.eContainer();
+        final EObject qe = _eContainer;
+        boolean _matched = false;
+        if (qe instanceof QueryElement) {
+          _matched=true;
+          _switchResult = this.scopeForEAttribute(((QueryElement)qe).getFeature().getEType());
+        }
+        if (!_matched) {
+          _switchResult = IScope.NULLSCOPE;
+        }
+        _xifexpression = _switchResult;
+      } else {
+        return this.scopeForEAttribute(ec);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public IScope scopeForEReference(final EClassifier ec) {
+    IScope _switchResult = null;
+    boolean _matched = false;
+    if (ec instanceof EClass) {
+      _matched=true;
+      _switchResult = Scopes.scopeFor(((EClass)ec).getEAllReferences());
+    }
+    if (!_matched) {
+      _switchResult = IScope.NULLSCOPE;
+    }
+    return _switchResult;
+  }
+  
+  public IScope scopeForEReference(final Qualifier q) {
+    IScope _xblockexpression = null;
+    {
+      final EClassifier ec = q.getEType();
+      IScope _xifexpression = null;
+      if ((ec == null)) {
+        IScope _switchResult = null;
+        EObject _eContainer = q.eContainer();
+        final EObject qe = _eContainer;
+        boolean _matched = false;
+        if (qe instanceof QueryElement) {
+          _matched=true;
+          _switchResult = this.scopeForEReference(((QueryElement)qe).getFeature().getEType());
+        }
+        if (!_matched) {
+          _switchResult = IScope.NULLSCOPE;
+        }
+        _xifexpression = _switchResult;
+      } else {
+        return this.scopeForEReference(ec);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public QPE getQPE(final EObject eo) {
+    for (EObject e = eo; (eo != null); e = e.eContainer()) {
+      if ((eo instanceof QPE)) {
+        return ((QPE) eo);
+      }
+    }
+    return null;
+  }
+  
+  public QueryNamespace getDefaultNS(final EObject eo) {
+    final QPE qpe = this.getQPE(eo);
+    if ((qpe == null)) {
+      return null;
+    }
+    EList<QueryNamespace> _querynamespaces = qpe.getQuerynamespaces();
+    for (final QueryNamespace qns : _querynamespaces) {
+      String _prefix = qns.getPrefix();
+      boolean _tripleEquals = (_prefix == null);
+      if (_tripleEquals) {
+        return qns;
+      }
+    }
+    return null;
+  }
+  
+  private final String INVALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5.0";
+  
+  private final String VALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5";
+  
+  public EPackage getEPackage(final QueryNamespace qns) {
+    if ((qns == null)) {
+      return null;
+    }
+    final String iri = qns.getIRI();
+    boolean _equals = Objects.equal(this.INVALID_NOMAGIC_NSURI, iri);
+    if (_equals) {
+      throw new IllegalArgumentException((((("The use of " + this.INVALID_NOMAGIC_NSURI) + " is prohibited.  Use ") + this.VALID_NOMAGIC_NSURI) + " instead"));
+    }
+    final EPackage ep = EPackage.Registry.INSTANCE.getEPackage(iri);
+    if ((ep != null)) {
+      return ep;
+    }
+    boolean _equals_1 = Objects.equal(iri, this.VALID_NOMAGIC_NSURI);
+    if (_equals_1) {
+      EPackage.Registry.INSTANCE.getEPackage(this.INVALID_NOMAGIC_NSURI);
+      return EPackage.Registry.INSTANCE.getEPackage(iri);
+    }
+    return null;
+  }
+  
+  public void addAllClassifiers(final QueryNamespace qns, final Collection<EClassifier> classifiers) {
+    final EPackage ep = this.getEPackage(qns);
+    if ((ep == null)) {
+      return;
+    }
+    classifiers.addAll(ep.getEClassifiers());
+  }
+  
+  public IScope scope_QueryElement_feature(final QueryElement context, final EReference ref) {
+    final HashSet<EClassifier> classifiers = new HashSet<EClassifier>();
+    final QueryNamespace qns = context.getQuerynamespace();
+    if ((qns == null)) {
+      final QueryElement prev = context.getPrev();
+      if ((prev != null)) {
+        classifiers.add(prev.getEType());
+      } else {
+        final EObject container = context.eContainer();
+        if ((container instanceof PathExpression)) {
+          final PathExpression pe = ((PathExpression) container);
+          boolean _isIsRelative = pe.isIsRelative();
+          if (_isIsRelative) {
+            this.addAllClassifiers(this.getDefaultNS(context), classifiers);
+          } else {
+          }
+        }
+      }
+    } else {
+      this.addAllClassifiers(qns, classifiers);
+    }
+    return this.scopeForFeature(classifiers);
+  }
+  
+  public Qualifier getQualifier(final Predicate context) {
+    final EObject parent = context.eContainer();
+    if ((!(parent instanceof Qualifier))) {
+      return null;
+    }
+    return ((Qualifier) parent);
+  }
+  
+  public IScope scope_ClassifierPredicate_classifier(final ClassifierPredicate context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      final Qualifier q = this.getQualifier(context);
+      if ((q == null)) {
+        return IScope.NULLSCOPE;
+      }
+      final EObject gp = q.eContainer();
+      IScope _switchResult = null;
+      boolean _matched = false;
+      if (gp instanceof QueryElement) {
+        _matched=true;
+        _switchResult = this.scopeForEClassifier(((QueryElement)gp).getFeature());
+      }
+      if (!_matched) {
+        if (gp instanceof ReferencePredicate) {
+          _matched=true;
+          _switchResult = this.scopeForEClassifier(((ReferencePredicate)gp).getReference().getEReferenceType());
+        }
+      }
+      if (!_matched) {
+        _switchResult = IScope.NULLSCOPE;
+      }
+      _xblockexpression = _switchResult;
+    }
+    return _xblockexpression;
+  }
+  
+  public IScope scope_AttributePredicate_attribute(final AttributePredicate context, final EReference ref) {
+    final Qualifier q = this.getQualifier(context);
+    if ((q == null)) {
+      return IScope.NULLSCOPE;
+    }
+    return this.scopeForEAttribute(q);
+  }
+  
+  public IScope scope_ReferencePredicate_reference(final ReferencePredicate context, final EReference ref) {
+    final Qualifier q = this.getQualifier(context);
+    if ((q == null)) {
+      return IScope.NULLSCOPE;
+    }
+    return this.scopeForEReference(q);
+  }
 }

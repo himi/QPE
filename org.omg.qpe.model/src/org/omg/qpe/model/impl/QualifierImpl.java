@@ -2,6 +2,7 @@
  */
 package org.omg.qpe.model.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -10,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -17,7 +19,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.omg.qpe.model.ClassifierPredicate;
 import org.omg.qpe.model.ModelPackage;
 import org.omg.qpe.model.Predicate;
 import org.omg.qpe.model.Qualifier;
@@ -119,6 +121,36 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.QUALIFIER__INDEX, oldIndex, index));
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EClassifier getEType() {
+		EClassifier c = null;
+		for (Predicate p : getPredicate()) {
+			if (p instanceof ClassifierPredicate) {
+				ClassifierPredicate cp = (ClassifierPredicate) p;
+				EClassifier ec = cp.getClassifier();
+				if (c == null) {
+					c = ec;
+				} else {
+					Class<?> jc = c.getInstanceClass();
+					Class<?> jec = c.getInstanceClass();
+					if (jc.isAssignableFrom(jec)) {
+						c = ec;
+					} else if (jec.isAssignableFrom(jc)) {
+						// do nothing
+					} else {
+						throw new IllegalArgumentException("ClassifierPredicate:" + cp + " is incompatible.");
+					}
+				}
+			}
+		}
+		return c;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,6 +233,20 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 				return index != INDEX_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.QUALIFIER___GET_ETYPE:
+				return getEType();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
