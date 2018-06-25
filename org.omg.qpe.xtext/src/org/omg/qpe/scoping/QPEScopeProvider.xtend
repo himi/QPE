@@ -14,13 +14,12 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.EcorePackage
 import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.omg.qpe.model.AttributePredicate
 import org.omg.qpe.model.ClassifierPredicate
+import org.omg.qpe.model.ModelPackage
 import org.omg.qpe.model.PathExpression
 import org.omg.qpe.model.Predicate
 import org.omg.qpe.model.QPE
@@ -28,7 +27,6 @@ import org.omg.qpe.model.Qualifier
 import org.omg.qpe.model.QueryElement
 import org.omg.qpe.model.QueryNamespace
 import org.omg.qpe.model.ReferencePredicate
-import org.omg.qpe.model.ModelPackage
 
 /**
  * This class contains custom scoping description.
@@ -53,6 +51,21 @@ class QPEScopeProvider extends AbstractQPEScopeProvider
 			}
 		]
 		return Scopes.scopeFor(features);		
+	}
+	
+	def IScope scopeForAllEClassifiers(ClassifierPredicate context) {
+    	val candidates = new HashSet<EClass>;
+        val rd = getIResourceDescription(context);
+		val v = rd.getExportedObjects();
+				
+		v.forEach[
+			val ec = it.getEObjectOrProxy();
+			switch (ec) {
+				EClass : candidates.add(ec)
+			}
+		]
+				
+		return Scopes.scopeFor(candidates);
 	}
 	
 	def IScope scopeForEClassifier(ClassifierPredicate context, EClassifier classifier) {
@@ -223,7 +236,7 @@ class QPEScopeProvider extends AbstractQPEScopeProvider
 		switch (gp) {
 			QueryElement: scopeForEClassifier(context, gp.feature)
 			ReferencePredicate: scopeForEClassifier(context, gp.reference.EReferenceType)
-            PathExpression: scopeForEClassifier(context, null)
+            PathExpression: scopeForAllEClassifiers(context)
 			default: IScope.NULLSCOPE
 		}
 		

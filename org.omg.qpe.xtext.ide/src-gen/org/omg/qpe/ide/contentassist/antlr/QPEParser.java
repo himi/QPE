@@ -33,6 +33,7 @@ public class QPEParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getQualifierAccess().getAlternatives_1(), "rule__Qualifier__Alternatives_1");
 					put(grammarAccess.getPredicateAccess().getAlternatives(), "rule__Predicate__Alternatives");
+					put(grammarAccess.getVALUEAccess().getAlternatives(), "rule__VALUE__Alternatives");
 					put(grammarAccess.getQPEAccess().getGroup(), "rule__QPE__Group__0");
 					put(grammarAccess.getQueryNamespaceAccess().getGroup(), "rule__QueryNamespace__Group__0");
 					put(grammarAccess.getQueryNamespaceAccess().getGroup_2(), "rule__QueryNamespace__Group_2__0");

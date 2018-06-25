@@ -60,6 +60,22 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
     return Scopes.scopeFor(features);
   }
   
+  public IScope scopeForAllEClassifiers(final ClassifierPredicate context) {
+    final HashSet<EClass> candidates = new HashSet<EClass>();
+    final IResourceDescription rd = this.getIResourceDescription(context);
+    final Iterable<IEObjectDescription> v = rd.getExportedObjects();
+    final Consumer<IEObjectDescription> _function = (IEObjectDescription it) -> {
+      final EObject ec = it.getEObjectOrProxy();
+      boolean _matched = false;
+      if (ec instanceof EClass) {
+        _matched=true;
+        candidates.add(((EClass)ec));
+      }
+    };
+    v.forEach(_function);
+    return Scopes.scopeFor(candidates);
+  }
+  
   public IScope scopeForEClassifier(final ClassifierPredicate context, final EClassifier classifier) {
     boolean _matched = false;
     if (classifier instanceof EClass) {
@@ -280,8 +296,37 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
   }
   
   public IScope scopeForClassifierPredicateClassifier(final ClassifierPredicate context) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nAmbiguous feature call.\nThe methods\n\tscopeForEClassifier(ClassifierPredicate, EClassifier) in QPEScopeProvider and\n\tscopeForEClassifier(ClassifierPredicate, EStructuralFeature) in QPEScopeProvider\nboth match.");
+    IScope _xblockexpression = null;
+    {
+      final Qualifier q = this.getQualifier(context);
+      if ((q == null)) {
+        return IScope.NULLSCOPE;
+      }
+      final EObject gp = q.eContainer();
+      IScope _switchResult = null;
+      boolean _matched = false;
+      if (gp instanceof QueryElement) {
+        _matched=true;
+        _switchResult = this.scopeForEClassifier(context, ((QueryElement)gp).getFeature());
+      }
+      if (!_matched) {
+        if (gp instanceof ReferencePredicate) {
+          _matched=true;
+          _switchResult = this.scopeForEClassifier(context, ((ReferencePredicate)gp).getReference().getEReferenceType());
+        }
+      }
+      if (!_matched) {
+        if (gp instanceof PathExpression) {
+          _matched=true;
+          _switchResult = this.scopeForAllEClassifiers(context);
+        }
+      }
+      if (!_matched) {
+        _switchResult = IScope.NULLSCOPE;
+      }
+      _xblockexpression = _switchResult;
+    }
+    return _xblockexpression;
   }
   
   @Override

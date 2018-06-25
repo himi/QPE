@@ -630,19 +630,20 @@ ruleAttributePredicate returns [EObject current=null]
 		}
 		(
 			(
-				lv_value_4_0=RULE_VALUE
 				{
-					newLeafNode(lv_value_4_0, grammarAccess.getAttributePredicateAccess().getValueVALUETerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAttributePredicateAccess().getValueVALUEParserRuleCall_3_0());
 				}
+				lv_value_4_0=ruleVALUE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAttributePredicateRule());
+						$current = createModelElementForParent(grammarAccess.getAttributePredicateRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"value",
 						lv_value_4_0,
 						"org.omg.qpe.QPE.VALUE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -719,13 +720,69 @@ ruleReferencePredicate returns [EObject current=null]
 	)
 ;
 
-RULE_VALUE : (RULE_STRING|RULE_INT|RULE_LONG|RULE_DOUBLE|RULE_BOOLEAN);
+// Entry rule entryRuleVALUE
+entryRuleVALUE returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getVALUERule()); }
+	iv_ruleVALUE=ruleVALUE
+	{ $current=$iv_ruleVALUE.current.getText(); }
+	EOF;
 
-fragment RULE_LONG : RULE_INT ('L'|'l');
+// Rule VALUE
+ruleVALUE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_STRING_0=RULE_STRING
+		{
+			$current.merge(this_STRING_0);
+		}
+		{
+			newLeafNode(this_STRING_0, grammarAccess.getVALUEAccess().getSTRINGTerminalRuleCall_0());
+		}
+		    |
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getVALUEAccess().getINTTerminalRuleCall_1());
+		}
+		    |
+		this_LONG_2=RULE_LONG
+		{
+			$current.merge(this_LONG_2);
+		}
+		{
+			newLeafNode(this_LONG_2, grammarAccess.getVALUEAccess().getLONGTerminalRuleCall_2());
+		}
+		    |
+		this_DOUBLE_3=RULE_DOUBLE
+		{
+			$current.merge(this_DOUBLE_3);
+		}
+		{
+			newLeafNode(this_DOUBLE_3, grammarAccess.getVALUEAccess().getDOUBLETerminalRuleCall_3());
+		}
+		    |
+		this_BOOLEAN_4=RULE_BOOLEAN
+		{
+			$current.merge(this_BOOLEAN_4);
+		}
+		{
+			newLeafNode(this_BOOLEAN_4, grammarAccess.getVALUEAccess().getBOOLEANTerminalRuleCall_4());
+		}
+	)
+;
 
-fragment RULE_DOUBLE : RULE_INT '.' RULE_INT;
+RULE_LONG : RULE_INT ('L'|'l');
 
-fragment RULE_BOOLEAN : ('true'|'false');
+RULE_DOUBLE : RULE_INT '.' RULE_INT;
+
+RULE_BOOLEAN : ('true'|'false');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

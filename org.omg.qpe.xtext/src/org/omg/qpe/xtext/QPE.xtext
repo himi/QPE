@@ -45,9 +45,7 @@ ReferencePredicate:
 	( queryNamespace=[QueryNamespace] /*DefaultScope*/ '::' )? reference=[ecore::EReference] /*CustomScope*/ qualifier=Qualifier
 ;
 
-
-terminal VALUE returns ecore::EJavaObject: STRING | INT | LONG | DOUBLE | BOOLEAN;
-// terminal VALUE returns ecore::EJavaObject: STRING;
+/* terminal */ VALUE /* returns ecore::EJavaObject */: STRING | INT | LONG | DOUBLE | BOOLEAN;
 
 terminal LONG returns ecore::ELong: INT ("L"|"l");
 terminal DOUBLE returns ecore::EDouble: INT'.'INT;

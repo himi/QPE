@@ -362,7 +362,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributeEAttributeIDTerminalRuleCall_1_0_1 = (RuleCall)cAttributeEAttributeCrossReference_1_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueVALUETerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final RuleCall cValueVALUEParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//AttributePredicate:
 		//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] '=' /*CustomScope*/
@@ -403,7 +403,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
 		
 		//VALUE
-		public RuleCall getValueVALUETerminalRuleCall_3_0() { return cValueVALUETerminalRuleCall_3_0; }
+		public RuleCall getValueVALUEParserRuleCall_3_0() { return cValueVALUEParserRuleCall_3_0; }
 	}
 	public class ReferencePredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.ReferencePredicate");
@@ -456,6 +456,37 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		//Qualifier
 		public RuleCall getQualifierQualifierParserRuleCall_2_0() { return cQualifierQualifierParserRuleCall_2_0; }
 	}
+	public class VALUEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.VALUE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLONGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDOUBLETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cBOOLEANTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		
+		///* terminal */ VALUE /* returns ecore::EJavaObject */:
+		//	STRING | INT | LONG | DOUBLE | BOOLEAN;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING | INT | LONG | DOUBLE | BOOLEAN
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+		
+		//LONG
+		public RuleCall getLONGTerminalRuleCall_2() { return cLONGTerminalRuleCall_2; }
+		
+		//DOUBLE
+		public RuleCall getDOUBLETerminalRuleCall_3() { return cDOUBLETerminalRuleCall_3; }
+		
+		//BOOLEAN
+		public RuleCall getBOOLEANTerminalRuleCall_4() { return cBOOLEANTerminalRuleCall_4; }
+	}
 	
 	
 	private final QPEElements pQPE;
@@ -467,7 +498,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	private final ClassifierPredicateElements pClassifierPredicate;
 	private final AttributePredicateElements pAttributePredicate;
 	private final ReferencePredicateElements pReferencePredicate;
-	private final TerminalRule tVALUE;
+	private final VALUEElements pVALUE;
 	private final TerminalRule tLONG;
 	private final TerminalRule tDOUBLE;
 	private final TerminalRule tBOOLEAN;
@@ -490,7 +521,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		this.pClassifierPredicate = new ClassifierPredicateElements();
 		this.pAttributePredicate = new AttributePredicateElements();
 		this.pReferencePredicate = new ReferencePredicateElements();
-		this.tVALUE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.VALUE");
+		this.pVALUE = new VALUEElements();
 		this.tLONG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.LONG");
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.DOUBLE");
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.BOOLEAN");
@@ -617,10 +648,14 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		return getReferencePredicateAccess().getRule();
 	}
 	
-	//terminal VALUE returns ecore::EJavaObject:
+	///* terminal */ VALUE /* returns ecore::EJavaObject */:
 	//	STRING | INT | LONG | DOUBLE | BOOLEAN;
-	public TerminalRule getVALUERule() {
-		return tVALUE;
+	public VALUEElements getVALUEAccess() {
+		return pVALUE;
+	}
+	
+	public ParserRule getVALUERule() {
+		return getVALUEAccess().getRule();
 	}
 	
 	//terminal LONG returns ecore::ELong:
