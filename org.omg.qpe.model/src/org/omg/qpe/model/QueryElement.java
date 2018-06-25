@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.QueryElement#getQuerynamespace <em>Querynamespace</em>}</li>
+ *   <li>{@link org.omg.qpe.model.QueryElement#getQueryNamespace <em>Query Namespace</em>}</li>
  *   <li>{@link org.omg.qpe.model.QueryElement#getNext <em>Next</em>}</li>
  *   <li>{@link org.omg.qpe.model.QueryElement#getPrev <em>Prev</em>}</li>
  *   <li>{@link org.omg.qpe.model.QueryElement#getQualifier <em>Qualifier</em>}</li>
@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  */
 public interface QueryElement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Querynamespace</b></em>' reference.
+	 * Returns the value of the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Querynamespace</em>' reference isn't clear,
+	 * If the meaning of the '<em>Query Namespace</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Querynamespace</em>' reference.
-	 * @see #setQuerynamespace(QueryNamespace)
-	 * @see org.omg.qpe.model.ModelPackage#getQueryElement_Querynamespace()
+	 * @return the value of the '<em>Query Namespace</em>' reference.
+	 * @see #setQueryNamespace(QueryNamespace)
+	 * @see org.omg.qpe.model.ModelPackage#getQueryElement_QueryNamespace()
 	 * @model
 	 * @generated
 	 */
-	QueryNamespace getQuerynamespace();
+	QueryNamespace getQueryNamespace();
 
 	/**
-	 * Sets the value of the '{@link org.omg.qpe.model.QueryElement#getQuerynamespace <em>Querynamespace</em>}' reference.
+	 * Sets the value of the '{@link org.omg.qpe.model.QueryElement#getQueryNamespace <em>Query Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Querynamespace</em>' reference.
-	 * @see #getQuerynamespace()
+	 * @param value the new value of the '<em>Query Namespace</em>' reference.
+	 * @see #getQueryNamespace()
 	 * @generated
 	 */
-	void setQuerynamespace(QueryNamespace value);
+	void setQueryNamespace(QueryNamespace value);
 
 	/**
 	 * Returns the value of the '<em><b>Next</b></em>' containment reference.

@@ -10,19 +10,22 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.IEObjectDescription;
-import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.SimpleScope;
 import org.omg.qpe.model.AttributePredicate;
 import org.omg.qpe.model.ClassifierPredicate;
+import org.omg.qpe.model.ModelPackage;
 import org.omg.qpe.model.PathExpression;
 import org.omg.qpe.model.Predicate;
 import org.omg.qpe.model.QPE;
@@ -41,7 +44,7 @@ import org.omg.qpe.scoping.AbstractQPEScopeProvider;
 @SuppressWarnings("all")
 public class QPEScopeProvider extends AbstractQPEScopeProvider {
   @Inject
-  private IResourceDescriptions resDescriptions;
+  private IResourceDescription.Manager rdMgr;
   
   public IScope scopeForFeature(final Set<EClassifier> classifiers) {
     final HashSet<EStructuralFeature> features = new HashSet<EStructuralFeature>();
@@ -57,22 +60,33 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
     return Scopes.scopeFor(features);
   }
   
-  public IScope scopeForEClassifier(final EClassifier classifier) {
-    IScope _switchResult = null;
+  public IScope scopeForEClassifier(final ClassifierPredicate context, final EClassifier classifier) {
     boolean _matched = false;
     if (classifier instanceof EClass) {
       _matched=true;
-      Iterable<IEObjectDescription> _exportedObjectsByType = this.resDescriptions.getExportedObjectsByType(((EClass)classifier));
-      _switchResult = new SimpleScope(_exportedObjectsByType);
+      final HashSet<EClass> candidates = new HashSet<EClass>();
+      candidates.add(((EClass)classifier));
+      final IResourceDescription rd = this.getIResourceDescription(context);
+      final Iterable<IEObjectDescription> v = rd.getExportedObjects();
+      final Consumer<IEObjectDescription> _function = (IEObjectDescription it) -> {
+        final EObject ec = it.getEObjectOrProxy();
+        boolean _matched_1 = false;
+        if (ec instanceof EClass) {
+          boolean _isSuperTypeOf = ((EClass)classifier).isSuperTypeOf(((EClass)ec));
+          if (_isSuperTypeOf) {
+            _matched_1=true;
+            candidates.add(((EClass)ec));
+          }
+        }
+      };
+      v.forEach(_function);
+      return Scopes.scopeFor(candidates);
     }
-    if (!_matched) {
-      _switchResult = IScope.NULLSCOPE;
-    }
-    return _switchResult;
+    return IScope.NULLSCOPE;
   }
   
-  public IScope scopeForEClassifier(final EStructuralFeature feature) {
-    return this.scopeForEClassifier(feature.getEType());
+  public IScope scopeForEClassifier(final ClassifierPredicate context, final EStructuralFeature feature) {
+    return this.scopeForEClassifier(context, feature.getEType());
   }
   
   public IScope scopeForEAttribute(final EClassifier ec) {
@@ -155,8 +169,21 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
   
   public QPE getQPE(final EObject eo) {
     for (EObject e = eo; (eo != null); e = e.eContainer()) {
-      if ((eo instanceof QPE)) {
-        return ((QPE) eo);
+      if ((e instanceof QPE)) {
+        return ((QPE) e);
+      }
+    }
+    return null;
+  }
+  
+  public QueryNamespace getDefaultNS(final QPE qpe) {
+    EList<QueryNamespace> _queryNamespaces = qpe.getQueryNamespaces();
+    for (final QueryNamespace qns : _queryNamespaces) {
+      {
+        final String prefix = qns.getPrefix();
+        if (((prefix == null) || (prefix.length() == 0))) {
+          return qns;
+        }
       }
     }
     return null;
@@ -167,15 +194,23 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
     if ((qpe == null)) {
       return null;
     }
-    EList<QueryNamespace> _querynamespaces = qpe.getQuerynamespaces();
-    for (final QueryNamespace qns : _querynamespaces) {
-      String _prefix = qns.getPrefix();
-      boolean _tripleEquals = (_prefix == null);
-      if (_tripleEquals) {
-        return qns;
-      }
+    return this.getDefaultNS(qpe);
+  }
+  
+  public IResourceDescription getIResourceDescription(final Predicate p) {
+    final QueryNamespace qns = p.getQueryNamespace();
+    if ((qns == null)) {
+      return this.getIResourceDescription(this.getDefaultNS(p));
+    } else {
+      return this.getIResourceDescription(qns);
     }
-    return null;
+  }
+  
+  public IResourceDescription getIResourceDescription(final QueryNamespace ns) {
+    final URI u = URI.createURI(ns.getIRI());
+    final Resource resource = ns.eResource();
+    final Resource r = resource.getResourceSet().getResource(u, true);
+    return this.rdMgr.getResourceDescription(r);
   }
   
   private final String INVALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5.0";
@@ -211,9 +246,17 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
     classifiers.addAll(ep.getEClassifiers());
   }
   
-  public IScope scope_QueryElement_feature(final QueryElement context, final EReference ref) {
+  public Qualifier getQualifier(final Predicate context) {
+    final EObject parent = context.eContainer();
+    if ((!(parent instanceof Qualifier))) {
+      return null;
+    }
+    return ((Qualifier) parent);
+  }
+  
+  public IScope scopeForQueryElementFeature(final QueryElement context) {
     final HashSet<EClassifier> classifiers = new HashSet<EClassifier>();
-    final QueryNamespace qns = context.getQuerynamespace();
+    final QueryNamespace qns = context.getQueryNamespace();
     if ((qns == null)) {
       final QueryElement prev = context.getPrev();
       if ((prev != null)) {
@@ -226,6 +269,7 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
           if (_isIsRelative) {
             this.addAllClassifiers(this.getDefaultNS(context), classifiers);
           } else {
+            this.addAllClassifiers(this.getDefaultNS(context), classifiers);
           }
         }
       }
@@ -235,55 +279,72 @@ public class QPEScopeProvider extends AbstractQPEScopeProvider {
     return this.scopeForFeature(classifiers);
   }
   
-  public Qualifier getQualifier(final Predicate context) {
-    final EObject parent = context.eContainer();
-    if ((!(parent instanceof Qualifier))) {
-      return null;
-    }
-    return ((Qualifier) parent);
+  public IScope scopeForClassifierPredicateClassifier(final ClassifierPredicate context) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAmbiguous feature call.\nThe methods\n\tscopeForEClassifier(ClassifierPredicate, EClassifier) in QPEScopeProvider and\n\tscopeForEClassifier(ClassifierPredicate, EStructuralFeature) in QPEScopeProvider\nboth match.");
   }
   
-  public IScope scope_ClassifierPredicate_classifier(final ClassifierPredicate context, final EReference ref) {
-    IScope _xblockexpression = null;
-    {
-      final Qualifier q = this.getQualifier(context);
-      if ((q == null)) {
-        return IScope.NULLSCOPE;
-      }
-      final EObject gp = q.eContainer();
-      IScope _switchResult = null;
-      boolean _matched = false;
-      if (gp instanceof QueryElement) {
+  @Override
+  public IScope getScope(final EObject context, final EReference ref) {
+    IScope _switchResult = null;
+    boolean _matched = false;
+    if (context instanceof QueryElement) {
+      EReference _queryElement_Feature = ModelPackage.eINSTANCE.getQueryElement_Feature();
+      boolean _equals = Objects.equal(ref, _queryElement_Feature);
+      if (_equals) {
         _matched=true;
-        _switchResult = this.scopeForEClassifier(((QueryElement)gp).getFeature());
+        _switchResult = this.scopeForQueryElementFeature(((QueryElement)context));
       }
-      if (!_matched) {
-        if (gp instanceof ReferencePredicate) {
+    }
+    if (!_matched) {
+      if (context instanceof ClassifierPredicate) {
+        EReference _classifierPredicate_Classifier = ModelPackage.eINSTANCE.getClassifierPredicate_Classifier();
+        boolean _equals = Objects.equal(ref, _classifierPredicate_Classifier);
+        if (_equals) {
           _matched=true;
-          _switchResult = this.scopeForEClassifier(((ReferencePredicate)gp).getReference().getEReferenceType());
+          _switchResult = this.scopeForClassifierPredicateClassifier(((ClassifierPredicate)context));
         }
       }
-      if (!_matched) {
-        _switchResult = IScope.NULLSCOPE;
+    }
+    if (!_matched) {
+      if (context instanceof AttributePredicate) {
+        _matched=true;
+        final Qualifier q = this.getQualifier(((Predicate)context));
+        if ((q == null)) {
+          return IScope.NULLSCOPE;
+        }
+        boolean _matched_1 = false;
+        EReference _attributePredicate_Attribute = ModelPackage.eINSTANCE.getAttributePredicate_Attribute();
+        if (Objects.equal(ref, _attributePredicate_Attribute)) {
+          _matched_1=true;
+          return this.scopeForEAttribute(q);
+        }
+        if (!_matched_1) {
+          EAttribute _attributePredicate_Value = ModelPackage.eINSTANCE.getAttributePredicate_Value();
+          if (Objects.equal(ref, _attributePredicate_Value)) {
+            _matched_1=true;
+            return IScope.NULLSCOPE;
+          }
+        }
       }
-      _xblockexpression = _switchResult;
     }
-    return _xblockexpression;
-  }
-  
-  public IScope scope_AttributePredicate_attribute(final AttributePredicate context, final EReference ref) {
-    final Qualifier q = this.getQualifier(context);
-    if ((q == null)) {
-      return IScope.NULLSCOPE;
+    if (!_matched) {
+      if (context instanceof ReferencePredicate) {
+        EReference _referencePredicate_Reference = ModelPackage.eINSTANCE.getReferencePredicate_Reference();
+        boolean _equals = Objects.equal(ref, _referencePredicate_Reference);
+        if (_equals) {
+          _matched=true;
+          final Qualifier q = this.getQualifier(((Predicate)context));
+          if ((q == null)) {
+            return IScope.NULLSCOPE;
+          }
+          return this.scopeForEReference(q);
+        }
+      }
     }
-    return this.scopeForEAttribute(q);
-  }
-  
-  public IScope scope_ReferencePredicate_reference(final ReferencePredicate context, final EReference ref) {
-    final Qualifier q = this.getQualifier(context);
-    if ((q == null)) {
-      return IScope.NULLSCOPE;
+    if (!_matched) {
+      return super.getScope(context, ref);
     }
-    return this.scopeForEReference(q);
+    return _switchResult;
   }
 }

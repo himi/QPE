@@ -29,32 +29,32 @@ import org.omg.qpe.model.QueryNamespace;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.impl.QPEImpl#getPathexpressions <em>Pathexpressions</em>}</li>
- *   <li>{@link org.omg.qpe.model.impl.QPEImpl#getQuerynamespaces <em>Querynamespaces</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.QPEImpl#getPathExpressions <em>Path Expressions</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.QPEImpl#getQueryNamespaces <em>Query Namespaces</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class QPEImpl extends EObjectImpl implements QPE {
 	/**
-	 * The cached value of the '{@link #getPathexpressions() <em>Pathexpressions</em>}' containment reference list.
+	 * The cached value of the '{@link #getPathExpressions() <em>Path Expressions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPathexpressions()
+	 * @see #getPathExpressions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PathExpression> pathexpressions;
+	protected EList<PathExpression> pathExpressions;
 
 	/**
-	 * The cached value of the '{@link #getQuerynamespaces() <em>Querynamespaces</em>}' containment reference list.
+	 * The cached value of the '{@link #getQueryNamespaces() <em>Query Namespaces</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuerynamespaces()
+	 * @see #getQueryNamespaces()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QueryNamespace> querynamespaces;
+	protected EList<QueryNamespace> queryNamespaces;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,11 +80,11 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PathExpression> getPathexpressions() {
-		if (pathexpressions == null) {
-			pathexpressions = new EObjectContainmentEList<PathExpression>(PathExpression.class, this, ModelPackage.QPE__PATHEXPRESSIONS);
+	public EList<PathExpression> getPathExpressions() {
+		if (pathExpressions == null) {
+			pathExpressions = new EObjectContainmentEList<PathExpression>(PathExpression.class, this, ModelPackage.QPE__PATH_EXPRESSIONS);
 		}
-		return pathexpressions;
+		return pathExpressions;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<QueryNamespace> getQuerynamespaces() {
-		if (querynamespaces == null) {
-			querynamespaces = new EObjectContainmentEList<QueryNamespace>(QueryNamespace.class, this, ModelPackage.QPE__QUERYNAMESPACES);
+	public EList<QueryNamespace> getQueryNamespaces() {
+		if (queryNamespaces == null) {
+			queryNamespaces = new EObjectContainmentEList<QueryNamespace>(QueryNamespace.class, this, ModelPackage.QPE__QUERY_NAMESPACES);
 		}
-		return querynamespaces;
+		return queryNamespaces;
 	}
 
 	/**
@@ -107,10 +107,10 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-				return ((InternalEList<?>)getPathexpressions()).basicRemove(otherEnd, msgs);
-			case ModelPackage.QPE__QUERYNAMESPACES:
-				return ((InternalEList<?>)getQuerynamespaces()).basicRemove(otherEnd, msgs);
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+				return ((InternalEList<?>)getPathExpressions()).basicRemove(otherEnd, msgs);
+			case ModelPackage.QPE__QUERY_NAMESPACES:
+				return ((InternalEList<?>)getQueryNamespaces()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,10 +123,10 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-				return getPathexpressions();
-			case ModelPackage.QPE__QUERYNAMESPACES:
-				return getQuerynamespaces();
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+				return getPathExpressions();
+			case ModelPackage.QPE__QUERY_NAMESPACES:
+				return getQueryNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,13 +140,13 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-				getPathexpressions().clear();
-				getPathexpressions().addAll((Collection<? extends PathExpression>)newValue);
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+				getPathExpressions().clear();
+				getPathExpressions().addAll((Collection<? extends PathExpression>)newValue);
 				return;
-			case ModelPackage.QPE__QUERYNAMESPACES:
-				getQuerynamespaces().clear();
-				getQuerynamespaces().addAll((Collection<? extends QueryNamespace>)newValue);
+			case ModelPackage.QPE__QUERY_NAMESPACES:
+				getQueryNamespaces().clear();
+				getQueryNamespaces().addAll((Collection<? extends QueryNamespace>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +160,11 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-				getPathexpressions().clear();
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+				getPathExpressions().clear();
 				return;
-			case ModelPackage.QPE__QUERYNAMESPACES:
-				getQuerynamespaces().clear();
+			case ModelPackage.QPE__QUERY_NAMESPACES:
+				getQueryNamespaces().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,10 +178,10 @@ public class QPEImpl extends EObjectImpl implements QPE {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-				return pathexpressions != null && !pathexpressions.isEmpty();
-			case ModelPackage.QPE__QUERYNAMESPACES:
-				return querynamespaces != null && !querynamespaces.isEmpty();
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+				return pathExpressions != null && !pathExpressions.isEmpty();
+			case ModelPackage.QPE__QUERY_NAMESPACES:
+				return queryNamespaces != null && !queryNamespaces.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

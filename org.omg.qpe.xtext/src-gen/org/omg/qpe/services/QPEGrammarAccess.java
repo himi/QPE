@@ -6,6 +6,7 @@ package org.omg.qpe.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -26,30 +27,30 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	public class QPEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.QPE");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cQuerynamespacesAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cQuerynamespacesQueryNamespaceParserRuleCall_0_0 = (RuleCall)cQuerynamespacesAssignment_0.eContents().get(0);
-		private final Assignment cPathexpressionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathexpressionsPathExpressionParserRuleCall_1_0 = (RuleCall)cPathexpressionsAssignment_1.eContents().get(0);
+		private final Assignment cQueryNamespacesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cQueryNamespacesQueryNamespaceParserRuleCall_0_0 = (RuleCall)cQueryNamespacesAssignment_0.eContents().get(0);
+		private final Assignment cPathExpressionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPathExpressionsPathExpressionParserRuleCall_1_0 = (RuleCall)cPathExpressionsAssignment_1.eContents().get(0);
 		
 		//QPE:
-		//	querynamespaces+=QueryNamespace
-		//	pathexpressions+=PathExpression;
+		//	queryNamespaces+=QueryNamespace
+		//	pathExpressions+=PathExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//querynamespaces+=QueryNamespace pathexpressions+=PathExpression
+		//queryNamespaces+=QueryNamespace pathExpressions+=PathExpression
 		public Group getGroup() { return cGroup; }
 		
-		//querynamespaces+=QueryNamespace
-		public Assignment getQuerynamespacesAssignment_0() { return cQuerynamespacesAssignment_0; }
+		//queryNamespaces+=QueryNamespace
+		public Assignment getQueryNamespacesAssignment_0() { return cQueryNamespacesAssignment_0; }
 		
 		//QueryNamespace
-		public RuleCall getQuerynamespacesQueryNamespaceParserRuleCall_0_0() { return cQuerynamespacesQueryNamespaceParserRuleCall_0_0; }
+		public RuleCall getQueryNamespacesQueryNamespaceParserRuleCall_0_0() { return cQueryNamespacesQueryNamespaceParserRuleCall_0_0; }
 		
-		//pathexpressions+=PathExpression
-		public Assignment getPathexpressionsAssignment_1() { return cPathexpressionsAssignment_1; }
+		//pathExpressions+=PathExpression
+		public Assignment getPathExpressionsAssignment_1() { return cPathExpressionsAssignment_1; }
 		
 		//PathExpression
-		public RuleCall getPathexpressionsPathExpressionParserRuleCall_1_0() { return cPathexpressionsPathExpressionParserRuleCall_1_0; }
+		public RuleCall getPathExpressionsPathExpressionParserRuleCall_1_0() { return cPathExpressionsPathExpressionParserRuleCall_1_0; }
 	}
 	public class QueryNamespaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.QueryNamespace");
@@ -93,41 +94,53 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	public class PathExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.PathExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cIsRelativeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cIsRelativeFullStopKeyword_0_0 = (Keyword)cIsRelativeAssignment_0.eContents().get(0);
-		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cHeadAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cHeadQueryElementParserRuleCall_2_0 = (RuleCall)cHeadAssignment_2.eContents().get(0);
+		private final Action cPathExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cIsRelativeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cIsRelativeFullStopKeyword_1_0 = (Keyword)cIsRelativeAssignment_1.eContents().get(0);
+		private final Assignment cQualifierAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQualifierQualifierParserRuleCall_2_0 = (RuleCall)cQualifierAssignment_2.eContents().get(0);
+		private final Keyword cSolidusKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cHeadAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cHeadQueryElementParserRuleCall_4_0 = (RuleCall)cHeadAssignment_4.eContents().get(0);
 		
 		//PathExpression:
-		//	isRelative?='.' '/' head=QueryElement;
+		//	{PathExpression} isRelative?='.'? qualifier=Qualifier? '/' head=QueryElement?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//isRelative?='.' '/' head=QueryElement
+		//{PathExpression} isRelative?='.'? qualifier=Qualifier? '/' head=QueryElement?
 		public Group getGroup() { return cGroup; }
 		
-		//isRelative?='.'
-		public Assignment getIsRelativeAssignment_0() { return cIsRelativeAssignment_0; }
+		//{PathExpression}
+		public Action getPathExpressionAction_0() { return cPathExpressionAction_0; }
+		
+		//isRelative?='.'?
+		public Assignment getIsRelativeAssignment_1() { return cIsRelativeAssignment_1; }
 		
 		//'.'
-		public Keyword getIsRelativeFullStopKeyword_0_0() { return cIsRelativeFullStopKeyword_0_0; }
+		public Keyword getIsRelativeFullStopKeyword_1_0() { return cIsRelativeFullStopKeyword_1_0; }
+		
+		//qualifier=Qualifier?
+		public Assignment getQualifierAssignment_2() { return cQualifierAssignment_2; }
+		
+		//Qualifier
+		public RuleCall getQualifierQualifierParserRuleCall_2_0() { return cQualifierQualifierParserRuleCall_2_0; }
 		
 		//'/'
-		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
+		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
 		
-		//head=QueryElement
-		public Assignment getHeadAssignment_2() { return cHeadAssignment_2; }
+		//head=QueryElement?
+		public Assignment getHeadAssignment_4() { return cHeadAssignment_4; }
 		
 		//QueryElement
-		public RuleCall getHeadQueryElementParserRuleCall_2_0() { return cHeadQueryElementParserRuleCall_2_0; }
+		public RuleCall getHeadQueryElementParserRuleCall_4_0() { return cHeadQueryElementParserRuleCall_4_0; }
 	}
 	public class QueryElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.QueryElement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cQuerynamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final CrossReference cQuerynamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQuerynamespaceAssignment_0_0.eContents().get(0);
-		private final RuleCall cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQuerynamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
+		private final Assignment cQueryNamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cQueryNamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQueryNamespaceAssignment_0_0.eContents().get(0);
+		private final RuleCall cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQueryNamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
 		private final Keyword cColonColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cFeatureAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cFeatureEStructuralFeatureCrossReference_1_0 = (CrossReference)cFeatureAssignment_1.eContents().get(0);
@@ -140,25 +153,25 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNextQueryElementParserRuleCall_3_1_0 = (RuleCall)cNextAssignment_3_1.eContents().get(0);
 		
 		//QueryElement:
-		//	(querynamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
+		//	(queryNamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
 		//	next=QueryElement)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(querynamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
+		//(queryNamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
 		//next=QueryElement)?
 		public Group getGroup() { return cGroup; }
 		
-		//(querynamespace=[QueryNamespace] '::')?
+		//(queryNamespace=[QueryNamespace] '::')?
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//querynamespace=[QueryNamespace]
-		public Assignment getQuerynamespaceAssignment_0_0() { return cQuerynamespaceAssignment_0_0; }
+		//queryNamespace=[QueryNamespace]
+		public Assignment getQueryNamespaceAssignment_0_0() { return cQueryNamespaceAssignment_0_0; }
 		
 		//[QueryNamespace]
-		public CrossReference getQuerynamespaceQueryNamespaceCrossReference_0_0_0() { return cQuerynamespaceQueryNamespaceCrossReference_0_0_0; }
+		public CrossReference getQueryNamespaceQueryNamespaceCrossReference_0_0_0() { return cQueryNamespaceQueryNamespaceCrossReference_0_0_0; }
 		
 		//ID
-		public RuleCall getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
+		public RuleCall getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
 		
 		//'::'
 		public Keyword getColonColonKeyword_0_1() { return cColonColonKeyword_0_1; }
@@ -194,44 +207,81 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.Qualifier");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cPredicateAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPredicatePredicateParserRuleCall_1_0 = (RuleCall)cPredicateAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cPredicateAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cPredicatePredicateParserRuleCall_2_1_0 = (RuleCall)cPredicateAssignment_2_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cIndexAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cIndexINTTerminalRuleCall_1_0_0_0 = (RuleCall)cIndexAssignment_1_0_0.eContents().get(0);
+		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0_1_0 = (Keyword)cGroup_1_0_1.eContents().get(0);
+		private final Assignment cPredicatesAssignment_1_0_1_1 = (Assignment)cGroup_1_0_1.eContents().get(1);
+		private final RuleCall cPredicatesPredicateParserRuleCall_1_0_1_1_0 = (RuleCall)cPredicatesAssignment_1_0_1_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cPredicatesAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cPredicatesPredicateParserRuleCall_1_1_0_0 = (RuleCall)cPredicatesAssignment_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_1_0 = (Keyword)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cPredicatesAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cPredicatesPredicateParserRuleCall_1_1_1_1_0 = (RuleCall)cPredicatesAssignment_1_1_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Qualifier:
-		//	'[' predicate+=Predicate (',' predicate+=Predicate)* ']';
+		//	'[' (index=INT (',' predicates+=Predicate)* | predicates+=Predicate (',' predicates+=Predicate)*)
+		//	']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'[' predicate+=Predicate (',' predicate+=Predicate)* ']'
+		//'[' (index=INT (',' predicates+=Predicate)* | predicates+=Predicate (',' predicates+=Predicate)*) ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 		
-		//predicate+=Predicate
-		public Assignment getPredicateAssignment_1() { return cPredicateAssignment_1; }
+		//index=INT (',' predicates+=Predicate)* | predicates+=Predicate (',' predicates+=Predicate)*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//Predicate
-		public RuleCall getPredicatePredicateParserRuleCall_1_0() { return cPredicatePredicateParserRuleCall_1_0; }
+		//index=INT (',' predicates+=Predicate)*
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//(',' predicate+=Predicate)*
-		public Group getGroup_2() { return cGroup_2; }
+		//index=INT
+		public Assignment getIndexAssignment_1_0_0() { return cIndexAssignment_1_0_0; }
+		
+		//INT
+		public RuleCall getIndexINTTerminalRuleCall_1_0_0_0() { return cIndexINTTerminalRuleCall_1_0_0_0; }
+		
+		//(',' predicates+=Predicate)*
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
 		
 		//','
-		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+		public Keyword getCommaKeyword_1_0_1_0() { return cCommaKeyword_1_0_1_0; }
 		
-		//predicate+=Predicate
-		public Assignment getPredicateAssignment_2_1() { return cPredicateAssignment_2_1; }
+		//predicates+=Predicate
+		public Assignment getPredicatesAssignment_1_0_1_1() { return cPredicatesAssignment_1_0_1_1; }
 		
 		//Predicate
-		public RuleCall getPredicatePredicateParserRuleCall_2_1_0() { return cPredicatePredicateParserRuleCall_2_1_0; }
+		public RuleCall getPredicatesPredicateParserRuleCall_1_0_1_1_0() { return cPredicatesPredicateParserRuleCall_1_0_1_1_0; }
+		
+		//predicates+=Predicate (',' predicates+=Predicate)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//predicates+=Predicate
+		public Assignment getPredicatesAssignment_1_1_0() { return cPredicatesAssignment_1_1_0; }
+		
+		//Predicate
+		public RuleCall getPredicatesPredicateParserRuleCall_1_1_0_0() { return cPredicatesPredicateParserRuleCall_1_1_0_0; }
+		
+		//(',' predicates+=Predicate)*
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_1_0() { return cCommaKeyword_1_1_1_0; }
+		
+		//predicates+=Predicate
+		public Assignment getPredicatesAssignment_1_1_1_1() { return cPredicatesAssignment_1_1_1_1; }
+		
+		//Predicate
+		public RuleCall getPredicatesPredicateParserRuleCall_1_1_1_1_0() { return cPredicatesPredicateParserRuleCall_1_1_1_1_0; }
 		
 		//']'
-		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
 	}
 	public class PredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.Predicate");
@@ -260,32 +310,32 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.ClassifierPredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cQuerynamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final CrossReference cQuerynamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQuerynamespaceAssignment_0_0.eContents().get(0);
-		private final RuleCall cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQuerynamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
+		private final Assignment cQueryNamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cQueryNamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQueryNamespaceAssignment_0_0.eContents().get(0);
+		private final RuleCall cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQueryNamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
 		private final Keyword cColonColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cClassifierAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cClassifierEClassifierCrossReference_1_0 = (CrossReference)cClassifierAssignment_1.eContents().get(0);
 		private final RuleCall cClassifierEClassifierIDTerminalRuleCall_1_0_1 = (RuleCall)cClassifierEClassifierCrossReference_1_0.eContents().get(1);
 		
 		//ClassifierPredicate:
-		//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier];
+		//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier]
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier]
 		public Group getGroup() { return cGroup; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')?
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')?
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//querynamespace=[QueryNamespace]
-		public Assignment getQuerynamespaceAssignment_0_0() { return cQuerynamespaceAssignment_0_0; }
+		//queryNamespace=[QueryNamespace]
+		public Assignment getQueryNamespaceAssignment_0_0() { return cQueryNamespaceAssignment_0_0; }
 		
 		//[QueryNamespace]
-		public CrossReference getQuerynamespaceQueryNamespaceCrossReference_0_0_0() { return cQuerynamespaceQueryNamespaceCrossReference_0_0_0; }
+		public CrossReference getQueryNamespaceQueryNamespaceCrossReference_0_0_0() { return cQueryNamespaceQueryNamespaceCrossReference_0_0_0; }
 		
 		//ID
-		public RuleCall getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
+		public RuleCall getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
 		
 		///*DefaultScope*/ '::'
 		public Keyword getColonColonKeyword_0_1() { return cColonColonKeyword_0_1; }
@@ -303,36 +353,36 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.AttributePredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cQuerynamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final CrossReference cQuerynamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQuerynamespaceAssignment_0_0.eContents().get(0);
-		private final RuleCall cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQuerynamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
+		private final Assignment cQueryNamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cQueryNamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQueryNamespaceAssignment_0_0.eContents().get(0);
+		private final RuleCall cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQueryNamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
 		private final Keyword cColonColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cAttributeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cAttributeEAttributeCrossReference_1_0 = (CrossReference)cAttributeAssignment_1.eContents().get(0);
 		private final RuleCall cAttributeEAttributeIDTerminalRuleCall_1_0_1 = (RuleCall)cAttributeEAttributeCrossReference_1_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueVALUEParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final RuleCall cValueVALUETerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//AttributePredicate:
-		//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] /*CustomScope*/ '='
+		//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] '=' /*CustomScope*/
 		//	value=VALUE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] /*CustomScope*/ '=' value=VALUE
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] '=' /*CustomScope*/ value=VALUE
 		public Group getGroup() { return cGroup; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')?
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')?
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//querynamespace=[QueryNamespace]
-		public Assignment getQuerynamespaceAssignment_0_0() { return cQuerynamespaceAssignment_0_0; }
+		//queryNamespace=[QueryNamespace]
+		public Assignment getQueryNamespaceAssignment_0_0() { return cQueryNamespaceAssignment_0_0; }
 		
 		//[QueryNamespace]
-		public CrossReference getQuerynamespaceQueryNamespaceCrossReference_0_0_0() { return cQuerynamespaceQueryNamespaceCrossReference_0_0_0; }
+		public CrossReference getQueryNamespaceQueryNamespaceCrossReference_0_0_0() { return cQueryNamespaceQueryNamespaceCrossReference_0_0_0; }
 		
 		//ID
-		public RuleCall getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
+		public RuleCall getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
 		
 		///*DefaultScope*/ '::'
 		public Keyword getColonColonKeyword_0_1() { return cColonColonKeyword_0_1; }
@@ -346,22 +396,22 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getAttributeEAttributeIDTerminalRuleCall_1_0_1() { return cAttributeEAttributeIDTerminalRuleCall_1_0_1; }
 		
-		///*CustomScope*/ '='
+		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
-		//value=VALUE
+		///*CustomScope*/ value=VALUE
 		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
 		
 		//VALUE
-		public RuleCall getValueVALUEParserRuleCall_3_0() { return cValueVALUEParserRuleCall_3_0; }
+		public RuleCall getValueVALUETerminalRuleCall_3_0() { return cValueVALUETerminalRuleCall_3_0; }
 	}
 	public class ReferencePredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.ReferencePredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Assignment cQuerynamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final CrossReference cQuerynamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQuerynamespaceAssignment_0_0.eContents().get(0);
-		private final RuleCall cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQuerynamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
+		private final Assignment cQueryNamespaceAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final CrossReference cQueryNamespaceQueryNamespaceCrossReference_0_0_0 = (CrossReference)cQueryNamespaceAssignment_0_0.eContents().get(0);
+		private final RuleCall cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1 = (RuleCall)cQueryNamespaceQueryNamespaceCrossReference_0_0_0.eContents().get(1);
 		private final Keyword cColonColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cReferenceEReferenceCrossReference_1_0 = (CrossReference)cReferenceAssignment_1.eContents().get(0);
@@ -370,23 +420,23 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQualifierQualifierParserRuleCall_2_0 = (RuleCall)cQualifierAssignment_2.eContents().get(0);
 		
 		//ReferencePredicate:
-		//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier;
+		//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier
 		public Group getGroup() { return cGroup; }
 		
-		//(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')?
+		//(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')?
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//querynamespace=[QueryNamespace]
-		public Assignment getQuerynamespaceAssignment_0_0() { return cQuerynamespaceAssignment_0_0; }
+		//queryNamespace=[QueryNamespace]
+		public Assignment getQueryNamespaceAssignment_0_0() { return cQueryNamespaceAssignment_0_0; }
 		
 		//[QueryNamespace]
-		public CrossReference getQuerynamespaceQueryNamespaceCrossReference_0_0_0() { return cQuerynamespaceQueryNamespaceCrossReference_0_0_0; }
+		public CrossReference getQueryNamespaceQueryNamespaceCrossReference_0_0_0() { return cQueryNamespaceQueryNamespaceCrossReference_0_0_0; }
 		
 		//ID
-		public RuleCall getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
+		public RuleCall getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1() { return cQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1; }
 		
 		///*DefaultScope*/ '::'
 		public Keyword getColonColonKeyword_0_1() { return cColonColonKeyword_0_1; }
@@ -406,106 +456,6 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		//Qualifier
 		public RuleCall getQualifierQualifierParserRuleCall_2_0() { return cQualifierQualifierParserRuleCall_2_0; }
 	}
-	public class VALUEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.VALUE");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cLONGParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDOUBLEParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cBOOLEANParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		
-		//VALUE ecore::EJavaObject:
-		//	STRING | INT | LONG | DOUBLE | BOOLEAN;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//STRING | INT | LONG | DOUBLE | BOOLEAN
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
-		
-		//LONG
-		public RuleCall getLONGParserRuleCall_2() { return cLONGParserRuleCall_2; }
-		
-		//DOUBLE
-		public RuleCall getDOUBLEParserRuleCall_3() { return cDOUBLEParserRuleCall_3; }
-		
-		//BOOLEAN
-		public RuleCall getBOOLEANParserRuleCall_4() { return cBOOLEANParserRuleCall_4; }
-	}
-	public class LONGElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.LONG");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cLKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cLKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		
-		//LONG ecore::ELong:
-		//	INT ("L" | "l");
-		@Override public ParserRule getRule() { return rule; }
-		
-		//INT ("L" | "l")
-		public Group getGroup() { return cGroup; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//"L" | "l"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//"L"
-		public Keyword getLKeyword_1_0() { return cLKeyword_1_0; }
-		
-		//"l"
-		public Keyword getLKeyword_1_1() { return cLKeyword_1_1; }
-	}
-	public class DOUBLEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.DOUBLE");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		
-		//DOUBLE ecore::EDouble:
-		//	INT '.' INT;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//INT '.' INT
-		public Group getGroup() { return cGroup; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
-	}
-	public class BOOLEANElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.BOOLEAN");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//BOOLEAN ecore::EBoolean:
-		//	"true" | "false";
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"true" | "false"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//"true"
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
-		
-		//"false"
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
-	}
 	
 	
 	private final QPEElements pQPE;
@@ -517,10 +467,10 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	private final ClassifierPredicateElements pClassifierPredicate;
 	private final AttributePredicateElements pAttributePredicate;
 	private final ReferencePredicateElements pReferencePredicate;
-	private final VALUEElements pVALUE;
-	private final LONGElements pLONG;
-	private final DOUBLEElements pDOUBLE;
-	private final BOOLEANElements pBOOLEAN;
+	private final TerminalRule tVALUE;
+	private final TerminalRule tLONG;
+	private final TerminalRule tDOUBLE;
+	private final TerminalRule tBOOLEAN;
 	
 	private final Grammar grammar;
 	
@@ -540,10 +490,10 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		this.pClassifierPredicate = new ClassifierPredicateElements();
 		this.pAttributePredicate = new AttributePredicateElements();
 		this.pReferencePredicate = new ReferencePredicateElements();
-		this.pVALUE = new VALUEElements();
-		this.pLONG = new LONGElements();
-		this.pDOUBLE = new DOUBLEElements();
-		this.pBOOLEAN = new BOOLEANElements();
+		this.tVALUE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.VALUE");
+		this.tLONG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.LONG");
+		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.DOUBLE");
+		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.omg.qpe.QPE.BOOLEAN");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -574,8 +524,8 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//QPE:
-	//	querynamespaces+=QueryNamespace
-	//	pathexpressions+=PathExpression;
+	//	queryNamespaces+=QueryNamespace
+	//	pathExpressions+=PathExpression;
 	public QPEElements getQPEAccess() {
 		return pQPE;
 	}
@@ -595,7 +545,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PathExpression:
-	//	isRelative?='.' '/' head=QueryElement;
+	//	{PathExpression} isRelative?='.'? qualifier=Qualifier? '/' head=QueryElement?;
 	public PathExpressionElements getPathExpressionAccess() {
 		return pPathExpression;
 	}
@@ -605,7 +555,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QueryElement:
-	//	(querynamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
+	//	(queryNamespace=[QueryNamespace] '::')? feature=[ecore::EStructuralFeature] qualifier=Qualifier? ('/'
 	//	next=QueryElement)?;
 	public QueryElementElements getQueryElementAccess() {
 		return pQueryElement;
@@ -616,7 +566,8 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Qualifier:
-	//	'[' predicate+=Predicate (',' predicate+=Predicate)* ']';
+	//	'[' (index=INT (',' predicates+=Predicate)* | predicates+=Predicate (',' predicates+=Predicate)*)
+	//	']';
 	public QualifierElements getQualifierAccess() {
 		return pQualifier;
 	}
@@ -636,7 +587,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ClassifierPredicate:
-	//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier];
+	//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? classifier=[ecore::EClassifier];
 	public ClassifierPredicateElements getClassifierPredicateAccess() {
 		return pClassifierPredicate;
 	}
@@ -646,7 +597,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AttributePredicate:
-	//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] /*CustomScope*/ '='
+	//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? attribute=[ecore::EAttribute] '=' /*CustomScope*/
 	//	value=VALUE;
 	public AttributePredicateElements getAttributePredicateAccess() {
 		return pAttributePredicate;
@@ -657,7 +608,7 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ReferencePredicate:
-	//	(querynamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier;
+	//	(queryNamespace=[QueryNamespace] /*DefaultScope*/ '::')? reference=[ecore::EReference] qualifier=Qualifier;
 	public ReferencePredicateElements getReferencePredicateAccess() {
 		return pReferencePredicate;
 	}
@@ -666,44 +617,28 @@ public class QPEGrammarAccess extends AbstractGrammarElementFinder {
 		return getReferencePredicateAccess().getRule();
 	}
 	
-	//VALUE ecore::EJavaObject:
+	//terminal VALUE returns ecore::EJavaObject:
 	//	STRING | INT | LONG | DOUBLE | BOOLEAN;
-	public VALUEElements getVALUEAccess() {
-		return pVALUE;
+	public TerminalRule getVALUERule() {
+		return tVALUE;
 	}
 	
-	public ParserRule getVALUERule() {
-		return getVALUEAccess().getRule();
-	}
-	
-	//LONG ecore::ELong:
+	//terminal LONG returns ecore::ELong:
 	//	INT ("L" | "l");
-	public LONGElements getLONGAccess() {
-		return pLONG;
+	public TerminalRule getLONGRule() {
+		return tLONG;
 	}
 	
-	public ParserRule getLONGRule() {
-		return getLONGAccess().getRule();
-	}
-	
-	//DOUBLE ecore::EDouble:
+	//terminal DOUBLE returns ecore::EDouble:
 	//	INT '.' INT;
-	public DOUBLEElements getDOUBLEAccess() {
-		return pDOUBLE;
+	public TerminalRule getDOUBLERule() {
+		return tDOUBLE;
 	}
 	
-	public ParserRule getDOUBLERule() {
-		return getDOUBLEAccess().getRule();
-	}
-	
-	//BOOLEAN ecore::EBoolean:
+	//terminal BOOLEAN returns ecore::EBoolean:
 	//	"true" | "false";
-	public BOOLEANElements getBOOLEANAccess() {
-		return pBOOLEAN;
-	}
-	
-	public ParserRule getBOOLEANRule() {
-		return getBOOLEANAccess().getRule();
+	public TerminalRule getBOOLEANRule() {
+		return tBOOLEAN;
 	}
 	
 	//terminal ID:

@@ -22,27 +22,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalQPEParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'L'", "'l'", "'true'", "'false'", "'namespace'", "'as'", "'/'", "'::'", "'['", "']'", "','", "'='", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_VALUE", "RULE_LONG", "RULE_DOUBLE", "RULE_BOOLEAN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'namespace'", "'as'", "'/'", "'::'", "'['", "']'", "','", "'='", "'.'"
     };
+    public static final int RULE_BOOLEAN=10;
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_SL_COMMENT=12;
     public static final int T__19=19;
+    public static final int RULE_VALUE=7;
     public static final int T__15=15;
+    public static final int RULE_DOUBLE=9;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
-    public static final int T__11=11;
-    public static final int T__12=12;
-    public static final int T__13=13;
-    public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=6;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=5;
+    public static final int RULE_ID=5;
+    public static final int RULE_WS=13;
+    public static final int RULE_ANY_OTHER=14;
+    public static final int RULE_INT=6;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=11;
     public static final int T__23=23;
+    public static final int RULE_LONG=8;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -774,390 +774,22 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleReferencePredicate"
 
 
-    // $ANTLR start "entryRuleVALUE"
-    // InternalQPE.g:278:1: entryRuleVALUE : ruleVALUE EOF ;
-    public final void entryRuleVALUE() throws RecognitionException {
-        try {
-            // InternalQPE.g:279:1: ( ruleVALUE EOF )
-            // InternalQPE.g:280:1: ruleVALUE EOF
-            {
-             before(grammarAccess.getVALUERule()); 
-            pushFollow(FOLLOW_1);
-            ruleVALUE();
-
-            state._fsp--;
-
-             after(grammarAccess.getVALUERule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleVALUE"
-
-
-    // $ANTLR start "ruleVALUE"
-    // InternalQPE.g:287:1: ruleVALUE : ( ( rule__VALUE__Alternatives ) ) ;
-    public final void ruleVALUE() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__Alternatives_1"
+    // InternalQPE.g:277:1: rule__Qualifier__Alternatives_1 : ( ( ( rule__Qualifier__Group_1_0__0 ) ) | ( ( rule__Qualifier__Group_1_1__0 ) ) );
+    public final void rule__Qualifier__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:291:2: ( ( ( rule__VALUE__Alternatives ) ) )
-            // InternalQPE.g:292:2: ( ( rule__VALUE__Alternatives ) )
-            {
-            // InternalQPE.g:292:2: ( ( rule__VALUE__Alternatives ) )
-            // InternalQPE.g:293:3: ( rule__VALUE__Alternatives )
-            {
-             before(grammarAccess.getVALUEAccess().getAlternatives()); 
-            // InternalQPE.g:294:3: ( rule__VALUE__Alternatives )
-            // InternalQPE.g:294:4: rule__VALUE__Alternatives
-            {
-            pushFollow(FOLLOW_2);
-            rule__VALUE__Alternatives();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getVALUEAccess().getAlternatives()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleVALUE"
-
-
-    // $ANTLR start "entryRuleLONG"
-    // InternalQPE.g:303:1: entryRuleLONG : ruleLONG EOF ;
-    public final void entryRuleLONG() throws RecognitionException {
-        try {
-            // InternalQPE.g:304:1: ( ruleLONG EOF )
-            // InternalQPE.g:305:1: ruleLONG EOF
-            {
-             before(grammarAccess.getLONGRule()); 
-            pushFollow(FOLLOW_1);
-            ruleLONG();
-
-            state._fsp--;
-
-             after(grammarAccess.getLONGRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleLONG"
-
-
-    // $ANTLR start "ruleLONG"
-    // InternalQPE.g:312:1: ruleLONG : ( ( rule__LONG__Group__0 ) ) ;
-    public final void ruleLONG() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:316:2: ( ( ( rule__LONG__Group__0 ) ) )
-            // InternalQPE.g:317:2: ( ( rule__LONG__Group__0 ) )
-            {
-            // InternalQPE.g:317:2: ( ( rule__LONG__Group__0 ) )
-            // InternalQPE.g:318:3: ( rule__LONG__Group__0 )
-            {
-             before(grammarAccess.getLONGAccess().getGroup()); 
-            // InternalQPE.g:319:3: ( rule__LONG__Group__0 )
-            // InternalQPE.g:319:4: rule__LONG__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__LONG__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getLONGAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleLONG"
-
-
-    // $ANTLR start "entryRuleDOUBLE"
-    // InternalQPE.g:328:1: entryRuleDOUBLE : ruleDOUBLE EOF ;
-    public final void entryRuleDOUBLE() throws RecognitionException {
-        try {
-            // InternalQPE.g:329:1: ( ruleDOUBLE EOF )
-            // InternalQPE.g:330:1: ruleDOUBLE EOF
-            {
-             before(grammarAccess.getDOUBLERule()); 
-            pushFollow(FOLLOW_1);
-            ruleDOUBLE();
-
-            state._fsp--;
-
-             after(grammarAccess.getDOUBLERule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleDOUBLE"
-
-
-    // $ANTLR start "ruleDOUBLE"
-    // InternalQPE.g:337:1: ruleDOUBLE : ( ( rule__DOUBLE__Group__0 ) ) ;
-    public final void ruleDOUBLE() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:341:2: ( ( ( rule__DOUBLE__Group__0 ) ) )
-            // InternalQPE.g:342:2: ( ( rule__DOUBLE__Group__0 ) )
-            {
-            // InternalQPE.g:342:2: ( ( rule__DOUBLE__Group__0 ) )
-            // InternalQPE.g:343:3: ( rule__DOUBLE__Group__0 )
-            {
-             before(grammarAccess.getDOUBLEAccess().getGroup()); 
-            // InternalQPE.g:344:3: ( rule__DOUBLE__Group__0 )
-            // InternalQPE.g:344:4: rule__DOUBLE__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DOUBLE__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getDOUBLEAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleDOUBLE"
-
-
-    // $ANTLR start "entryRuleBOOLEAN"
-    // InternalQPE.g:353:1: entryRuleBOOLEAN : ruleBOOLEAN EOF ;
-    public final void entryRuleBOOLEAN() throws RecognitionException {
-        try {
-            // InternalQPE.g:354:1: ( ruleBOOLEAN EOF )
-            // InternalQPE.g:355:1: ruleBOOLEAN EOF
-            {
-             before(grammarAccess.getBOOLEANRule()); 
-            pushFollow(FOLLOW_1);
-            ruleBOOLEAN();
-
-            state._fsp--;
-
-             after(grammarAccess.getBOOLEANRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleBOOLEAN"
-
-
-    // $ANTLR start "ruleBOOLEAN"
-    // InternalQPE.g:362:1: ruleBOOLEAN : ( ( rule__BOOLEAN__Alternatives ) ) ;
-    public final void ruleBOOLEAN() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:366:2: ( ( ( rule__BOOLEAN__Alternatives ) ) )
-            // InternalQPE.g:367:2: ( ( rule__BOOLEAN__Alternatives ) )
-            {
-            // InternalQPE.g:367:2: ( ( rule__BOOLEAN__Alternatives ) )
-            // InternalQPE.g:368:3: ( rule__BOOLEAN__Alternatives )
-            {
-             before(grammarAccess.getBOOLEANAccess().getAlternatives()); 
-            // InternalQPE.g:369:3: ( rule__BOOLEAN__Alternatives )
-            // InternalQPE.g:369:4: rule__BOOLEAN__Alternatives
-            {
-            pushFollow(FOLLOW_2);
-            rule__BOOLEAN__Alternatives();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getBOOLEANAccess().getAlternatives()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleBOOLEAN"
-
-
-    // $ANTLR start "rule__Predicate__Alternatives"
-    // InternalQPE.g:377:1: rule__Predicate__Alternatives : ( ( ruleClassifierPredicate ) | ( ruleAttributePredicate ) | ( ruleReferencePredicate ) );
-    public final void rule__Predicate__Alternatives() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:381:1: ( ( ruleClassifierPredicate ) | ( ruleAttributePredicate ) | ( ruleReferencePredicate ) )
-            int alt1=3;
+            // InternalQPE.g:281:1: ( ( ( rule__Qualifier__Group_1_0__0 ) ) | ( ( rule__Qualifier__Group_1_1__0 ) ) )
+            int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==RULE_ID) ) {
-                switch ( input.LA(2) ) {
-                case 18:
-                    {
-                    int LA1_2 = input.LA(3);
-
-                    if ( (LA1_2==RULE_ID) ) {
-                        switch ( input.LA(4) ) {
-                        case EOF:
-                        case 20:
-                        case 21:
-                            {
-                            alt1=1;
-                            }
-                            break;
-                        case 19:
-                            {
-                            alt1=3;
-                            }
-                            break;
-                        case 22:
-                            {
-                            alt1=2;
-                            }
-                            break;
-                        default:
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 1, 6, input);
-
-                            throw nvae;
-                        }
-
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 1, 2, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case EOF:
-                case 20:
-                case 21:
-                    {
-                    alt1=1;
-                    }
-                    break;
-                case 19:
-                    {
-                    alt1=3;
-                    }
-                    break;
-                case 22:
-                    {
-                    alt1=2;
-                    }
-                    break;
-                default:
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 1, 1, input);
-
-                    throw nvae;
-                }
-
+            if ( (LA1_0==RULE_INT) ) {
+                alt1=1;
+            }
+            else if ( (LA1_0==RULE_ID) ) {
+                alt1=2;
             }
             else {
                 NoViableAltException nvae =
@@ -1167,10 +799,161 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalQPE.g:382:2: ( ruleClassifierPredicate )
+                    // InternalQPE.g:282:2: ( ( rule__Qualifier__Group_1_0__0 ) )
                     {
-                    // InternalQPE.g:382:2: ( ruleClassifierPredicate )
-                    // InternalQPE.g:383:3: ruleClassifierPredicate
+                    // InternalQPE.g:282:2: ( ( rule__Qualifier__Group_1_0__0 ) )
+                    // InternalQPE.g:283:3: ( rule__Qualifier__Group_1_0__0 )
+                    {
+                     before(grammarAccess.getQualifierAccess().getGroup_1_0()); 
+                    // InternalQPE.g:284:3: ( rule__Qualifier__Group_1_0__0 )
+                    // InternalQPE.g:284:4: rule__Qualifier__Group_1_0__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Qualifier__Group_1_0__0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getQualifierAccess().getGroup_1_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalQPE.g:288:2: ( ( rule__Qualifier__Group_1_1__0 ) )
+                    {
+                    // InternalQPE.g:288:2: ( ( rule__Qualifier__Group_1_1__0 ) )
+                    // InternalQPE.g:289:3: ( rule__Qualifier__Group_1_1__0 )
+                    {
+                     before(grammarAccess.getQualifierAccess().getGroup_1_1()); 
+                    // InternalQPE.g:290:3: ( rule__Qualifier__Group_1_1__0 )
+                    // InternalQPE.g:290:4: rule__Qualifier__Group_1_1__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Qualifier__Group_1_1__0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getQualifierAccess().getGroup_1_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Alternatives_1"
+
+
+    // $ANTLR start "rule__Predicate__Alternatives"
+    // InternalQPE.g:298:1: rule__Predicate__Alternatives : ( ( ruleClassifierPredicate ) | ( ruleAttributePredicate ) | ( ruleReferencePredicate ) );
+    public final void rule__Predicate__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:302:1: ( ( ruleClassifierPredicate ) | ( ruleAttributePredicate ) | ( ruleReferencePredicate ) )
+            int alt2=3;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==RULE_ID) ) {
+                switch ( input.LA(2) ) {
+                case 18:
+                    {
+                    int LA2_2 = input.LA(3);
+
+                    if ( (LA2_2==RULE_ID) ) {
+                        switch ( input.LA(4) ) {
+                        case EOF:
+                        case 20:
+                        case 21:
+                            {
+                            alt2=1;
+                            }
+                            break;
+                        case 19:
+                            {
+                            alt2=3;
+                            }
+                            break;
+                        case 22:
+                            {
+                            alt2=2;
+                            }
+                            break;
+                        default:
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 2, 6, input);
+
+                            throw nvae;
+                        }
+
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 2, 2, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case EOF:
+                case 20:
+                case 21:
+                    {
+                    alt2=1;
+                    }
+                    break;
+                case 19:
+                    {
+                    alt2=3;
+                    }
+                    break;
+                case 22:
+                    {
+                    alt2=2;
+                    }
+                    break;
+                default:
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 2, 1, input);
+
+                    throw nvae;
+                }
+
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalQPE.g:303:2: ( ruleClassifierPredicate )
+                    {
+                    // InternalQPE.g:303:2: ( ruleClassifierPredicate )
+                    // InternalQPE.g:304:3: ruleClassifierPredicate
                     {
                      before(grammarAccess.getPredicateAccess().getClassifierPredicateParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1186,10 +969,10 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalQPE.g:388:2: ( ruleAttributePredicate )
+                    // InternalQPE.g:309:2: ( ruleAttributePredicate )
                     {
-                    // InternalQPE.g:388:2: ( ruleAttributePredicate )
-                    // InternalQPE.g:389:3: ruleAttributePredicate
+                    // InternalQPE.g:309:2: ( ruleAttributePredicate )
+                    // InternalQPE.g:310:3: ruleAttributePredicate
                     {
                      before(grammarAccess.getPredicateAccess().getAttributePredicateParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1205,10 +988,10 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalQPE.g:394:2: ( ruleReferencePredicate )
+                    // InternalQPE.g:315:2: ( ruleReferencePredicate )
                     {
-                    // InternalQPE.g:394:2: ( ruleReferencePredicate )
-                    // InternalQPE.g:395:3: ruleReferencePredicate
+                    // InternalQPE.g:315:2: ( ruleReferencePredicate )
+                    // InternalQPE.g:316:3: ruleReferencePredicate
                     {
                      before(grammarAccess.getPredicateAccess().getReferencePredicateParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -1240,320 +1023,15 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Predicate__Alternatives"
 
 
-    // $ANTLR start "rule__VALUE__Alternatives"
-    // InternalQPE.g:404:1: rule__VALUE__Alternatives : ( ( RULE_STRING ) | ( RULE_INT ) | ( ruleLONG ) | ( ruleDOUBLE ) | ( ruleBOOLEAN ) );
-    public final void rule__VALUE__Alternatives() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:408:1: ( ( RULE_STRING ) | ( RULE_INT ) | ( ruleLONG ) | ( ruleDOUBLE ) | ( ruleBOOLEAN ) )
-            int alt2=5;
-            switch ( input.LA(1) ) {
-            case RULE_STRING:
-                {
-                alt2=1;
-                }
-                break;
-            case RULE_INT:
-                {
-                switch ( input.LA(2) ) {
-                case 23:
-                    {
-                    alt2=4;
-                    }
-                    break;
-                case EOF:
-                case 20:
-                case 21:
-                    {
-                    alt2=2;
-                    }
-                    break;
-                case 11:
-                case 12:
-                    {
-                    alt2=3;
-                    }
-                    break;
-                default:
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 2, 2, input);
-
-                    throw nvae;
-                }
-
-                }
-                break;
-            case 13:
-            case 14:
-                {
-                alt2=5;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 2, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt2) {
-                case 1 :
-                    // InternalQPE.g:409:2: ( RULE_STRING )
-                    {
-                    // InternalQPE.g:409:2: ( RULE_STRING )
-                    // InternalQPE.g:410:3: RULE_STRING
-                    {
-                     before(grammarAccess.getVALUEAccess().getSTRINGTerminalRuleCall_0()); 
-                    match(input,RULE_STRING,FOLLOW_2); 
-                     after(grammarAccess.getVALUEAccess().getSTRINGTerminalRuleCall_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalQPE.g:415:2: ( RULE_INT )
-                    {
-                    // InternalQPE.g:415:2: ( RULE_INT )
-                    // InternalQPE.g:416:3: RULE_INT
-                    {
-                     before(grammarAccess.getVALUEAccess().getINTTerminalRuleCall_1()); 
-                    match(input,RULE_INT,FOLLOW_2); 
-                     after(grammarAccess.getVALUEAccess().getINTTerminalRuleCall_1()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalQPE.g:421:2: ( ruleLONG )
-                    {
-                    // InternalQPE.g:421:2: ( ruleLONG )
-                    // InternalQPE.g:422:3: ruleLONG
-                    {
-                     before(grammarAccess.getVALUEAccess().getLONGParserRuleCall_2()); 
-                    pushFollow(FOLLOW_2);
-                    ruleLONG();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getVALUEAccess().getLONGParserRuleCall_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalQPE.g:427:2: ( ruleDOUBLE )
-                    {
-                    // InternalQPE.g:427:2: ( ruleDOUBLE )
-                    // InternalQPE.g:428:3: ruleDOUBLE
-                    {
-                     before(grammarAccess.getVALUEAccess().getDOUBLEParserRuleCall_3()); 
-                    pushFollow(FOLLOW_2);
-                    ruleDOUBLE();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getVALUEAccess().getDOUBLEParserRuleCall_3()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalQPE.g:433:2: ( ruleBOOLEAN )
-                    {
-                    // InternalQPE.g:433:2: ( ruleBOOLEAN )
-                    // InternalQPE.g:434:3: ruleBOOLEAN
-                    {
-                     before(grammarAccess.getVALUEAccess().getBOOLEANParserRuleCall_4()); 
-                    pushFollow(FOLLOW_2);
-                    ruleBOOLEAN();
-
-                    state._fsp--;
-
-                     after(grammarAccess.getVALUEAccess().getBOOLEANParserRuleCall_4()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__VALUE__Alternatives"
-
-
-    // $ANTLR start "rule__LONG__Alternatives_1"
-    // InternalQPE.g:443:1: rule__LONG__Alternatives_1 : ( ( 'L' ) | ( 'l' ) );
-    public final void rule__LONG__Alternatives_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:447:1: ( ( 'L' ) | ( 'l' ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
-
-            if ( (LA3_0==11) ) {
-                alt3=1;
-            }
-            else if ( (LA3_0==12) ) {
-                alt3=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
-
-                throw nvae;
-            }
-            switch (alt3) {
-                case 1 :
-                    // InternalQPE.g:448:2: ( 'L' )
-                    {
-                    // InternalQPE.g:448:2: ( 'L' )
-                    // InternalQPE.g:449:3: 'L'
-                    {
-                     before(grammarAccess.getLONGAccess().getLKeyword_1_0()); 
-                    match(input,11,FOLLOW_2); 
-                     after(grammarAccess.getLONGAccess().getLKeyword_1_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalQPE.g:454:2: ( 'l' )
-                    {
-                    // InternalQPE.g:454:2: ( 'l' )
-                    // InternalQPE.g:455:3: 'l'
-                    {
-                     before(grammarAccess.getLONGAccess().getLKeyword_1_1()); 
-                    match(input,12,FOLLOW_2); 
-                     after(grammarAccess.getLONGAccess().getLKeyword_1_1()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LONG__Alternatives_1"
-
-
-    // $ANTLR start "rule__BOOLEAN__Alternatives"
-    // InternalQPE.g:464:1: rule__BOOLEAN__Alternatives : ( ( 'true' ) | ( 'false' ) );
-    public final void rule__BOOLEAN__Alternatives() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:468:1: ( ( 'true' ) | ( 'false' ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==13) ) {
-                alt4=1;
-            }
-            else if ( (LA4_0==14) ) {
-                alt4=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-            }
-            switch (alt4) {
-                case 1 :
-                    // InternalQPE.g:469:2: ( 'true' )
-                    {
-                    // InternalQPE.g:469:2: ( 'true' )
-                    // InternalQPE.g:470:3: 'true'
-                    {
-                     before(grammarAccess.getBOOLEANAccess().getTrueKeyword_0()); 
-                    match(input,13,FOLLOW_2); 
-                     after(grammarAccess.getBOOLEANAccess().getTrueKeyword_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalQPE.g:475:2: ( 'false' )
-                    {
-                    // InternalQPE.g:475:2: ( 'false' )
-                    // InternalQPE.g:476:3: 'false'
-                    {
-                     before(grammarAccess.getBOOLEANAccess().getFalseKeyword_1()); 
-                    match(input,14,FOLLOW_2); 
-                     after(grammarAccess.getBOOLEANAccess().getFalseKeyword_1()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BOOLEAN__Alternatives"
-
-
     // $ANTLR start "rule__QPE__Group__0"
-    // InternalQPE.g:485:1: rule__QPE__Group__0 : rule__QPE__Group__0__Impl rule__QPE__Group__1 ;
+    // InternalQPE.g:325:1: rule__QPE__Group__0 : rule__QPE__Group__0__Impl rule__QPE__Group__1 ;
     public final void rule__QPE__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:489:1: ( rule__QPE__Group__0__Impl rule__QPE__Group__1 )
-            // InternalQPE.g:490:2: rule__QPE__Group__0__Impl rule__QPE__Group__1
+            // InternalQPE.g:329:1: ( rule__QPE__Group__0__Impl rule__QPE__Group__1 )
+            // InternalQPE.g:330:2: rule__QPE__Group__0__Impl rule__QPE__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__QPE__Group__0__Impl();
@@ -1584,31 +1062,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QPE__Group__0__Impl"
-    // InternalQPE.g:497:1: rule__QPE__Group__0__Impl : ( ( rule__QPE__QuerynamespacesAssignment_0 ) ) ;
+    // InternalQPE.g:337:1: rule__QPE__Group__0__Impl : ( ( rule__QPE__QueryNamespacesAssignment_0 ) ) ;
     public final void rule__QPE__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:501:1: ( ( ( rule__QPE__QuerynamespacesAssignment_0 ) ) )
-            // InternalQPE.g:502:1: ( ( rule__QPE__QuerynamespacesAssignment_0 ) )
+            // InternalQPE.g:341:1: ( ( ( rule__QPE__QueryNamespacesAssignment_0 ) ) )
+            // InternalQPE.g:342:1: ( ( rule__QPE__QueryNamespacesAssignment_0 ) )
             {
-            // InternalQPE.g:502:1: ( ( rule__QPE__QuerynamespacesAssignment_0 ) )
-            // InternalQPE.g:503:2: ( rule__QPE__QuerynamespacesAssignment_0 )
+            // InternalQPE.g:342:1: ( ( rule__QPE__QueryNamespacesAssignment_0 ) )
+            // InternalQPE.g:343:2: ( rule__QPE__QueryNamespacesAssignment_0 )
             {
-             before(grammarAccess.getQPEAccess().getQuerynamespacesAssignment_0()); 
-            // InternalQPE.g:504:2: ( rule__QPE__QuerynamespacesAssignment_0 )
-            // InternalQPE.g:504:3: rule__QPE__QuerynamespacesAssignment_0
+             before(grammarAccess.getQPEAccess().getQueryNamespacesAssignment_0()); 
+            // InternalQPE.g:344:2: ( rule__QPE__QueryNamespacesAssignment_0 )
+            // InternalQPE.g:344:3: rule__QPE__QueryNamespacesAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__QPE__QuerynamespacesAssignment_0();
+            rule__QPE__QueryNamespacesAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQPEAccess().getQuerynamespacesAssignment_0()); 
+             after(grammarAccess.getQPEAccess().getQueryNamespacesAssignment_0()); 
 
             }
 
@@ -1631,14 +1109,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QPE__Group__1"
-    // InternalQPE.g:512:1: rule__QPE__Group__1 : rule__QPE__Group__1__Impl ;
+    // InternalQPE.g:352:1: rule__QPE__Group__1 : rule__QPE__Group__1__Impl ;
     public final void rule__QPE__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:516:1: ( rule__QPE__Group__1__Impl )
-            // InternalQPE.g:517:2: rule__QPE__Group__1__Impl
+            // InternalQPE.g:356:1: ( rule__QPE__Group__1__Impl )
+            // InternalQPE.g:357:2: rule__QPE__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QPE__Group__1__Impl();
@@ -1664,31 +1142,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QPE__Group__1__Impl"
-    // InternalQPE.g:523:1: rule__QPE__Group__1__Impl : ( ( rule__QPE__PathexpressionsAssignment_1 ) ) ;
+    // InternalQPE.g:363:1: rule__QPE__Group__1__Impl : ( ( rule__QPE__PathExpressionsAssignment_1 ) ) ;
     public final void rule__QPE__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:527:1: ( ( ( rule__QPE__PathexpressionsAssignment_1 ) ) )
-            // InternalQPE.g:528:1: ( ( rule__QPE__PathexpressionsAssignment_1 ) )
+            // InternalQPE.g:367:1: ( ( ( rule__QPE__PathExpressionsAssignment_1 ) ) )
+            // InternalQPE.g:368:1: ( ( rule__QPE__PathExpressionsAssignment_1 ) )
             {
-            // InternalQPE.g:528:1: ( ( rule__QPE__PathexpressionsAssignment_1 ) )
-            // InternalQPE.g:529:2: ( rule__QPE__PathexpressionsAssignment_1 )
+            // InternalQPE.g:368:1: ( ( rule__QPE__PathExpressionsAssignment_1 ) )
+            // InternalQPE.g:369:2: ( rule__QPE__PathExpressionsAssignment_1 )
             {
-             before(grammarAccess.getQPEAccess().getPathexpressionsAssignment_1()); 
-            // InternalQPE.g:530:2: ( rule__QPE__PathexpressionsAssignment_1 )
-            // InternalQPE.g:530:3: rule__QPE__PathexpressionsAssignment_1
+             before(grammarAccess.getQPEAccess().getPathExpressionsAssignment_1()); 
+            // InternalQPE.g:370:2: ( rule__QPE__PathExpressionsAssignment_1 )
+            // InternalQPE.g:370:3: rule__QPE__PathExpressionsAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__QPE__PathexpressionsAssignment_1();
+            rule__QPE__PathExpressionsAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQPEAccess().getPathexpressionsAssignment_1()); 
+             after(grammarAccess.getQPEAccess().getPathExpressionsAssignment_1()); 
 
             }
 
@@ -1711,14 +1189,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__0"
-    // InternalQPE.g:539:1: rule__QueryNamespace__Group__0 : rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1 ;
+    // InternalQPE.g:379:1: rule__QueryNamespace__Group__0 : rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1 ;
     public final void rule__QueryNamespace__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:543:1: ( rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1 )
-            // InternalQPE.g:544:2: rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1
+            // InternalQPE.g:383:1: ( rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1 )
+            // InternalQPE.g:384:2: rule__QueryNamespace__Group__0__Impl rule__QueryNamespace__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__QueryNamespace__Group__0__Impl();
@@ -1749,17 +1227,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__0__Impl"
-    // InternalQPE.g:551:1: rule__QueryNamespace__Group__0__Impl : ( 'namespace' ) ;
+    // InternalQPE.g:391:1: rule__QueryNamespace__Group__0__Impl : ( 'namespace' ) ;
     public final void rule__QueryNamespace__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:555:1: ( ( 'namespace' ) )
-            // InternalQPE.g:556:1: ( 'namespace' )
+            // InternalQPE.g:395:1: ( ( 'namespace' ) )
+            // InternalQPE.g:396:1: ( 'namespace' )
             {
-            // InternalQPE.g:556:1: ( 'namespace' )
-            // InternalQPE.g:557:2: 'namespace'
+            // InternalQPE.g:396:1: ( 'namespace' )
+            // InternalQPE.g:397:2: 'namespace'
             {
              before(grammarAccess.getQueryNamespaceAccess().getNamespaceKeyword_0()); 
             match(input,15,FOLLOW_2); 
@@ -1786,14 +1264,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__1"
-    // InternalQPE.g:566:1: rule__QueryNamespace__Group__1 : rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2 ;
+    // InternalQPE.g:406:1: rule__QueryNamespace__Group__1 : rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2 ;
     public final void rule__QueryNamespace__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:570:1: ( rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2 )
-            // InternalQPE.g:571:2: rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2
+            // InternalQPE.g:410:1: ( rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2 )
+            // InternalQPE.g:411:2: rule__QueryNamespace__Group__1__Impl rule__QueryNamespace__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__QueryNamespace__Group__1__Impl();
@@ -1824,21 +1302,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__1__Impl"
-    // InternalQPE.g:578:1: rule__QueryNamespace__Group__1__Impl : ( ( rule__QueryNamespace__IRIAssignment_1 ) ) ;
+    // InternalQPE.g:418:1: rule__QueryNamespace__Group__1__Impl : ( ( rule__QueryNamespace__IRIAssignment_1 ) ) ;
     public final void rule__QueryNamespace__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:582:1: ( ( ( rule__QueryNamespace__IRIAssignment_1 ) ) )
-            // InternalQPE.g:583:1: ( ( rule__QueryNamespace__IRIAssignment_1 ) )
+            // InternalQPE.g:422:1: ( ( ( rule__QueryNamespace__IRIAssignment_1 ) ) )
+            // InternalQPE.g:423:1: ( ( rule__QueryNamespace__IRIAssignment_1 ) )
             {
-            // InternalQPE.g:583:1: ( ( rule__QueryNamespace__IRIAssignment_1 ) )
-            // InternalQPE.g:584:2: ( rule__QueryNamespace__IRIAssignment_1 )
+            // InternalQPE.g:423:1: ( ( rule__QueryNamespace__IRIAssignment_1 ) )
+            // InternalQPE.g:424:2: ( rule__QueryNamespace__IRIAssignment_1 )
             {
              before(grammarAccess.getQueryNamespaceAccess().getIRIAssignment_1()); 
-            // InternalQPE.g:585:2: ( rule__QueryNamespace__IRIAssignment_1 )
-            // InternalQPE.g:585:3: rule__QueryNamespace__IRIAssignment_1
+            // InternalQPE.g:425:2: ( rule__QueryNamespace__IRIAssignment_1 )
+            // InternalQPE.g:425:3: rule__QueryNamespace__IRIAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__QueryNamespace__IRIAssignment_1();
@@ -1871,14 +1349,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__2"
-    // InternalQPE.g:593:1: rule__QueryNamespace__Group__2 : rule__QueryNamespace__Group__2__Impl ;
+    // InternalQPE.g:433:1: rule__QueryNamespace__Group__2 : rule__QueryNamespace__Group__2__Impl ;
     public final void rule__QueryNamespace__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:597:1: ( rule__QueryNamespace__Group__2__Impl )
-            // InternalQPE.g:598:2: rule__QueryNamespace__Group__2__Impl
+            // InternalQPE.g:437:1: ( rule__QueryNamespace__Group__2__Impl )
+            // InternalQPE.g:438:2: rule__QueryNamespace__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QueryNamespace__Group__2__Impl();
@@ -1904,29 +1382,29 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group__2__Impl"
-    // InternalQPE.g:604:1: rule__QueryNamespace__Group__2__Impl : ( ( rule__QueryNamespace__Group_2__0 )? ) ;
+    // InternalQPE.g:444:1: rule__QueryNamespace__Group__2__Impl : ( ( rule__QueryNamespace__Group_2__0 )? ) ;
     public final void rule__QueryNamespace__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:608:1: ( ( ( rule__QueryNamespace__Group_2__0 )? ) )
-            // InternalQPE.g:609:1: ( ( rule__QueryNamespace__Group_2__0 )? )
+            // InternalQPE.g:448:1: ( ( ( rule__QueryNamespace__Group_2__0 )? ) )
+            // InternalQPE.g:449:1: ( ( rule__QueryNamespace__Group_2__0 )? )
             {
-            // InternalQPE.g:609:1: ( ( rule__QueryNamespace__Group_2__0 )? )
-            // InternalQPE.g:610:2: ( rule__QueryNamespace__Group_2__0 )?
+            // InternalQPE.g:449:1: ( ( rule__QueryNamespace__Group_2__0 )? )
+            // InternalQPE.g:450:2: ( rule__QueryNamespace__Group_2__0 )?
             {
              before(grammarAccess.getQueryNamespaceAccess().getGroup_2()); 
-            // InternalQPE.g:611:2: ( rule__QueryNamespace__Group_2__0 )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalQPE.g:451:2: ( rule__QueryNamespace__Group_2__0 )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA5_0==16) ) {
-                alt5=1;
+            if ( (LA3_0==16) ) {
+                alt3=1;
             }
-            switch (alt5) {
+            switch (alt3) {
                 case 1 :
-                    // InternalQPE.g:611:3: rule__QueryNamespace__Group_2__0
+                    // InternalQPE.g:451:3: rule__QueryNamespace__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QueryNamespace__Group_2__0();
@@ -1962,14 +1440,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group_2__0"
-    // InternalQPE.g:620:1: rule__QueryNamespace__Group_2__0 : rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1 ;
+    // InternalQPE.g:460:1: rule__QueryNamespace__Group_2__0 : rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1 ;
     public final void rule__QueryNamespace__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:624:1: ( rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1 )
-            // InternalQPE.g:625:2: rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1
+            // InternalQPE.g:464:1: ( rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1 )
+            // InternalQPE.g:465:2: rule__QueryNamespace__Group_2__0__Impl rule__QueryNamespace__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__QueryNamespace__Group_2__0__Impl();
@@ -2000,17 +1478,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group_2__0__Impl"
-    // InternalQPE.g:632:1: rule__QueryNamespace__Group_2__0__Impl : ( 'as' ) ;
+    // InternalQPE.g:472:1: rule__QueryNamespace__Group_2__0__Impl : ( 'as' ) ;
     public final void rule__QueryNamespace__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:636:1: ( ( 'as' ) )
-            // InternalQPE.g:637:1: ( 'as' )
+            // InternalQPE.g:476:1: ( ( 'as' ) )
+            // InternalQPE.g:477:1: ( 'as' )
             {
-            // InternalQPE.g:637:1: ( 'as' )
-            // InternalQPE.g:638:2: 'as'
+            // InternalQPE.g:477:1: ( 'as' )
+            // InternalQPE.g:478:2: 'as'
             {
              before(grammarAccess.getQueryNamespaceAccess().getAsKeyword_2_0()); 
             match(input,16,FOLLOW_2); 
@@ -2037,14 +1515,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group_2__1"
-    // InternalQPE.g:647:1: rule__QueryNamespace__Group_2__1 : rule__QueryNamespace__Group_2__1__Impl ;
+    // InternalQPE.g:487:1: rule__QueryNamespace__Group_2__1 : rule__QueryNamespace__Group_2__1__Impl ;
     public final void rule__QueryNamespace__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:651:1: ( rule__QueryNamespace__Group_2__1__Impl )
-            // InternalQPE.g:652:2: rule__QueryNamespace__Group_2__1__Impl
+            // InternalQPE.g:491:1: ( rule__QueryNamespace__Group_2__1__Impl )
+            // InternalQPE.g:492:2: rule__QueryNamespace__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QueryNamespace__Group_2__1__Impl();
@@ -2070,21 +1548,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__Group_2__1__Impl"
-    // InternalQPE.g:658:1: rule__QueryNamespace__Group_2__1__Impl : ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) ) ;
+    // InternalQPE.g:498:1: rule__QueryNamespace__Group_2__1__Impl : ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) ) ;
     public final void rule__QueryNamespace__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:662:1: ( ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) ) )
-            // InternalQPE.g:663:1: ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) )
+            // InternalQPE.g:502:1: ( ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) ) )
+            // InternalQPE.g:503:1: ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) )
             {
-            // InternalQPE.g:663:1: ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) )
-            // InternalQPE.g:664:2: ( rule__QueryNamespace__PrefixAssignment_2_1 )
+            // InternalQPE.g:503:1: ( ( rule__QueryNamespace__PrefixAssignment_2_1 ) )
+            // InternalQPE.g:504:2: ( rule__QueryNamespace__PrefixAssignment_2_1 )
             {
              before(grammarAccess.getQueryNamespaceAccess().getPrefixAssignment_2_1()); 
-            // InternalQPE.g:665:2: ( rule__QueryNamespace__PrefixAssignment_2_1 )
-            // InternalQPE.g:665:3: rule__QueryNamespace__PrefixAssignment_2_1
+            // InternalQPE.g:505:2: ( rule__QueryNamespace__PrefixAssignment_2_1 )
+            // InternalQPE.g:505:3: rule__QueryNamespace__PrefixAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__QueryNamespace__PrefixAssignment_2_1();
@@ -2117,16 +1595,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__0"
-    // InternalQPE.g:674:1: rule__PathExpression__Group__0 : rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1 ;
+    // InternalQPE.g:514:1: rule__PathExpression__Group__0 : rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1 ;
     public final void rule__PathExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:678:1: ( rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1 )
-            // InternalQPE.g:679:2: rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1
+            // InternalQPE.g:518:1: ( rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1 )
+            // InternalQPE.g:519:2: rule__PathExpression__Group__0__Impl rule__PathExpression__Group__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_3);
             rule__PathExpression__Group__0__Impl();
 
             state._fsp--;
@@ -2155,41 +1633,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__0__Impl"
-    // InternalQPE.g:686:1: rule__PathExpression__Group__0__Impl : ( ( rule__PathExpression__IsRelativeAssignment_0 ) ) ;
+    // InternalQPE.g:526:1: rule__PathExpression__Group__0__Impl : ( () ) ;
     public final void rule__PathExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:690:1: ( ( ( rule__PathExpression__IsRelativeAssignment_0 ) ) )
-            // InternalQPE.g:691:1: ( ( rule__PathExpression__IsRelativeAssignment_0 ) )
+            // InternalQPE.g:530:1: ( ( () ) )
+            // InternalQPE.g:531:1: ( () )
             {
-            // InternalQPE.g:691:1: ( ( rule__PathExpression__IsRelativeAssignment_0 ) )
-            // InternalQPE.g:692:2: ( rule__PathExpression__IsRelativeAssignment_0 )
+            // InternalQPE.g:531:1: ( () )
+            // InternalQPE.g:532:2: ()
             {
-             before(grammarAccess.getPathExpressionAccess().getIsRelativeAssignment_0()); 
-            // InternalQPE.g:693:2: ( rule__PathExpression__IsRelativeAssignment_0 )
-            // InternalQPE.g:693:3: rule__PathExpression__IsRelativeAssignment_0
+             before(grammarAccess.getPathExpressionAccess().getPathExpressionAction_0()); 
+            // InternalQPE.g:533:2: ()
+            // InternalQPE.g:533:3: 
             {
-            pushFollow(FOLLOW_2);
-            rule__PathExpression__IsRelativeAssignment_0();
-
-            state._fsp--;
-
-
             }
 
-             after(grammarAccess.getPathExpressionAccess().getIsRelativeAssignment_0()); 
+             after(grammarAccess.getPathExpressionAccess().getPathExpressionAction_0()); 
 
             }
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -2202,16 +1670,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__1"
-    // InternalQPE.g:701:1: rule__PathExpression__Group__1 : rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2 ;
+    // InternalQPE.g:541:1: rule__PathExpression__Group__1 : rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2 ;
     public final void rule__PathExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:705:1: ( rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2 )
-            // InternalQPE.g:706:2: rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2
+            // InternalQPE.g:545:1: ( rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2 )
+            // InternalQPE.g:546:2: rule__PathExpression__Group__1__Impl rule__PathExpression__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_3);
             rule__PathExpression__Group__1__Impl();
 
             state._fsp--;
@@ -2240,21 +1708,42 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__1__Impl"
-    // InternalQPE.g:713:1: rule__PathExpression__Group__1__Impl : ( '/' ) ;
+    // InternalQPE.g:553:1: rule__PathExpression__Group__1__Impl : ( ( rule__PathExpression__IsRelativeAssignment_1 )? ) ;
     public final void rule__PathExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:717:1: ( ( '/' ) )
-            // InternalQPE.g:718:1: ( '/' )
+            // InternalQPE.g:557:1: ( ( ( rule__PathExpression__IsRelativeAssignment_1 )? ) )
+            // InternalQPE.g:558:1: ( ( rule__PathExpression__IsRelativeAssignment_1 )? )
             {
-            // InternalQPE.g:718:1: ( '/' )
-            // InternalQPE.g:719:2: '/'
+            // InternalQPE.g:558:1: ( ( rule__PathExpression__IsRelativeAssignment_1 )? )
+            // InternalQPE.g:559:2: ( rule__PathExpression__IsRelativeAssignment_1 )?
             {
-             before(grammarAccess.getPathExpressionAccess().getSolidusKeyword_1()); 
-            match(input,17,FOLLOW_2); 
-             after(grammarAccess.getPathExpressionAccess().getSolidusKeyword_1()); 
+             before(grammarAccess.getPathExpressionAccess().getIsRelativeAssignment_1()); 
+            // InternalQPE.g:560:2: ( rule__PathExpression__IsRelativeAssignment_1 )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==23) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalQPE.g:560:3: rule__PathExpression__IsRelativeAssignment_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PathExpression__IsRelativeAssignment_1();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPathExpressionAccess().getIsRelativeAssignment_1()); 
 
             }
 
@@ -2277,17 +1766,22 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__2"
-    // InternalQPE.g:728:1: rule__PathExpression__Group__2 : rule__PathExpression__Group__2__Impl ;
+    // InternalQPE.g:568:1: rule__PathExpression__Group__2 : rule__PathExpression__Group__2__Impl rule__PathExpression__Group__3 ;
     public final void rule__PathExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:732:1: ( rule__PathExpression__Group__2__Impl )
-            // InternalQPE.g:733:2: rule__PathExpression__Group__2__Impl
+            // InternalQPE.g:572:1: ( rule__PathExpression__Group__2__Impl rule__PathExpression__Group__3 )
+            // InternalQPE.g:573:2: rule__PathExpression__Group__2__Impl rule__PathExpression__Group__3
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_3);
             rule__PathExpression__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PathExpression__Group__3();
 
             state._fsp--;
 
@@ -2310,31 +1804,42 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathExpression__Group__2__Impl"
-    // InternalQPE.g:739:1: rule__PathExpression__Group__2__Impl : ( ( rule__PathExpression__HeadAssignment_2 ) ) ;
+    // InternalQPE.g:580:1: rule__PathExpression__Group__2__Impl : ( ( rule__PathExpression__QualifierAssignment_2 )? ) ;
     public final void rule__PathExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:743:1: ( ( ( rule__PathExpression__HeadAssignment_2 ) ) )
-            // InternalQPE.g:744:1: ( ( rule__PathExpression__HeadAssignment_2 ) )
+            // InternalQPE.g:584:1: ( ( ( rule__PathExpression__QualifierAssignment_2 )? ) )
+            // InternalQPE.g:585:1: ( ( rule__PathExpression__QualifierAssignment_2 )? )
             {
-            // InternalQPE.g:744:1: ( ( rule__PathExpression__HeadAssignment_2 ) )
-            // InternalQPE.g:745:2: ( rule__PathExpression__HeadAssignment_2 )
+            // InternalQPE.g:585:1: ( ( rule__PathExpression__QualifierAssignment_2 )? )
+            // InternalQPE.g:586:2: ( rule__PathExpression__QualifierAssignment_2 )?
             {
-             before(grammarAccess.getPathExpressionAccess().getHeadAssignment_2()); 
-            // InternalQPE.g:746:2: ( rule__PathExpression__HeadAssignment_2 )
-            // InternalQPE.g:746:3: rule__PathExpression__HeadAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__PathExpression__HeadAssignment_2();
+             before(grammarAccess.getPathExpressionAccess().getQualifierAssignment_2()); 
+            // InternalQPE.g:587:2: ( rule__PathExpression__QualifierAssignment_2 )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA5_0==19) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalQPE.g:587:3: rule__PathExpression__QualifierAssignment_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PathExpression__QualifierAssignment_2();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getPathExpressionAccess().getHeadAssignment_2()); 
+             after(grammarAccess.getPathExpressionAccess().getQualifierAssignment_2()); 
 
             }
 
@@ -2356,15 +1861,181 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PathExpression__Group__2__Impl"
 
 
+    // $ANTLR start "rule__PathExpression__Group__3"
+    // InternalQPE.g:595:1: rule__PathExpression__Group__3 : rule__PathExpression__Group__3__Impl rule__PathExpression__Group__4 ;
+    public final void rule__PathExpression__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:599:1: ( rule__PathExpression__Group__3__Impl rule__PathExpression__Group__4 )
+            // InternalQPE.g:600:2: rule__PathExpression__Group__3__Impl rule__PathExpression__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__PathExpression__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PathExpression__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PathExpression__Group__3"
+
+
+    // $ANTLR start "rule__PathExpression__Group__3__Impl"
+    // InternalQPE.g:607:1: rule__PathExpression__Group__3__Impl : ( '/' ) ;
+    public final void rule__PathExpression__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:611:1: ( ( '/' ) )
+            // InternalQPE.g:612:1: ( '/' )
+            {
+            // InternalQPE.g:612:1: ( '/' )
+            // InternalQPE.g:613:2: '/'
+            {
+             before(grammarAccess.getPathExpressionAccess().getSolidusKeyword_3()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getPathExpressionAccess().getSolidusKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PathExpression__Group__3__Impl"
+
+
+    // $ANTLR start "rule__PathExpression__Group__4"
+    // InternalQPE.g:622:1: rule__PathExpression__Group__4 : rule__PathExpression__Group__4__Impl ;
+    public final void rule__PathExpression__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:626:1: ( rule__PathExpression__Group__4__Impl )
+            // InternalQPE.g:627:2: rule__PathExpression__Group__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PathExpression__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PathExpression__Group__4"
+
+
+    // $ANTLR start "rule__PathExpression__Group__4__Impl"
+    // InternalQPE.g:633:1: rule__PathExpression__Group__4__Impl : ( ( rule__PathExpression__HeadAssignment_4 )? ) ;
+    public final void rule__PathExpression__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:637:1: ( ( ( rule__PathExpression__HeadAssignment_4 )? ) )
+            // InternalQPE.g:638:1: ( ( rule__PathExpression__HeadAssignment_4 )? )
+            {
+            // InternalQPE.g:638:1: ( ( rule__PathExpression__HeadAssignment_4 )? )
+            // InternalQPE.g:639:2: ( rule__PathExpression__HeadAssignment_4 )?
+            {
+             before(grammarAccess.getPathExpressionAccess().getHeadAssignment_4()); 
+            // InternalQPE.g:640:2: ( rule__PathExpression__HeadAssignment_4 )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==RULE_ID) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalQPE.g:640:3: rule__PathExpression__HeadAssignment_4
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PathExpression__HeadAssignment_4();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPathExpressionAccess().getHeadAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PathExpression__Group__4__Impl"
+
+
     // $ANTLR start "rule__QueryElement__Group__0"
-    // InternalQPE.g:755:1: rule__QueryElement__Group__0 : rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1 ;
+    // InternalQPE.g:649:1: rule__QueryElement__Group__0 : rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1 ;
     public final void rule__QueryElement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:759:1: ( rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1 )
-            // InternalQPE.g:760:2: rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1
+            // InternalQPE.g:653:1: ( rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1 )
+            // InternalQPE.g:654:2: rule__QueryElement__Group__0__Impl rule__QueryElement__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__QueryElement__Group__0__Impl();
@@ -2395,33 +2066,33 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__0__Impl"
-    // InternalQPE.g:767:1: rule__QueryElement__Group__0__Impl : ( ( rule__QueryElement__Group_0__0 )? ) ;
+    // InternalQPE.g:661:1: rule__QueryElement__Group__0__Impl : ( ( rule__QueryElement__Group_0__0 )? ) ;
     public final void rule__QueryElement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:771:1: ( ( ( rule__QueryElement__Group_0__0 )? ) )
-            // InternalQPE.g:772:1: ( ( rule__QueryElement__Group_0__0 )? )
+            // InternalQPE.g:665:1: ( ( ( rule__QueryElement__Group_0__0 )? ) )
+            // InternalQPE.g:666:1: ( ( rule__QueryElement__Group_0__0 )? )
             {
-            // InternalQPE.g:772:1: ( ( rule__QueryElement__Group_0__0 )? )
-            // InternalQPE.g:773:2: ( rule__QueryElement__Group_0__0 )?
+            // InternalQPE.g:666:1: ( ( rule__QueryElement__Group_0__0 )? )
+            // InternalQPE.g:667:2: ( rule__QueryElement__Group_0__0 )?
             {
              before(grammarAccess.getQueryElementAccess().getGroup_0()); 
-            // InternalQPE.g:774:2: ( rule__QueryElement__Group_0__0 )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalQPE.g:668:2: ( rule__QueryElement__Group_0__0 )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_ID) ) {
-                int LA6_1 = input.LA(2);
+            if ( (LA7_0==RULE_ID) ) {
+                int LA7_1 = input.LA(2);
 
-                if ( (LA6_1==18) ) {
-                    alt6=1;
+                if ( (LA7_1==18) ) {
+                    alt7=1;
                 }
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalQPE.g:774:3: rule__QueryElement__Group_0__0
+                    // InternalQPE.g:668:3: rule__QueryElement__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QueryElement__Group_0__0();
@@ -2457,16 +2128,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__1"
-    // InternalQPE.g:782:1: rule__QueryElement__Group__1 : rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2 ;
+    // InternalQPE.g:676:1: rule__QueryElement__Group__1 : rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2 ;
     public final void rule__QueryElement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:786:1: ( rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2 )
-            // InternalQPE.g:787:2: rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2
+            // InternalQPE.g:680:1: ( rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2 )
+            // InternalQPE.g:681:2: rule__QueryElement__Group__1__Impl rule__QueryElement__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_7);
             rule__QueryElement__Group__1__Impl();
 
             state._fsp--;
@@ -2495,21 +2166,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__1__Impl"
-    // InternalQPE.g:794:1: rule__QueryElement__Group__1__Impl : ( ( rule__QueryElement__FeatureAssignment_1 ) ) ;
+    // InternalQPE.g:688:1: rule__QueryElement__Group__1__Impl : ( ( rule__QueryElement__FeatureAssignment_1 ) ) ;
     public final void rule__QueryElement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:798:1: ( ( ( rule__QueryElement__FeatureAssignment_1 ) ) )
-            // InternalQPE.g:799:1: ( ( rule__QueryElement__FeatureAssignment_1 ) )
+            // InternalQPE.g:692:1: ( ( ( rule__QueryElement__FeatureAssignment_1 ) ) )
+            // InternalQPE.g:693:1: ( ( rule__QueryElement__FeatureAssignment_1 ) )
             {
-            // InternalQPE.g:799:1: ( ( rule__QueryElement__FeatureAssignment_1 ) )
-            // InternalQPE.g:800:2: ( rule__QueryElement__FeatureAssignment_1 )
+            // InternalQPE.g:693:1: ( ( rule__QueryElement__FeatureAssignment_1 ) )
+            // InternalQPE.g:694:2: ( rule__QueryElement__FeatureAssignment_1 )
             {
              before(grammarAccess.getQueryElementAccess().getFeatureAssignment_1()); 
-            // InternalQPE.g:801:2: ( rule__QueryElement__FeatureAssignment_1 )
-            // InternalQPE.g:801:3: rule__QueryElement__FeatureAssignment_1
+            // InternalQPE.g:695:2: ( rule__QueryElement__FeatureAssignment_1 )
+            // InternalQPE.g:695:3: rule__QueryElement__FeatureAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__QueryElement__FeatureAssignment_1();
@@ -2542,16 +2213,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__2"
-    // InternalQPE.g:809:1: rule__QueryElement__Group__2 : rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3 ;
+    // InternalQPE.g:703:1: rule__QueryElement__Group__2 : rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3 ;
     public final void rule__QueryElement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:813:1: ( rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3 )
-            // InternalQPE.g:814:2: rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3
+            // InternalQPE.g:707:1: ( rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3 )
+            // InternalQPE.g:708:2: rule__QueryElement__Group__2__Impl rule__QueryElement__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_7);
             rule__QueryElement__Group__2__Impl();
 
             state._fsp--;
@@ -2580,29 +2251,29 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__2__Impl"
-    // InternalQPE.g:821:1: rule__QueryElement__Group__2__Impl : ( ( rule__QueryElement__QualifierAssignment_2 )? ) ;
+    // InternalQPE.g:715:1: rule__QueryElement__Group__2__Impl : ( ( rule__QueryElement__QualifierAssignment_2 )? ) ;
     public final void rule__QueryElement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:825:1: ( ( ( rule__QueryElement__QualifierAssignment_2 )? ) )
-            // InternalQPE.g:826:1: ( ( rule__QueryElement__QualifierAssignment_2 )? )
+            // InternalQPE.g:719:1: ( ( ( rule__QueryElement__QualifierAssignment_2 )? ) )
+            // InternalQPE.g:720:1: ( ( rule__QueryElement__QualifierAssignment_2 )? )
             {
-            // InternalQPE.g:826:1: ( ( rule__QueryElement__QualifierAssignment_2 )? )
-            // InternalQPE.g:827:2: ( rule__QueryElement__QualifierAssignment_2 )?
+            // InternalQPE.g:720:1: ( ( rule__QueryElement__QualifierAssignment_2 )? )
+            // InternalQPE.g:721:2: ( rule__QueryElement__QualifierAssignment_2 )?
             {
              before(grammarAccess.getQueryElementAccess().getQualifierAssignment_2()); 
-            // InternalQPE.g:828:2: ( rule__QueryElement__QualifierAssignment_2 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalQPE.g:722:2: ( rule__QueryElement__QualifierAssignment_2 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==19) ) {
-                alt7=1;
+            if ( (LA8_0==19) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalQPE.g:828:3: rule__QueryElement__QualifierAssignment_2
+                    // InternalQPE.g:722:3: rule__QueryElement__QualifierAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__QueryElement__QualifierAssignment_2();
@@ -2638,14 +2309,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__3"
-    // InternalQPE.g:836:1: rule__QueryElement__Group__3 : rule__QueryElement__Group__3__Impl ;
+    // InternalQPE.g:730:1: rule__QueryElement__Group__3 : rule__QueryElement__Group__3__Impl ;
     public final void rule__QueryElement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:840:1: ( rule__QueryElement__Group__3__Impl )
-            // InternalQPE.g:841:2: rule__QueryElement__Group__3__Impl
+            // InternalQPE.g:734:1: ( rule__QueryElement__Group__3__Impl )
+            // InternalQPE.g:735:2: rule__QueryElement__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QueryElement__Group__3__Impl();
@@ -2671,29 +2342,29 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group__3__Impl"
-    // InternalQPE.g:847:1: rule__QueryElement__Group__3__Impl : ( ( rule__QueryElement__Group_3__0 )? ) ;
+    // InternalQPE.g:741:1: rule__QueryElement__Group__3__Impl : ( ( rule__QueryElement__Group_3__0 )? ) ;
     public final void rule__QueryElement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:851:1: ( ( ( rule__QueryElement__Group_3__0 )? ) )
-            // InternalQPE.g:852:1: ( ( rule__QueryElement__Group_3__0 )? )
+            // InternalQPE.g:745:1: ( ( ( rule__QueryElement__Group_3__0 )? ) )
+            // InternalQPE.g:746:1: ( ( rule__QueryElement__Group_3__0 )? )
             {
-            // InternalQPE.g:852:1: ( ( rule__QueryElement__Group_3__0 )? )
-            // InternalQPE.g:853:2: ( rule__QueryElement__Group_3__0 )?
+            // InternalQPE.g:746:1: ( ( rule__QueryElement__Group_3__0 )? )
+            // InternalQPE.g:747:2: ( rule__QueryElement__Group_3__0 )?
             {
              before(grammarAccess.getQueryElementAccess().getGroup_3()); 
-            // InternalQPE.g:854:2: ( rule__QueryElement__Group_3__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalQPE.g:748:2: ( rule__QueryElement__Group_3__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==17) ) {
-                alt8=1;
+            if ( (LA9_0==17) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalQPE.g:854:3: rule__QueryElement__Group_3__0
+                    // InternalQPE.g:748:3: rule__QueryElement__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__QueryElement__Group_3__0();
@@ -2729,16 +2400,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_0__0"
-    // InternalQPE.g:863:1: rule__QueryElement__Group_0__0 : rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1 ;
+    // InternalQPE.g:757:1: rule__QueryElement__Group_0__0 : rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1 ;
     public final void rule__QueryElement__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:867:1: ( rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1 )
-            // InternalQPE.g:868:2: rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1
+            // InternalQPE.g:761:1: ( rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1 )
+            // InternalQPE.g:762:2: rule__QueryElement__Group_0__0__Impl rule__QueryElement__Group_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__QueryElement__Group_0__0__Impl();
 
             state._fsp--;
@@ -2767,31 +2438,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_0__0__Impl"
-    // InternalQPE.g:875:1: rule__QueryElement__Group_0__0__Impl : ( ( rule__QueryElement__QuerynamespaceAssignment_0_0 ) ) ;
+    // InternalQPE.g:769:1: rule__QueryElement__Group_0__0__Impl : ( ( rule__QueryElement__QueryNamespaceAssignment_0_0 ) ) ;
     public final void rule__QueryElement__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:879:1: ( ( ( rule__QueryElement__QuerynamespaceAssignment_0_0 ) ) )
-            // InternalQPE.g:880:1: ( ( rule__QueryElement__QuerynamespaceAssignment_0_0 ) )
+            // InternalQPE.g:773:1: ( ( ( rule__QueryElement__QueryNamespaceAssignment_0_0 ) ) )
+            // InternalQPE.g:774:1: ( ( rule__QueryElement__QueryNamespaceAssignment_0_0 ) )
             {
-            // InternalQPE.g:880:1: ( ( rule__QueryElement__QuerynamespaceAssignment_0_0 ) )
-            // InternalQPE.g:881:2: ( rule__QueryElement__QuerynamespaceAssignment_0_0 )
+            // InternalQPE.g:774:1: ( ( rule__QueryElement__QueryNamespaceAssignment_0_0 ) )
+            // InternalQPE.g:775:2: ( rule__QueryElement__QueryNamespaceAssignment_0_0 )
             {
-             before(grammarAccess.getQueryElementAccess().getQuerynamespaceAssignment_0_0()); 
-            // InternalQPE.g:882:2: ( rule__QueryElement__QuerynamespaceAssignment_0_0 )
-            // InternalQPE.g:882:3: rule__QueryElement__QuerynamespaceAssignment_0_0
+             before(grammarAccess.getQueryElementAccess().getQueryNamespaceAssignment_0_0()); 
+            // InternalQPE.g:776:2: ( rule__QueryElement__QueryNamespaceAssignment_0_0 )
+            // InternalQPE.g:776:3: rule__QueryElement__QueryNamespaceAssignment_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__QueryElement__QuerynamespaceAssignment_0_0();
+            rule__QueryElement__QueryNamespaceAssignment_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQueryElementAccess().getQuerynamespaceAssignment_0_0()); 
+             after(grammarAccess.getQueryElementAccess().getQueryNamespaceAssignment_0_0()); 
 
             }
 
@@ -2814,14 +2485,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_0__1"
-    // InternalQPE.g:890:1: rule__QueryElement__Group_0__1 : rule__QueryElement__Group_0__1__Impl ;
+    // InternalQPE.g:784:1: rule__QueryElement__Group_0__1 : rule__QueryElement__Group_0__1__Impl ;
     public final void rule__QueryElement__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:894:1: ( rule__QueryElement__Group_0__1__Impl )
-            // InternalQPE.g:895:2: rule__QueryElement__Group_0__1__Impl
+            // InternalQPE.g:788:1: ( rule__QueryElement__Group_0__1__Impl )
+            // InternalQPE.g:789:2: rule__QueryElement__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QueryElement__Group_0__1__Impl();
@@ -2847,17 +2518,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_0__1__Impl"
-    // InternalQPE.g:901:1: rule__QueryElement__Group_0__1__Impl : ( '::' ) ;
+    // InternalQPE.g:795:1: rule__QueryElement__Group_0__1__Impl : ( '::' ) ;
     public final void rule__QueryElement__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:905:1: ( ( '::' ) )
-            // InternalQPE.g:906:1: ( '::' )
+            // InternalQPE.g:799:1: ( ( '::' ) )
+            // InternalQPE.g:800:1: ( '::' )
             {
-            // InternalQPE.g:906:1: ( '::' )
-            // InternalQPE.g:907:2: '::'
+            // InternalQPE.g:800:1: ( '::' )
+            // InternalQPE.g:801:2: '::'
             {
              before(grammarAccess.getQueryElementAccess().getColonColonKeyword_0_1()); 
             match(input,18,FOLLOW_2); 
@@ -2884,14 +2555,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_3__0"
-    // InternalQPE.g:917:1: rule__QueryElement__Group_3__0 : rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1 ;
+    // InternalQPE.g:811:1: rule__QueryElement__Group_3__0 : rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1 ;
     public final void rule__QueryElement__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:921:1: ( rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1 )
-            // InternalQPE.g:922:2: rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1
+            // InternalQPE.g:815:1: ( rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1 )
+            // InternalQPE.g:816:2: rule__QueryElement__Group_3__0__Impl rule__QueryElement__Group_3__1
             {
             pushFollow(FOLLOW_6);
             rule__QueryElement__Group_3__0__Impl();
@@ -2922,17 +2593,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_3__0__Impl"
-    // InternalQPE.g:929:1: rule__QueryElement__Group_3__0__Impl : ( '/' ) ;
+    // InternalQPE.g:823:1: rule__QueryElement__Group_3__0__Impl : ( '/' ) ;
     public final void rule__QueryElement__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:933:1: ( ( '/' ) )
-            // InternalQPE.g:934:1: ( '/' )
+            // InternalQPE.g:827:1: ( ( '/' ) )
+            // InternalQPE.g:828:1: ( '/' )
             {
-            // InternalQPE.g:934:1: ( '/' )
-            // InternalQPE.g:935:2: '/'
+            // InternalQPE.g:828:1: ( '/' )
+            // InternalQPE.g:829:2: '/'
             {
              before(grammarAccess.getQueryElementAccess().getSolidusKeyword_3_0()); 
             match(input,17,FOLLOW_2); 
@@ -2959,14 +2630,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_3__1"
-    // InternalQPE.g:944:1: rule__QueryElement__Group_3__1 : rule__QueryElement__Group_3__1__Impl ;
+    // InternalQPE.g:838:1: rule__QueryElement__Group_3__1 : rule__QueryElement__Group_3__1__Impl ;
     public final void rule__QueryElement__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:948:1: ( rule__QueryElement__Group_3__1__Impl )
-            // InternalQPE.g:949:2: rule__QueryElement__Group_3__1__Impl
+            // InternalQPE.g:842:1: ( rule__QueryElement__Group_3__1__Impl )
+            // InternalQPE.g:843:2: rule__QueryElement__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QueryElement__Group_3__1__Impl();
@@ -2992,21 +2663,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__Group_3__1__Impl"
-    // InternalQPE.g:955:1: rule__QueryElement__Group_3__1__Impl : ( ( rule__QueryElement__NextAssignment_3_1 ) ) ;
+    // InternalQPE.g:849:1: rule__QueryElement__Group_3__1__Impl : ( ( rule__QueryElement__NextAssignment_3_1 ) ) ;
     public final void rule__QueryElement__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:959:1: ( ( ( rule__QueryElement__NextAssignment_3_1 ) ) )
-            // InternalQPE.g:960:1: ( ( rule__QueryElement__NextAssignment_3_1 ) )
+            // InternalQPE.g:853:1: ( ( ( rule__QueryElement__NextAssignment_3_1 ) ) )
+            // InternalQPE.g:854:1: ( ( rule__QueryElement__NextAssignment_3_1 ) )
             {
-            // InternalQPE.g:960:1: ( ( rule__QueryElement__NextAssignment_3_1 ) )
-            // InternalQPE.g:961:2: ( rule__QueryElement__NextAssignment_3_1 )
+            // InternalQPE.g:854:1: ( ( rule__QueryElement__NextAssignment_3_1 ) )
+            // InternalQPE.g:855:2: ( rule__QueryElement__NextAssignment_3_1 )
             {
              before(grammarAccess.getQueryElementAccess().getNextAssignment_3_1()); 
-            // InternalQPE.g:962:2: ( rule__QueryElement__NextAssignment_3_1 )
-            // InternalQPE.g:962:3: rule__QueryElement__NextAssignment_3_1
+            // InternalQPE.g:856:2: ( rule__QueryElement__NextAssignment_3_1 )
+            // InternalQPE.g:856:3: rule__QueryElement__NextAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__QueryElement__NextAssignment_3_1();
@@ -3039,16 +2710,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__0"
-    // InternalQPE.g:971:1: rule__Qualifier__Group__0 : rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1 ;
+    // InternalQPE.g:865:1: rule__Qualifier__Group__0 : rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1 ;
     public final void rule__Qualifier__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:975:1: ( rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1 )
-            // InternalQPE.g:976:2: rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1
+            // InternalQPE.g:869:1: ( rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1 )
+            // InternalQPE.g:870:2: rule__Qualifier__Group__0__Impl rule__Qualifier__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_9);
             rule__Qualifier__Group__0__Impl();
 
             state._fsp--;
@@ -3077,17 +2748,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__0__Impl"
-    // InternalQPE.g:983:1: rule__Qualifier__Group__0__Impl : ( '[' ) ;
+    // InternalQPE.g:877:1: rule__Qualifier__Group__0__Impl : ( '[' ) ;
     public final void rule__Qualifier__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:987:1: ( ( '[' ) )
-            // InternalQPE.g:988:1: ( '[' )
+            // InternalQPE.g:881:1: ( ( '[' ) )
+            // InternalQPE.g:882:1: ( '[' )
             {
-            // InternalQPE.g:988:1: ( '[' )
-            // InternalQPE.g:989:2: '['
+            // InternalQPE.g:882:1: ( '[' )
+            // InternalQPE.g:883:2: '['
             {
              before(grammarAccess.getQualifierAccess().getLeftSquareBracketKeyword_0()); 
             match(input,19,FOLLOW_2); 
@@ -3114,14 +2785,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__1"
-    // InternalQPE.g:998:1: rule__Qualifier__Group__1 : rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2 ;
+    // InternalQPE.g:892:1: rule__Qualifier__Group__1 : rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2 ;
     public final void rule__Qualifier__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1002:1: ( rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2 )
-            // InternalQPE.g:1003:2: rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2
+            // InternalQPE.g:896:1: ( rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2 )
+            // InternalQPE.g:897:2: rule__Qualifier__Group__1__Impl rule__Qualifier__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__Qualifier__Group__1__Impl();
@@ -3152,31 +2823,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__1__Impl"
-    // InternalQPE.g:1010:1: rule__Qualifier__Group__1__Impl : ( ( rule__Qualifier__PredicateAssignment_1 ) ) ;
+    // InternalQPE.g:904:1: rule__Qualifier__Group__1__Impl : ( ( rule__Qualifier__Alternatives_1 ) ) ;
     public final void rule__Qualifier__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1014:1: ( ( ( rule__Qualifier__PredicateAssignment_1 ) ) )
-            // InternalQPE.g:1015:1: ( ( rule__Qualifier__PredicateAssignment_1 ) )
+            // InternalQPE.g:908:1: ( ( ( rule__Qualifier__Alternatives_1 ) ) )
+            // InternalQPE.g:909:1: ( ( rule__Qualifier__Alternatives_1 ) )
             {
-            // InternalQPE.g:1015:1: ( ( rule__Qualifier__PredicateAssignment_1 ) )
-            // InternalQPE.g:1016:2: ( rule__Qualifier__PredicateAssignment_1 )
+            // InternalQPE.g:909:1: ( ( rule__Qualifier__Alternatives_1 ) )
+            // InternalQPE.g:910:2: ( rule__Qualifier__Alternatives_1 )
             {
-             before(grammarAccess.getQualifierAccess().getPredicateAssignment_1()); 
-            // InternalQPE.g:1017:2: ( rule__Qualifier__PredicateAssignment_1 )
-            // InternalQPE.g:1017:3: rule__Qualifier__PredicateAssignment_1
+             before(grammarAccess.getQualifierAccess().getAlternatives_1()); 
+            // InternalQPE.g:911:2: ( rule__Qualifier__Alternatives_1 )
+            // InternalQPE.g:911:3: rule__Qualifier__Alternatives_1
             {
             pushFollow(FOLLOW_2);
-            rule__Qualifier__PredicateAssignment_1();
+            rule__Qualifier__Alternatives_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQualifierAccess().getPredicateAssignment_1()); 
+             after(grammarAccess.getQualifierAccess().getAlternatives_1()); 
 
             }
 
@@ -3199,22 +2870,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__2"
-    // InternalQPE.g:1025:1: rule__Qualifier__Group__2 : rule__Qualifier__Group__2__Impl rule__Qualifier__Group__3 ;
+    // InternalQPE.g:919:1: rule__Qualifier__Group__2 : rule__Qualifier__Group__2__Impl ;
     public final void rule__Qualifier__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1029:1: ( rule__Qualifier__Group__2__Impl rule__Qualifier__Group__3 )
-            // InternalQPE.g:1030:2: rule__Qualifier__Group__2__Impl rule__Qualifier__Group__3
+            // InternalQPE.g:923:1: ( rule__Qualifier__Group__2__Impl )
+            // InternalQPE.g:924:2: rule__Qualifier__Group__2__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Qualifier__Group__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Qualifier__Group__3();
+            rule__Qualifier__Group__2__Impl();
 
             state._fsp--;
 
@@ -3237,49 +2903,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Qualifier__Group__2__Impl"
-    // InternalQPE.g:1037:1: rule__Qualifier__Group__2__Impl : ( ( rule__Qualifier__Group_2__0 )* ) ;
+    // InternalQPE.g:930:1: rule__Qualifier__Group__2__Impl : ( ']' ) ;
     public final void rule__Qualifier__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1041:1: ( ( ( rule__Qualifier__Group_2__0 )* ) )
-            // InternalQPE.g:1042:1: ( ( rule__Qualifier__Group_2__0 )* )
+            // InternalQPE.g:934:1: ( ( ']' ) )
+            // InternalQPE.g:935:1: ( ']' )
             {
-            // InternalQPE.g:1042:1: ( ( rule__Qualifier__Group_2__0 )* )
-            // InternalQPE.g:1043:2: ( rule__Qualifier__Group_2__0 )*
+            // InternalQPE.g:935:1: ( ']' )
+            // InternalQPE.g:936:2: ']'
             {
-             before(grammarAccess.getQualifierAccess().getGroup_2()); 
-            // InternalQPE.g:1044:2: ( rule__Qualifier__Group_2__0 )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==21) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalQPE.g:1044:3: rule__Qualifier__Group_2__0
-            	    {
-            	    pushFollow(FOLLOW_11);
-            	    rule__Qualifier__Group_2__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-             after(grammarAccess.getQualifierAccess().getGroup_2()); 
+             before(grammarAccess.getQualifierAccess().getRightSquareBracketKeyword_2()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getQualifierAccess().getRightSquareBracketKeyword_2()); 
 
             }
 
@@ -3301,93 +2939,23 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Qualifier__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Qualifier__Group__3"
-    // InternalQPE.g:1052:1: rule__Qualifier__Group__3 : rule__Qualifier__Group__3__Impl ;
-    public final void rule__Qualifier__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__Group_1_0__0"
+    // InternalQPE.g:946:1: rule__Qualifier__Group_1_0__0 : rule__Qualifier__Group_1_0__0__Impl rule__Qualifier__Group_1_0__1 ;
+    public final void rule__Qualifier__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1056:1: ( rule__Qualifier__Group__3__Impl )
-            // InternalQPE.g:1057:2: rule__Qualifier__Group__3__Impl
+            // InternalQPE.g:950:1: ( rule__Qualifier__Group_1_0__0__Impl rule__Qualifier__Group_1_0__1 )
+            // InternalQPE.g:951:2: rule__Qualifier__Group_1_0__0__Impl rule__Qualifier__Group_1_0__1
             {
-            pushFollow(FOLLOW_2);
-            rule__Qualifier__Group__3__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Qualifier__Group__3"
-
-
-    // $ANTLR start "rule__Qualifier__Group__3__Impl"
-    // InternalQPE.g:1063:1: rule__Qualifier__Group__3__Impl : ( ']' ) ;
-    public final void rule__Qualifier__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1067:1: ( ( ']' ) )
-            // InternalQPE.g:1068:1: ( ']' )
-            {
-            // InternalQPE.g:1068:1: ( ']' )
-            // InternalQPE.g:1069:2: ']'
-            {
-             before(grammarAccess.getQualifierAccess().getRightSquareBracketKeyword_3()); 
-            match(input,20,FOLLOW_2); 
-             after(grammarAccess.getQualifierAccess().getRightSquareBracketKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Qualifier__Group__3__Impl"
-
-
-    // $ANTLR start "rule__Qualifier__Group_2__0"
-    // InternalQPE.g:1079:1: rule__Qualifier__Group_2__0 : rule__Qualifier__Group_2__0__Impl rule__Qualifier__Group_2__1 ;
-    public final void rule__Qualifier__Group_2__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1083:1: ( rule__Qualifier__Group_2__0__Impl rule__Qualifier__Group_2__1 )
-            // InternalQPE.g:1084:2: rule__Qualifier__Group_2__0__Impl rule__Qualifier__Group_2__1
-            {
-            pushFollow(FOLLOW_6);
-            rule__Qualifier__Group_2__0__Impl();
+            pushFollow(FOLLOW_11);
+            rule__Qualifier__Group_1_0__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Qualifier__Group_2__1();
+            rule__Qualifier__Group_1_0__1();
 
             state._fsp--;
 
@@ -3406,25 +2974,208 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__Group_2__0"
+    // $ANTLR end "rule__Qualifier__Group_1_0__0"
 
 
-    // $ANTLR start "rule__Qualifier__Group_2__0__Impl"
-    // InternalQPE.g:1091:1: rule__Qualifier__Group_2__0__Impl : ( ',' ) ;
-    public final void rule__Qualifier__Group_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__Group_1_0__0__Impl"
+    // InternalQPE.g:958:1: rule__Qualifier__Group_1_0__0__Impl : ( ( rule__Qualifier__IndexAssignment_1_0_0 ) ) ;
+    public final void rule__Qualifier__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1095:1: ( ( ',' ) )
-            // InternalQPE.g:1096:1: ( ',' )
+            // InternalQPE.g:962:1: ( ( ( rule__Qualifier__IndexAssignment_1_0_0 ) ) )
+            // InternalQPE.g:963:1: ( ( rule__Qualifier__IndexAssignment_1_0_0 ) )
             {
-            // InternalQPE.g:1096:1: ( ',' )
-            // InternalQPE.g:1097:2: ','
+            // InternalQPE.g:963:1: ( ( rule__Qualifier__IndexAssignment_1_0_0 ) )
+            // InternalQPE.g:964:2: ( rule__Qualifier__IndexAssignment_1_0_0 )
             {
-             before(grammarAccess.getQualifierAccess().getCommaKeyword_2_0()); 
+             before(grammarAccess.getQualifierAccess().getIndexAssignment_1_0_0()); 
+            // InternalQPE.g:965:2: ( rule__Qualifier__IndexAssignment_1_0_0 )
+            // InternalQPE.g:965:3: rule__Qualifier__IndexAssignment_1_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__IndexAssignment_1_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getQualifierAccess().getIndexAssignment_1_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_0__0__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_0__1"
+    // InternalQPE.g:973:1: rule__Qualifier__Group_1_0__1 : rule__Qualifier__Group_1_0__1__Impl ;
+    public final void rule__Qualifier__Group_1_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:977:1: ( rule__Qualifier__Group_1_0__1__Impl )
+            // InternalQPE.g:978:2: rule__Qualifier__Group_1_0__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_0__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_0__1"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_0__1__Impl"
+    // InternalQPE.g:984:1: rule__Qualifier__Group_1_0__1__Impl : ( ( rule__Qualifier__Group_1_0_1__0 )* ) ;
+    public final void rule__Qualifier__Group_1_0__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:988:1: ( ( ( rule__Qualifier__Group_1_0_1__0 )* ) )
+            // InternalQPE.g:989:1: ( ( rule__Qualifier__Group_1_0_1__0 )* )
+            {
+            // InternalQPE.g:989:1: ( ( rule__Qualifier__Group_1_0_1__0 )* )
+            // InternalQPE.g:990:2: ( rule__Qualifier__Group_1_0_1__0 )*
+            {
+             before(grammarAccess.getQualifierAccess().getGroup_1_0_1()); 
+            // InternalQPE.g:991:2: ( rule__Qualifier__Group_1_0_1__0 )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( (LA10_0==21) ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // InternalQPE.g:991:3: rule__Qualifier__Group_1_0_1__0
+            	    {
+            	    pushFollow(FOLLOW_12);
+            	    rule__Qualifier__Group_1_0_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+             after(grammarAccess.getQualifierAccess().getGroup_1_0_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_0__1__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_0_1__0"
+    // InternalQPE.g:1000:1: rule__Qualifier__Group_1_0_1__0 : rule__Qualifier__Group_1_0_1__0__Impl rule__Qualifier__Group_1_0_1__1 ;
+    public final void rule__Qualifier__Group_1_0_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1004:1: ( rule__Qualifier__Group_1_0_1__0__Impl rule__Qualifier__Group_1_0_1__1 )
+            // InternalQPE.g:1005:2: rule__Qualifier__Group_1_0_1__0__Impl rule__Qualifier__Group_1_0_1__1
+            {
+            pushFollow(FOLLOW_9);
+            rule__Qualifier__Group_1_0_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_0_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_0_1__0"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_0_1__0__Impl"
+    // InternalQPE.g:1012:1: rule__Qualifier__Group_1_0_1__0__Impl : ( ',' ) ;
+    public final void rule__Qualifier__Group_1_0_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1016:1: ( ( ',' ) )
+            // InternalQPE.g:1017:1: ( ',' )
+            {
+            // InternalQPE.g:1017:1: ( ',' )
+            // InternalQPE.g:1018:2: ','
+            {
+             before(grammarAccess.getQualifierAccess().getCommaKeyword_1_0_1_0()); 
             match(input,21,FOLLOW_2); 
-             after(grammarAccess.getQualifierAccess().getCommaKeyword_2_0()); 
+             after(grammarAccess.getQualifierAccess().getCommaKeyword_1_0_1_0()); 
 
             }
 
@@ -3443,21 +3194,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__Group_2__0__Impl"
+    // $ANTLR end "rule__Qualifier__Group_1_0_1__0__Impl"
 
 
-    // $ANTLR start "rule__Qualifier__Group_2__1"
-    // InternalQPE.g:1106:1: rule__Qualifier__Group_2__1 : rule__Qualifier__Group_2__1__Impl ;
-    public final void rule__Qualifier__Group_2__1() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__Group_1_0_1__1"
+    // InternalQPE.g:1027:1: rule__Qualifier__Group_1_0_1__1 : rule__Qualifier__Group_1_0_1__1__Impl ;
+    public final void rule__Qualifier__Group_1_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1110:1: ( rule__Qualifier__Group_2__1__Impl )
-            // InternalQPE.g:1111:2: rule__Qualifier__Group_2__1__Impl
+            // InternalQPE.g:1031:1: ( rule__Qualifier__Group_1_0_1__1__Impl )
+            // InternalQPE.g:1032:2: rule__Qualifier__Group_1_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Qualifier__Group_2__1__Impl();
+            rule__Qualifier__Group_1_0_1__1__Impl();
 
             state._fsp--;
 
@@ -3476,35 +3227,35 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__Group_2__1"
+    // $ANTLR end "rule__Qualifier__Group_1_0_1__1"
 
 
-    // $ANTLR start "rule__Qualifier__Group_2__1__Impl"
-    // InternalQPE.g:1117:1: rule__Qualifier__Group_2__1__Impl : ( ( rule__Qualifier__PredicateAssignment_2_1 ) ) ;
-    public final void rule__Qualifier__Group_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__Group_1_0_1__1__Impl"
+    // InternalQPE.g:1038:1: rule__Qualifier__Group_1_0_1__1__Impl : ( ( rule__Qualifier__PredicatesAssignment_1_0_1_1 ) ) ;
+    public final void rule__Qualifier__Group_1_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1121:1: ( ( ( rule__Qualifier__PredicateAssignment_2_1 ) ) )
-            // InternalQPE.g:1122:1: ( ( rule__Qualifier__PredicateAssignment_2_1 ) )
+            // InternalQPE.g:1042:1: ( ( ( rule__Qualifier__PredicatesAssignment_1_0_1_1 ) ) )
+            // InternalQPE.g:1043:1: ( ( rule__Qualifier__PredicatesAssignment_1_0_1_1 ) )
             {
-            // InternalQPE.g:1122:1: ( ( rule__Qualifier__PredicateAssignment_2_1 ) )
-            // InternalQPE.g:1123:2: ( rule__Qualifier__PredicateAssignment_2_1 )
+            // InternalQPE.g:1043:1: ( ( rule__Qualifier__PredicatesAssignment_1_0_1_1 ) )
+            // InternalQPE.g:1044:2: ( rule__Qualifier__PredicatesAssignment_1_0_1_1 )
             {
-             before(grammarAccess.getQualifierAccess().getPredicateAssignment_2_1()); 
-            // InternalQPE.g:1124:2: ( rule__Qualifier__PredicateAssignment_2_1 )
-            // InternalQPE.g:1124:3: rule__Qualifier__PredicateAssignment_2_1
+             before(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_0_1_1()); 
+            // InternalQPE.g:1045:2: ( rule__Qualifier__PredicatesAssignment_1_0_1_1 )
+            // InternalQPE.g:1045:3: rule__Qualifier__PredicatesAssignment_1_0_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Qualifier__PredicateAssignment_2_1();
+            rule__Qualifier__PredicatesAssignment_1_0_1_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQualifierAccess().getPredicateAssignment_2_1()); 
+             after(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_0_1_1()); 
 
             }
 
@@ -3523,18 +3274,356 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__Group_2__1__Impl"
+    // $ANTLR end "rule__Qualifier__Group_1_0_1__1__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1__0"
+    // InternalQPE.g:1054:1: rule__Qualifier__Group_1_1__0 : rule__Qualifier__Group_1_1__0__Impl rule__Qualifier__Group_1_1__1 ;
+    public final void rule__Qualifier__Group_1_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1058:1: ( rule__Qualifier__Group_1_1__0__Impl rule__Qualifier__Group_1_1__1 )
+            // InternalQPE.g:1059:2: rule__Qualifier__Group_1_1__0__Impl rule__Qualifier__Group_1_1__1
+            {
+            pushFollow(FOLLOW_11);
+            rule__Qualifier__Group_1_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1__0"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1__0__Impl"
+    // InternalQPE.g:1066:1: rule__Qualifier__Group_1_1__0__Impl : ( ( rule__Qualifier__PredicatesAssignment_1_1_0 ) ) ;
+    public final void rule__Qualifier__Group_1_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1070:1: ( ( ( rule__Qualifier__PredicatesAssignment_1_1_0 ) ) )
+            // InternalQPE.g:1071:1: ( ( rule__Qualifier__PredicatesAssignment_1_1_0 ) )
+            {
+            // InternalQPE.g:1071:1: ( ( rule__Qualifier__PredicatesAssignment_1_1_0 ) )
+            // InternalQPE.g:1072:2: ( rule__Qualifier__PredicatesAssignment_1_1_0 )
+            {
+             before(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_1_0()); 
+            // InternalQPE.g:1073:2: ( rule__Qualifier__PredicatesAssignment_1_1_0 )
+            // InternalQPE.g:1073:3: rule__Qualifier__PredicatesAssignment_1_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__PredicatesAssignment_1_1_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1__0__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1__1"
+    // InternalQPE.g:1081:1: rule__Qualifier__Group_1_1__1 : rule__Qualifier__Group_1_1__1__Impl ;
+    public final void rule__Qualifier__Group_1_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1085:1: ( rule__Qualifier__Group_1_1__1__Impl )
+            // InternalQPE.g:1086:2: rule__Qualifier__Group_1_1__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_1__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1__1"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1__1__Impl"
+    // InternalQPE.g:1092:1: rule__Qualifier__Group_1_1__1__Impl : ( ( rule__Qualifier__Group_1_1_1__0 )* ) ;
+    public final void rule__Qualifier__Group_1_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1096:1: ( ( ( rule__Qualifier__Group_1_1_1__0 )* ) )
+            // InternalQPE.g:1097:1: ( ( rule__Qualifier__Group_1_1_1__0 )* )
+            {
+            // InternalQPE.g:1097:1: ( ( rule__Qualifier__Group_1_1_1__0 )* )
+            // InternalQPE.g:1098:2: ( rule__Qualifier__Group_1_1_1__0 )*
+            {
+             before(grammarAccess.getQualifierAccess().getGroup_1_1_1()); 
+            // InternalQPE.g:1099:2: ( rule__Qualifier__Group_1_1_1__0 )*
+            loop11:
+            do {
+                int alt11=2;
+                int LA11_0 = input.LA(1);
+
+                if ( (LA11_0==21) ) {
+                    alt11=1;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // InternalQPE.g:1099:3: rule__Qualifier__Group_1_1_1__0
+            	    {
+            	    pushFollow(FOLLOW_12);
+            	    rule__Qualifier__Group_1_1_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
+             after(grammarAccess.getQualifierAccess().getGroup_1_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1__1__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1_1__0"
+    // InternalQPE.g:1108:1: rule__Qualifier__Group_1_1_1__0 : rule__Qualifier__Group_1_1_1__0__Impl rule__Qualifier__Group_1_1_1__1 ;
+    public final void rule__Qualifier__Group_1_1_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1112:1: ( rule__Qualifier__Group_1_1_1__0__Impl rule__Qualifier__Group_1_1_1__1 )
+            // InternalQPE.g:1113:2: rule__Qualifier__Group_1_1_1__0__Impl rule__Qualifier__Group_1_1_1__1
+            {
+            pushFollow(FOLLOW_9);
+            rule__Qualifier__Group_1_1_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_1_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1_1__0"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1_1__0__Impl"
+    // InternalQPE.g:1120:1: rule__Qualifier__Group_1_1_1__0__Impl : ( ',' ) ;
+    public final void rule__Qualifier__Group_1_1_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1124:1: ( ( ',' ) )
+            // InternalQPE.g:1125:1: ( ',' )
+            {
+            // InternalQPE.g:1125:1: ( ',' )
+            // InternalQPE.g:1126:2: ','
+            {
+             before(grammarAccess.getQualifierAccess().getCommaKeyword_1_1_1_0()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getQualifierAccess().getCommaKeyword_1_1_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1_1__0__Impl"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1_1__1"
+    // InternalQPE.g:1135:1: rule__Qualifier__Group_1_1_1__1 : rule__Qualifier__Group_1_1_1__1__Impl ;
+    public final void rule__Qualifier__Group_1_1_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1139:1: ( rule__Qualifier__Group_1_1_1__1__Impl )
+            // InternalQPE.g:1140:2: rule__Qualifier__Group_1_1_1__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__Group_1_1_1__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1_1__1"
+
+
+    // $ANTLR start "rule__Qualifier__Group_1_1_1__1__Impl"
+    // InternalQPE.g:1146:1: rule__Qualifier__Group_1_1_1__1__Impl : ( ( rule__Qualifier__PredicatesAssignment_1_1_1_1 ) ) ;
+    public final void rule__Qualifier__Group_1_1_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1150:1: ( ( ( rule__Qualifier__PredicatesAssignment_1_1_1_1 ) ) )
+            // InternalQPE.g:1151:1: ( ( rule__Qualifier__PredicatesAssignment_1_1_1_1 ) )
+            {
+            // InternalQPE.g:1151:1: ( ( rule__Qualifier__PredicatesAssignment_1_1_1_1 ) )
+            // InternalQPE.g:1152:2: ( rule__Qualifier__PredicatesAssignment_1_1_1_1 )
+            {
+             before(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_1_1_1()); 
+            // InternalQPE.g:1153:2: ( rule__Qualifier__PredicatesAssignment_1_1_1_1 )
+            // InternalQPE.g:1153:3: rule__Qualifier__PredicatesAssignment_1_1_1_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Qualifier__PredicatesAssignment_1_1_1_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getQualifierAccess().getPredicatesAssignment_1_1_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__Group_1_1_1__1__Impl"
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group__0"
-    // InternalQPE.g:1133:1: rule__ClassifierPredicate__Group__0 : rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1 ;
+    // InternalQPE.g:1162:1: rule__ClassifierPredicate__Group__0 : rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1 ;
     public final void rule__ClassifierPredicate__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1137:1: ( rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1 )
-            // InternalQPE.g:1138:2: rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1
+            // InternalQPE.g:1166:1: ( rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1 )
+            // InternalQPE.g:1167:2: rule__ClassifierPredicate__Group__0__Impl rule__ClassifierPredicate__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__ClassifierPredicate__Group__0__Impl();
@@ -3565,33 +3654,33 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group__0__Impl"
-    // InternalQPE.g:1145:1: rule__ClassifierPredicate__Group__0__Impl : ( ( rule__ClassifierPredicate__Group_0__0 )? ) ;
+    // InternalQPE.g:1174:1: rule__ClassifierPredicate__Group__0__Impl : ( ( rule__ClassifierPredicate__Group_0__0 )? ) ;
     public final void rule__ClassifierPredicate__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1149:1: ( ( ( rule__ClassifierPredicate__Group_0__0 )? ) )
-            // InternalQPE.g:1150:1: ( ( rule__ClassifierPredicate__Group_0__0 )? )
+            // InternalQPE.g:1178:1: ( ( ( rule__ClassifierPredicate__Group_0__0 )? ) )
+            // InternalQPE.g:1179:1: ( ( rule__ClassifierPredicate__Group_0__0 )? )
             {
-            // InternalQPE.g:1150:1: ( ( rule__ClassifierPredicate__Group_0__0 )? )
-            // InternalQPE.g:1151:2: ( rule__ClassifierPredicate__Group_0__0 )?
+            // InternalQPE.g:1179:1: ( ( rule__ClassifierPredicate__Group_0__0 )? )
+            // InternalQPE.g:1180:2: ( rule__ClassifierPredicate__Group_0__0 )?
             {
              before(grammarAccess.getClassifierPredicateAccess().getGroup_0()); 
-            // InternalQPE.g:1152:2: ( rule__ClassifierPredicate__Group_0__0 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalQPE.g:1181:2: ( rule__ClassifierPredicate__Group_0__0 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_ID) ) {
-                int LA10_1 = input.LA(2);
+            if ( (LA12_0==RULE_ID) ) {
+                int LA12_1 = input.LA(2);
 
-                if ( (LA10_1==18) ) {
-                    alt10=1;
+                if ( (LA12_1==18) ) {
+                    alt12=1;
                 }
             }
-            switch (alt10) {
+            switch (alt12) {
                 case 1 :
-                    // InternalQPE.g:1152:3: rule__ClassifierPredicate__Group_0__0
+                    // InternalQPE.g:1181:3: rule__ClassifierPredicate__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ClassifierPredicate__Group_0__0();
@@ -3627,14 +3716,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group__1"
-    // InternalQPE.g:1160:1: rule__ClassifierPredicate__Group__1 : rule__ClassifierPredicate__Group__1__Impl ;
+    // InternalQPE.g:1189:1: rule__ClassifierPredicate__Group__1 : rule__ClassifierPredicate__Group__1__Impl ;
     public final void rule__ClassifierPredicate__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1164:1: ( rule__ClassifierPredicate__Group__1__Impl )
-            // InternalQPE.g:1165:2: rule__ClassifierPredicate__Group__1__Impl
+            // InternalQPE.g:1193:1: ( rule__ClassifierPredicate__Group__1__Impl )
+            // InternalQPE.g:1194:2: rule__ClassifierPredicate__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ClassifierPredicate__Group__1__Impl();
@@ -3660,21 +3749,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group__1__Impl"
-    // InternalQPE.g:1171:1: rule__ClassifierPredicate__Group__1__Impl : ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) ) ;
+    // InternalQPE.g:1200:1: rule__ClassifierPredicate__Group__1__Impl : ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) ) ;
     public final void rule__ClassifierPredicate__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1175:1: ( ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) ) )
-            // InternalQPE.g:1176:1: ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) )
+            // InternalQPE.g:1204:1: ( ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) ) )
+            // InternalQPE.g:1205:1: ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) )
             {
-            // InternalQPE.g:1176:1: ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) )
-            // InternalQPE.g:1177:2: ( rule__ClassifierPredicate__ClassifierAssignment_1 )
+            // InternalQPE.g:1205:1: ( ( rule__ClassifierPredicate__ClassifierAssignment_1 ) )
+            // InternalQPE.g:1206:2: ( rule__ClassifierPredicate__ClassifierAssignment_1 )
             {
              before(grammarAccess.getClassifierPredicateAccess().getClassifierAssignment_1()); 
-            // InternalQPE.g:1178:2: ( rule__ClassifierPredicate__ClassifierAssignment_1 )
-            // InternalQPE.g:1178:3: rule__ClassifierPredicate__ClassifierAssignment_1
+            // InternalQPE.g:1207:2: ( rule__ClassifierPredicate__ClassifierAssignment_1 )
+            // InternalQPE.g:1207:3: rule__ClassifierPredicate__ClassifierAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ClassifierPredicate__ClassifierAssignment_1();
@@ -3707,16 +3796,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group_0__0"
-    // InternalQPE.g:1187:1: rule__ClassifierPredicate__Group_0__0 : rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1 ;
+    // InternalQPE.g:1216:1: rule__ClassifierPredicate__Group_0__0 : rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1 ;
     public final void rule__ClassifierPredicate__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1191:1: ( rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1 )
-            // InternalQPE.g:1192:2: rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1
+            // InternalQPE.g:1220:1: ( rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1 )
+            // InternalQPE.g:1221:2: rule__ClassifierPredicate__Group_0__0__Impl rule__ClassifierPredicate__Group_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__ClassifierPredicate__Group_0__0__Impl();
 
             state._fsp--;
@@ -3745,31 +3834,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group_0__0__Impl"
-    // InternalQPE.g:1199:1: rule__ClassifierPredicate__Group_0__0__Impl : ( ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 ) ) ;
+    // InternalQPE.g:1228:1: rule__ClassifierPredicate__Group_0__0__Impl : ( ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 ) ) ;
     public final void rule__ClassifierPredicate__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1203:1: ( ( ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 ) ) )
-            // InternalQPE.g:1204:1: ( ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1232:1: ( ( ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 ) ) )
+            // InternalQPE.g:1233:1: ( ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 ) )
             {
-            // InternalQPE.g:1204:1: ( ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 ) )
-            // InternalQPE.g:1205:2: ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 )
+            // InternalQPE.g:1233:1: ( ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1234:2: ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 )
             {
-             before(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceAssignment_0_0()); 
-            // InternalQPE.g:1206:2: ( rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 )
-            // InternalQPE.g:1206:3: rule__ClassifierPredicate__QuerynamespaceAssignment_0_0
+             before(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceAssignment_0_0()); 
+            // InternalQPE.g:1235:2: ( rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 )
+            // InternalQPE.g:1235:3: rule__ClassifierPredicate__QueryNamespaceAssignment_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__ClassifierPredicate__QuerynamespaceAssignment_0_0();
+            rule__ClassifierPredicate__QueryNamespaceAssignment_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceAssignment_0_0()); 
+             after(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceAssignment_0_0()); 
 
             }
 
@@ -3792,14 +3881,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group_0__1"
-    // InternalQPE.g:1214:1: rule__ClassifierPredicate__Group_0__1 : rule__ClassifierPredicate__Group_0__1__Impl ;
+    // InternalQPE.g:1243:1: rule__ClassifierPredicate__Group_0__1 : rule__ClassifierPredicate__Group_0__1__Impl ;
     public final void rule__ClassifierPredicate__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1218:1: ( rule__ClassifierPredicate__Group_0__1__Impl )
-            // InternalQPE.g:1219:2: rule__ClassifierPredicate__Group_0__1__Impl
+            // InternalQPE.g:1247:1: ( rule__ClassifierPredicate__Group_0__1__Impl )
+            // InternalQPE.g:1248:2: rule__ClassifierPredicate__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ClassifierPredicate__Group_0__1__Impl();
@@ -3825,17 +3914,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClassifierPredicate__Group_0__1__Impl"
-    // InternalQPE.g:1225:1: rule__ClassifierPredicate__Group_0__1__Impl : ( '::' ) ;
+    // InternalQPE.g:1254:1: rule__ClassifierPredicate__Group_0__1__Impl : ( '::' ) ;
     public final void rule__ClassifierPredicate__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1229:1: ( ( '::' ) )
-            // InternalQPE.g:1230:1: ( '::' )
+            // InternalQPE.g:1258:1: ( ( '::' ) )
+            // InternalQPE.g:1259:1: ( '::' )
             {
-            // InternalQPE.g:1230:1: ( '::' )
-            // InternalQPE.g:1231:2: '::'
+            // InternalQPE.g:1259:1: ( '::' )
+            // InternalQPE.g:1260:2: '::'
             {
              before(grammarAccess.getClassifierPredicateAccess().getColonColonKeyword_0_1()); 
             match(input,18,FOLLOW_2); 
@@ -3862,14 +3951,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__0"
-    // InternalQPE.g:1241:1: rule__AttributePredicate__Group__0 : rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1 ;
+    // InternalQPE.g:1270:1: rule__AttributePredicate__Group__0 : rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1 ;
     public final void rule__AttributePredicate__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1245:1: ( rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1 )
-            // InternalQPE.g:1246:2: rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1
+            // InternalQPE.g:1274:1: ( rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1 )
+            // InternalQPE.g:1275:2: rule__AttributePredicate__Group__0__Impl rule__AttributePredicate__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__AttributePredicate__Group__0__Impl();
@@ -3900,33 +3989,33 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__0__Impl"
-    // InternalQPE.g:1253:1: rule__AttributePredicate__Group__0__Impl : ( ( rule__AttributePredicate__Group_0__0 )? ) ;
+    // InternalQPE.g:1282:1: rule__AttributePredicate__Group__0__Impl : ( ( rule__AttributePredicate__Group_0__0 )? ) ;
     public final void rule__AttributePredicate__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1257:1: ( ( ( rule__AttributePredicate__Group_0__0 )? ) )
-            // InternalQPE.g:1258:1: ( ( rule__AttributePredicate__Group_0__0 )? )
+            // InternalQPE.g:1286:1: ( ( ( rule__AttributePredicate__Group_0__0 )? ) )
+            // InternalQPE.g:1287:1: ( ( rule__AttributePredicate__Group_0__0 )? )
             {
-            // InternalQPE.g:1258:1: ( ( rule__AttributePredicate__Group_0__0 )? )
-            // InternalQPE.g:1259:2: ( rule__AttributePredicate__Group_0__0 )?
+            // InternalQPE.g:1287:1: ( ( rule__AttributePredicate__Group_0__0 )? )
+            // InternalQPE.g:1288:2: ( rule__AttributePredicate__Group_0__0 )?
             {
              before(grammarAccess.getAttributePredicateAccess().getGroup_0()); 
-            // InternalQPE.g:1260:2: ( rule__AttributePredicate__Group_0__0 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalQPE.g:1289:2: ( rule__AttributePredicate__Group_0__0 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_ID) ) {
-                int LA11_1 = input.LA(2);
+            if ( (LA13_0==RULE_ID) ) {
+                int LA13_1 = input.LA(2);
 
-                if ( (LA11_1==18) ) {
-                    alt11=1;
+                if ( (LA13_1==18) ) {
+                    alt13=1;
                 }
             }
-            switch (alt11) {
+            switch (alt13) {
                 case 1 :
-                    // InternalQPE.g:1260:3: rule__AttributePredicate__Group_0__0
+                    // InternalQPE.g:1289:3: rule__AttributePredicate__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__AttributePredicate__Group_0__0();
@@ -3962,16 +4051,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__1"
-    // InternalQPE.g:1268:1: rule__AttributePredicate__Group__1 : rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2 ;
+    // InternalQPE.g:1297:1: rule__AttributePredicate__Group__1 : rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2 ;
     public final void rule__AttributePredicate__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1272:1: ( rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2 )
-            // InternalQPE.g:1273:2: rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2
+            // InternalQPE.g:1301:1: ( rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2 )
+            // InternalQPE.g:1302:2: rule__AttributePredicate__Group__1__Impl rule__AttributePredicate__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__AttributePredicate__Group__1__Impl();
 
             state._fsp--;
@@ -4000,21 +4089,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__1__Impl"
-    // InternalQPE.g:1280:1: rule__AttributePredicate__Group__1__Impl : ( ( rule__AttributePredicate__AttributeAssignment_1 ) ) ;
+    // InternalQPE.g:1309:1: rule__AttributePredicate__Group__1__Impl : ( ( rule__AttributePredicate__AttributeAssignment_1 ) ) ;
     public final void rule__AttributePredicate__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1284:1: ( ( ( rule__AttributePredicate__AttributeAssignment_1 ) ) )
-            // InternalQPE.g:1285:1: ( ( rule__AttributePredicate__AttributeAssignment_1 ) )
+            // InternalQPE.g:1313:1: ( ( ( rule__AttributePredicate__AttributeAssignment_1 ) ) )
+            // InternalQPE.g:1314:1: ( ( rule__AttributePredicate__AttributeAssignment_1 ) )
             {
-            // InternalQPE.g:1285:1: ( ( rule__AttributePredicate__AttributeAssignment_1 ) )
-            // InternalQPE.g:1286:2: ( rule__AttributePredicate__AttributeAssignment_1 )
+            // InternalQPE.g:1314:1: ( ( rule__AttributePredicate__AttributeAssignment_1 ) )
+            // InternalQPE.g:1315:2: ( rule__AttributePredicate__AttributeAssignment_1 )
             {
              before(grammarAccess.getAttributePredicateAccess().getAttributeAssignment_1()); 
-            // InternalQPE.g:1287:2: ( rule__AttributePredicate__AttributeAssignment_1 )
-            // InternalQPE.g:1287:3: rule__AttributePredicate__AttributeAssignment_1
+            // InternalQPE.g:1316:2: ( rule__AttributePredicate__AttributeAssignment_1 )
+            // InternalQPE.g:1316:3: rule__AttributePredicate__AttributeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__AttributePredicate__AttributeAssignment_1();
@@ -4047,16 +4136,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__2"
-    // InternalQPE.g:1295:1: rule__AttributePredicate__Group__2 : rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3 ;
+    // InternalQPE.g:1324:1: rule__AttributePredicate__Group__2 : rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3 ;
     public final void rule__AttributePredicate__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1299:1: ( rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3 )
-            // InternalQPE.g:1300:2: rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3
+            // InternalQPE.g:1328:1: ( rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3 )
+            // InternalQPE.g:1329:2: rule__AttributePredicate__Group__2__Impl rule__AttributePredicate__Group__3
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__AttributePredicate__Group__2__Impl();
 
             state._fsp--;
@@ -4085,17 +4174,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__2__Impl"
-    // InternalQPE.g:1307:1: rule__AttributePredicate__Group__2__Impl : ( '=' ) ;
+    // InternalQPE.g:1336:1: rule__AttributePredicate__Group__2__Impl : ( '=' ) ;
     public final void rule__AttributePredicate__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1311:1: ( ( '=' ) )
-            // InternalQPE.g:1312:1: ( '=' )
+            // InternalQPE.g:1340:1: ( ( '=' ) )
+            // InternalQPE.g:1341:1: ( '=' )
             {
-            // InternalQPE.g:1312:1: ( '=' )
-            // InternalQPE.g:1313:2: '='
+            // InternalQPE.g:1341:1: ( '=' )
+            // InternalQPE.g:1342:2: '='
             {
              before(grammarAccess.getAttributePredicateAccess().getEqualsSignKeyword_2()); 
             match(input,22,FOLLOW_2); 
@@ -4122,14 +4211,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__3"
-    // InternalQPE.g:1322:1: rule__AttributePredicate__Group__3 : rule__AttributePredicate__Group__3__Impl ;
+    // InternalQPE.g:1351:1: rule__AttributePredicate__Group__3 : rule__AttributePredicate__Group__3__Impl ;
     public final void rule__AttributePredicate__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1326:1: ( rule__AttributePredicate__Group__3__Impl )
-            // InternalQPE.g:1327:2: rule__AttributePredicate__Group__3__Impl
+            // InternalQPE.g:1355:1: ( rule__AttributePredicate__Group__3__Impl )
+            // InternalQPE.g:1356:2: rule__AttributePredicate__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AttributePredicate__Group__3__Impl();
@@ -4155,21 +4244,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group__3__Impl"
-    // InternalQPE.g:1333:1: rule__AttributePredicate__Group__3__Impl : ( ( rule__AttributePredicate__ValueAssignment_3 ) ) ;
+    // InternalQPE.g:1362:1: rule__AttributePredicate__Group__3__Impl : ( ( rule__AttributePredicate__ValueAssignment_3 ) ) ;
     public final void rule__AttributePredicate__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1337:1: ( ( ( rule__AttributePredicate__ValueAssignment_3 ) ) )
-            // InternalQPE.g:1338:1: ( ( rule__AttributePredicate__ValueAssignment_3 ) )
+            // InternalQPE.g:1366:1: ( ( ( rule__AttributePredicate__ValueAssignment_3 ) ) )
+            // InternalQPE.g:1367:1: ( ( rule__AttributePredicate__ValueAssignment_3 ) )
             {
-            // InternalQPE.g:1338:1: ( ( rule__AttributePredicate__ValueAssignment_3 ) )
-            // InternalQPE.g:1339:2: ( rule__AttributePredicate__ValueAssignment_3 )
+            // InternalQPE.g:1367:1: ( ( rule__AttributePredicate__ValueAssignment_3 ) )
+            // InternalQPE.g:1368:2: ( rule__AttributePredicate__ValueAssignment_3 )
             {
              before(grammarAccess.getAttributePredicateAccess().getValueAssignment_3()); 
-            // InternalQPE.g:1340:2: ( rule__AttributePredicate__ValueAssignment_3 )
-            // InternalQPE.g:1340:3: rule__AttributePredicate__ValueAssignment_3
+            // InternalQPE.g:1369:2: ( rule__AttributePredicate__ValueAssignment_3 )
+            // InternalQPE.g:1369:3: rule__AttributePredicate__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__AttributePredicate__ValueAssignment_3();
@@ -4202,16 +4291,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group_0__0"
-    // InternalQPE.g:1349:1: rule__AttributePredicate__Group_0__0 : rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1 ;
+    // InternalQPE.g:1378:1: rule__AttributePredicate__Group_0__0 : rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1 ;
     public final void rule__AttributePredicate__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1353:1: ( rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1 )
-            // InternalQPE.g:1354:2: rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1
+            // InternalQPE.g:1382:1: ( rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1 )
+            // InternalQPE.g:1383:2: rule__AttributePredicate__Group_0__0__Impl rule__AttributePredicate__Group_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__AttributePredicate__Group_0__0__Impl();
 
             state._fsp--;
@@ -4240,31 +4329,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group_0__0__Impl"
-    // InternalQPE.g:1361:1: rule__AttributePredicate__Group_0__0__Impl : ( ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 ) ) ;
+    // InternalQPE.g:1390:1: rule__AttributePredicate__Group_0__0__Impl : ( ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 ) ) ;
     public final void rule__AttributePredicate__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1365:1: ( ( ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 ) ) )
-            // InternalQPE.g:1366:1: ( ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1394:1: ( ( ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 ) ) )
+            // InternalQPE.g:1395:1: ( ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 ) )
             {
-            // InternalQPE.g:1366:1: ( ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 ) )
-            // InternalQPE.g:1367:2: ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 )
+            // InternalQPE.g:1395:1: ( ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1396:2: ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 )
             {
-             before(grammarAccess.getAttributePredicateAccess().getQuerynamespaceAssignment_0_0()); 
-            // InternalQPE.g:1368:2: ( rule__AttributePredicate__QuerynamespaceAssignment_0_0 )
-            // InternalQPE.g:1368:3: rule__AttributePredicate__QuerynamespaceAssignment_0_0
+             before(grammarAccess.getAttributePredicateAccess().getQueryNamespaceAssignment_0_0()); 
+            // InternalQPE.g:1397:2: ( rule__AttributePredicate__QueryNamespaceAssignment_0_0 )
+            // InternalQPE.g:1397:3: rule__AttributePredicate__QueryNamespaceAssignment_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__AttributePredicate__QuerynamespaceAssignment_0_0();
+            rule__AttributePredicate__QueryNamespaceAssignment_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAttributePredicateAccess().getQuerynamespaceAssignment_0_0()); 
+             after(grammarAccess.getAttributePredicateAccess().getQueryNamespaceAssignment_0_0()); 
 
             }
 
@@ -4287,14 +4376,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group_0__1"
-    // InternalQPE.g:1376:1: rule__AttributePredicate__Group_0__1 : rule__AttributePredicate__Group_0__1__Impl ;
+    // InternalQPE.g:1405:1: rule__AttributePredicate__Group_0__1 : rule__AttributePredicate__Group_0__1__Impl ;
     public final void rule__AttributePredicate__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1380:1: ( rule__AttributePredicate__Group_0__1__Impl )
-            // InternalQPE.g:1381:2: rule__AttributePredicate__Group_0__1__Impl
+            // InternalQPE.g:1409:1: ( rule__AttributePredicate__Group_0__1__Impl )
+            // InternalQPE.g:1410:2: rule__AttributePredicate__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AttributePredicate__Group_0__1__Impl();
@@ -4320,17 +4409,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__Group_0__1__Impl"
-    // InternalQPE.g:1387:1: rule__AttributePredicate__Group_0__1__Impl : ( '::' ) ;
+    // InternalQPE.g:1416:1: rule__AttributePredicate__Group_0__1__Impl : ( '::' ) ;
     public final void rule__AttributePredicate__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1391:1: ( ( '::' ) )
-            // InternalQPE.g:1392:1: ( '::' )
+            // InternalQPE.g:1420:1: ( ( '::' ) )
+            // InternalQPE.g:1421:1: ( '::' )
             {
-            // InternalQPE.g:1392:1: ( '::' )
-            // InternalQPE.g:1393:2: '::'
+            // InternalQPE.g:1421:1: ( '::' )
+            // InternalQPE.g:1422:2: '::'
             {
              before(grammarAccess.getAttributePredicateAccess().getColonColonKeyword_0_1()); 
             match(input,18,FOLLOW_2); 
@@ -4357,16 +4446,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__0"
-    // InternalQPE.g:1403:1: rule__ReferencePredicate__Group__0 : rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1 ;
+    // InternalQPE.g:1432:1: rule__ReferencePredicate__Group__0 : rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1 ;
     public final void rule__ReferencePredicate__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1407:1: ( rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1 )
-            // InternalQPE.g:1408:2: rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1
+            // InternalQPE.g:1436:1: ( rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1 )
+            // InternalQPE.g:1437:2: rule__ReferencePredicate__Group__0__Impl rule__ReferencePredicate__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_9);
             rule__ReferencePredicate__Group__0__Impl();
 
             state._fsp--;
@@ -4395,33 +4484,33 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__0__Impl"
-    // InternalQPE.g:1415:1: rule__ReferencePredicate__Group__0__Impl : ( ( rule__ReferencePredicate__Group_0__0 )? ) ;
+    // InternalQPE.g:1444:1: rule__ReferencePredicate__Group__0__Impl : ( ( rule__ReferencePredicate__Group_0__0 )? ) ;
     public final void rule__ReferencePredicate__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1419:1: ( ( ( rule__ReferencePredicate__Group_0__0 )? ) )
-            // InternalQPE.g:1420:1: ( ( rule__ReferencePredicate__Group_0__0 )? )
+            // InternalQPE.g:1448:1: ( ( ( rule__ReferencePredicate__Group_0__0 )? ) )
+            // InternalQPE.g:1449:1: ( ( rule__ReferencePredicate__Group_0__0 )? )
             {
-            // InternalQPE.g:1420:1: ( ( rule__ReferencePredicate__Group_0__0 )? )
-            // InternalQPE.g:1421:2: ( rule__ReferencePredicate__Group_0__0 )?
+            // InternalQPE.g:1449:1: ( ( rule__ReferencePredicate__Group_0__0 )? )
+            // InternalQPE.g:1450:2: ( rule__ReferencePredicate__Group_0__0 )?
             {
              before(grammarAccess.getReferencePredicateAccess().getGroup_0()); 
-            // InternalQPE.g:1422:2: ( rule__ReferencePredicate__Group_0__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalQPE.g:1451:2: ( rule__ReferencePredicate__Group_0__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_ID) ) {
-                int LA12_1 = input.LA(2);
+            if ( (LA14_0==RULE_ID) ) {
+                int LA14_1 = input.LA(2);
 
-                if ( (LA12_1==18) ) {
-                    alt12=1;
+                if ( (LA14_1==18) ) {
+                    alt14=1;
                 }
             }
-            switch (alt12) {
+            switch (alt14) {
                 case 1 :
-                    // InternalQPE.g:1422:3: rule__ReferencePredicate__Group_0__0
+                    // InternalQPE.g:1451:3: rule__ReferencePredicate__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ReferencePredicate__Group_0__0();
@@ -4457,16 +4546,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__1"
-    // InternalQPE.g:1430:1: rule__ReferencePredicate__Group__1 : rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2 ;
+    // InternalQPE.g:1459:1: rule__ReferencePredicate__Group__1 : rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2 ;
     public final void rule__ReferencePredicate__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1434:1: ( rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2 )
-            // InternalQPE.g:1435:2: rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2
+            // InternalQPE.g:1463:1: ( rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2 )
+            // InternalQPE.g:1464:2: rule__ReferencePredicate__Group__1__Impl rule__ReferencePredicate__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__ReferencePredicate__Group__1__Impl();
 
             state._fsp--;
@@ -4495,21 +4584,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__1__Impl"
-    // InternalQPE.g:1442:1: rule__ReferencePredicate__Group__1__Impl : ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) ) ;
+    // InternalQPE.g:1471:1: rule__ReferencePredicate__Group__1__Impl : ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) ) ;
     public final void rule__ReferencePredicate__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1446:1: ( ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) ) )
-            // InternalQPE.g:1447:1: ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) )
+            // InternalQPE.g:1475:1: ( ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) ) )
+            // InternalQPE.g:1476:1: ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) )
             {
-            // InternalQPE.g:1447:1: ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) )
-            // InternalQPE.g:1448:2: ( rule__ReferencePredicate__ReferenceAssignment_1 )
+            // InternalQPE.g:1476:1: ( ( rule__ReferencePredicate__ReferenceAssignment_1 ) )
+            // InternalQPE.g:1477:2: ( rule__ReferencePredicate__ReferenceAssignment_1 )
             {
              before(grammarAccess.getReferencePredicateAccess().getReferenceAssignment_1()); 
-            // InternalQPE.g:1449:2: ( rule__ReferencePredicate__ReferenceAssignment_1 )
-            // InternalQPE.g:1449:3: rule__ReferencePredicate__ReferenceAssignment_1
+            // InternalQPE.g:1478:2: ( rule__ReferencePredicate__ReferenceAssignment_1 )
+            // InternalQPE.g:1478:3: rule__ReferencePredicate__ReferenceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ReferencePredicate__ReferenceAssignment_1();
@@ -4542,14 +4631,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__2"
-    // InternalQPE.g:1457:1: rule__ReferencePredicate__Group__2 : rule__ReferencePredicate__Group__2__Impl ;
+    // InternalQPE.g:1486:1: rule__ReferencePredicate__Group__2 : rule__ReferencePredicate__Group__2__Impl ;
     public final void rule__ReferencePredicate__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1461:1: ( rule__ReferencePredicate__Group__2__Impl )
-            // InternalQPE.g:1462:2: rule__ReferencePredicate__Group__2__Impl
+            // InternalQPE.g:1490:1: ( rule__ReferencePredicate__Group__2__Impl )
+            // InternalQPE.g:1491:2: rule__ReferencePredicate__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReferencePredicate__Group__2__Impl();
@@ -4575,21 +4664,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group__2__Impl"
-    // InternalQPE.g:1468:1: rule__ReferencePredicate__Group__2__Impl : ( ( rule__ReferencePredicate__QualifierAssignment_2 ) ) ;
+    // InternalQPE.g:1497:1: rule__ReferencePredicate__Group__2__Impl : ( ( rule__ReferencePredicate__QualifierAssignment_2 ) ) ;
     public final void rule__ReferencePredicate__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1472:1: ( ( ( rule__ReferencePredicate__QualifierAssignment_2 ) ) )
-            // InternalQPE.g:1473:1: ( ( rule__ReferencePredicate__QualifierAssignment_2 ) )
+            // InternalQPE.g:1501:1: ( ( ( rule__ReferencePredicate__QualifierAssignment_2 ) ) )
+            // InternalQPE.g:1502:1: ( ( rule__ReferencePredicate__QualifierAssignment_2 ) )
             {
-            // InternalQPE.g:1473:1: ( ( rule__ReferencePredicate__QualifierAssignment_2 ) )
-            // InternalQPE.g:1474:2: ( rule__ReferencePredicate__QualifierAssignment_2 )
+            // InternalQPE.g:1502:1: ( ( rule__ReferencePredicate__QualifierAssignment_2 ) )
+            // InternalQPE.g:1503:2: ( rule__ReferencePredicate__QualifierAssignment_2 )
             {
              before(grammarAccess.getReferencePredicateAccess().getQualifierAssignment_2()); 
-            // InternalQPE.g:1475:2: ( rule__ReferencePredicate__QualifierAssignment_2 )
-            // InternalQPE.g:1475:3: rule__ReferencePredicate__QualifierAssignment_2
+            // InternalQPE.g:1504:2: ( rule__ReferencePredicate__QualifierAssignment_2 )
+            // InternalQPE.g:1504:3: rule__ReferencePredicate__QualifierAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ReferencePredicate__QualifierAssignment_2();
@@ -4622,16 +4711,16 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group_0__0"
-    // InternalQPE.g:1484:1: rule__ReferencePredicate__Group_0__0 : rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1 ;
+    // InternalQPE.g:1513:1: rule__ReferencePredicate__Group_0__0 : rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1 ;
     public final void rule__ReferencePredicate__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1488:1: ( rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1 )
-            // InternalQPE.g:1489:2: rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1
+            // InternalQPE.g:1517:1: ( rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1 )
+            // InternalQPE.g:1518:2: rule__ReferencePredicate__Group_0__0__Impl rule__ReferencePredicate__Group_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             rule__ReferencePredicate__Group_0__0__Impl();
 
             state._fsp--;
@@ -4660,31 +4749,31 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group_0__0__Impl"
-    // InternalQPE.g:1496:1: rule__ReferencePredicate__Group_0__0__Impl : ( ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 ) ) ;
+    // InternalQPE.g:1525:1: rule__ReferencePredicate__Group_0__0__Impl : ( ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 ) ) ;
     public final void rule__ReferencePredicate__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1500:1: ( ( ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 ) ) )
-            // InternalQPE.g:1501:1: ( ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1529:1: ( ( ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 ) ) )
+            // InternalQPE.g:1530:1: ( ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 ) )
             {
-            // InternalQPE.g:1501:1: ( ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 ) )
-            // InternalQPE.g:1502:2: ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 )
+            // InternalQPE.g:1530:1: ( ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 ) )
+            // InternalQPE.g:1531:2: ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 )
             {
-             before(grammarAccess.getReferencePredicateAccess().getQuerynamespaceAssignment_0_0()); 
-            // InternalQPE.g:1503:2: ( rule__ReferencePredicate__QuerynamespaceAssignment_0_0 )
-            // InternalQPE.g:1503:3: rule__ReferencePredicate__QuerynamespaceAssignment_0_0
+             before(grammarAccess.getReferencePredicateAccess().getQueryNamespaceAssignment_0_0()); 
+            // InternalQPE.g:1532:2: ( rule__ReferencePredicate__QueryNamespaceAssignment_0_0 )
+            // InternalQPE.g:1532:3: rule__ReferencePredicate__QueryNamespaceAssignment_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__ReferencePredicate__QuerynamespaceAssignment_0_0();
+            rule__ReferencePredicate__QueryNamespaceAssignment_0_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getReferencePredicateAccess().getQuerynamespaceAssignment_0_0()); 
+             after(grammarAccess.getReferencePredicateAccess().getQueryNamespaceAssignment_0_0()); 
 
             }
 
@@ -4707,14 +4796,14 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group_0__1"
-    // InternalQPE.g:1511:1: rule__ReferencePredicate__Group_0__1 : rule__ReferencePredicate__Group_0__1__Impl ;
+    // InternalQPE.g:1540:1: rule__ReferencePredicate__Group_0__1 : rule__ReferencePredicate__Group_0__1__Impl ;
     public final void rule__ReferencePredicate__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1515:1: ( rule__ReferencePredicate__Group_0__1__Impl )
-            // InternalQPE.g:1516:2: rule__ReferencePredicate__Group_0__1__Impl
+            // InternalQPE.g:1544:1: ( rule__ReferencePredicate__Group_0__1__Impl )
+            // InternalQPE.g:1545:2: rule__ReferencePredicate__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReferencePredicate__Group_0__1__Impl();
@@ -4740,17 +4829,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__Group_0__1__Impl"
-    // InternalQPE.g:1522:1: rule__ReferencePredicate__Group_0__1__Impl : ( '::' ) ;
+    // InternalQPE.g:1551:1: rule__ReferencePredicate__Group_0__1__Impl : ( '::' ) ;
     public final void rule__ReferencePredicate__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1526:1: ( ( '::' ) )
-            // InternalQPE.g:1527:1: ( '::' )
+            // InternalQPE.g:1555:1: ( ( '::' ) )
+            // InternalQPE.g:1556:1: ( '::' )
             {
-            // InternalQPE.g:1527:1: ( '::' )
-            // InternalQPE.g:1528:2: '::'
+            // InternalQPE.g:1556:1: ( '::' )
+            // InternalQPE.g:1557:2: '::'
             {
              before(grammarAccess.getReferencePredicateAccess().getColonColonKeyword_0_1()); 
             match(input,18,FOLLOW_2); 
@@ -4776,401 +4865,26 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ReferencePredicate__Group_0__1__Impl"
 
 
-    // $ANTLR start "rule__LONG__Group__0"
-    // InternalQPE.g:1538:1: rule__LONG__Group__0 : rule__LONG__Group__0__Impl rule__LONG__Group__1 ;
-    public final void rule__LONG__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__QPE__QueryNamespacesAssignment_0"
+    // InternalQPE.g:1567:1: rule__QPE__QueryNamespacesAssignment_0 : ( ruleQueryNamespace ) ;
+    public final void rule__QPE__QueryNamespacesAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1542:1: ( rule__LONG__Group__0__Impl rule__LONG__Group__1 )
-            // InternalQPE.g:1543:2: rule__LONG__Group__0__Impl rule__LONG__Group__1
+            // InternalQPE.g:1571:1: ( ( ruleQueryNamespace ) )
+            // InternalQPE.g:1572:2: ( ruleQueryNamespace )
             {
-            pushFollow(FOLLOW_15);
-            rule__LONG__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__LONG__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LONG__Group__0"
-
-
-    // $ANTLR start "rule__LONG__Group__0__Impl"
-    // InternalQPE.g:1550:1: rule__LONG__Group__0__Impl : ( RULE_INT ) ;
-    public final void rule__LONG__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1554:1: ( ( RULE_INT ) )
-            // InternalQPE.g:1555:1: ( RULE_INT )
+            // InternalQPE.g:1572:2: ( ruleQueryNamespace )
+            // InternalQPE.g:1573:3: ruleQueryNamespace
             {
-            // InternalQPE.g:1555:1: ( RULE_INT )
-            // InternalQPE.g:1556:2: RULE_INT
-            {
-             before(grammarAccess.getLONGAccess().getINTTerminalRuleCall_0()); 
-            match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getLONGAccess().getINTTerminalRuleCall_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LONG__Group__0__Impl"
-
-
-    // $ANTLR start "rule__LONG__Group__1"
-    // InternalQPE.g:1565:1: rule__LONG__Group__1 : rule__LONG__Group__1__Impl ;
-    public final void rule__LONG__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1569:1: ( rule__LONG__Group__1__Impl )
-            // InternalQPE.g:1570:2: rule__LONG__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__LONG__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LONG__Group__1"
-
-
-    // $ANTLR start "rule__LONG__Group__1__Impl"
-    // InternalQPE.g:1576:1: rule__LONG__Group__1__Impl : ( ( rule__LONG__Alternatives_1 ) ) ;
-    public final void rule__LONG__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1580:1: ( ( ( rule__LONG__Alternatives_1 ) ) )
-            // InternalQPE.g:1581:1: ( ( rule__LONG__Alternatives_1 ) )
-            {
-            // InternalQPE.g:1581:1: ( ( rule__LONG__Alternatives_1 ) )
-            // InternalQPE.g:1582:2: ( rule__LONG__Alternatives_1 )
-            {
-             before(grammarAccess.getLONGAccess().getAlternatives_1()); 
-            // InternalQPE.g:1583:2: ( rule__LONG__Alternatives_1 )
-            // InternalQPE.g:1583:3: rule__LONG__Alternatives_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__LONG__Alternatives_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getLONGAccess().getAlternatives_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LONG__Group__1__Impl"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__0"
-    // InternalQPE.g:1592:1: rule__DOUBLE__Group__0 : rule__DOUBLE__Group__0__Impl rule__DOUBLE__Group__1 ;
-    public final void rule__DOUBLE__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1596:1: ( rule__DOUBLE__Group__0__Impl rule__DOUBLE__Group__1 )
-            // InternalQPE.g:1597:2: rule__DOUBLE__Group__0__Impl rule__DOUBLE__Group__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__DOUBLE__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__DOUBLE__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__0"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__0__Impl"
-    // InternalQPE.g:1604:1: rule__DOUBLE__Group__0__Impl : ( RULE_INT ) ;
-    public final void rule__DOUBLE__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1608:1: ( ( RULE_INT ) )
-            // InternalQPE.g:1609:1: ( RULE_INT )
-            {
-            // InternalQPE.g:1609:1: ( RULE_INT )
-            // InternalQPE.g:1610:2: RULE_INT
-            {
-             before(grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_0()); 
-            match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__0__Impl"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__1"
-    // InternalQPE.g:1619:1: rule__DOUBLE__Group__1 : rule__DOUBLE__Group__1__Impl rule__DOUBLE__Group__2 ;
-    public final void rule__DOUBLE__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1623:1: ( rule__DOUBLE__Group__1__Impl rule__DOUBLE__Group__2 )
-            // InternalQPE.g:1624:2: rule__DOUBLE__Group__1__Impl rule__DOUBLE__Group__2
-            {
-            pushFollow(FOLLOW_16);
-            rule__DOUBLE__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__DOUBLE__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__1"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__1__Impl"
-    // InternalQPE.g:1631:1: rule__DOUBLE__Group__1__Impl : ( '.' ) ;
-    public final void rule__DOUBLE__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1635:1: ( ( '.' ) )
-            // InternalQPE.g:1636:1: ( '.' )
-            {
-            // InternalQPE.g:1636:1: ( '.' )
-            // InternalQPE.g:1637:2: '.'
-            {
-             before(grammarAccess.getDOUBLEAccess().getFullStopKeyword_1()); 
-            match(input,23,FOLLOW_2); 
-             after(grammarAccess.getDOUBLEAccess().getFullStopKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__1__Impl"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__2"
-    // InternalQPE.g:1646:1: rule__DOUBLE__Group__2 : rule__DOUBLE__Group__2__Impl ;
-    public final void rule__DOUBLE__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1650:1: ( rule__DOUBLE__Group__2__Impl )
-            // InternalQPE.g:1651:2: rule__DOUBLE__Group__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__DOUBLE__Group__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__2"
-
-
-    // $ANTLR start "rule__DOUBLE__Group__2__Impl"
-    // InternalQPE.g:1657:1: rule__DOUBLE__Group__2__Impl : ( RULE_INT ) ;
-    public final void rule__DOUBLE__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1661:1: ( ( RULE_INT ) )
-            // InternalQPE.g:1662:1: ( RULE_INT )
-            {
-            // InternalQPE.g:1662:1: ( RULE_INT )
-            // InternalQPE.g:1663:2: RULE_INT
-            {
-             before(grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_2()); 
-            match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__DOUBLE__Group__2__Impl"
-
-
-    // $ANTLR start "rule__QPE__QuerynamespacesAssignment_0"
-    // InternalQPE.g:1673:1: rule__QPE__QuerynamespacesAssignment_0 : ( ruleQueryNamespace ) ;
-    public final void rule__QPE__QuerynamespacesAssignment_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalQPE.g:1677:1: ( ( ruleQueryNamespace ) )
-            // InternalQPE.g:1678:2: ( ruleQueryNamespace )
-            {
-            // InternalQPE.g:1678:2: ( ruleQueryNamespace )
-            // InternalQPE.g:1679:3: ruleQueryNamespace
-            {
-             before(grammarAccess.getQPEAccess().getQuerynamespacesQueryNamespaceParserRuleCall_0_0()); 
+             before(grammarAccess.getQPEAccess().getQueryNamespacesQueryNamespaceParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleQueryNamespace();
 
             state._fsp--;
 
-             after(grammarAccess.getQPEAccess().getQuerynamespacesQueryNamespaceParserRuleCall_0_0()); 
+             after(grammarAccess.getQPEAccess().getQueryNamespacesQueryNamespaceParserRuleCall_0_0()); 
 
             }
 
@@ -5189,29 +4903,29 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QPE__QuerynamespacesAssignment_0"
+    // $ANTLR end "rule__QPE__QueryNamespacesAssignment_0"
 
 
-    // $ANTLR start "rule__QPE__PathexpressionsAssignment_1"
-    // InternalQPE.g:1688:1: rule__QPE__PathexpressionsAssignment_1 : ( rulePathExpression ) ;
-    public final void rule__QPE__PathexpressionsAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__QPE__PathExpressionsAssignment_1"
+    // InternalQPE.g:1582:1: rule__QPE__PathExpressionsAssignment_1 : ( rulePathExpression ) ;
+    public final void rule__QPE__PathExpressionsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1692:1: ( ( rulePathExpression ) )
-            // InternalQPE.g:1693:2: ( rulePathExpression )
+            // InternalQPE.g:1586:1: ( ( rulePathExpression ) )
+            // InternalQPE.g:1587:2: ( rulePathExpression )
             {
-            // InternalQPE.g:1693:2: ( rulePathExpression )
-            // InternalQPE.g:1694:3: rulePathExpression
+            // InternalQPE.g:1587:2: ( rulePathExpression )
+            // InternalQPE.g:1588:3: rulePathExpression
             {
-             before(grammarAccess.getQPEAccess().getPathexpressionsPathExpressionParserRuleCall_1_0()); 
+             before(grammarAccess.getQPEAccess().getPathExpressionsPathExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             rulePathExpression();
 
             state._fsp--;
 
-             after(grammarAccess.getQPEAccess().getPathexpressionsPathExpressionParserRuleCall_1_0()); 
+             after(grammarAccess.getQPEAccess().getPathExpressionsPathExpressionParserRuleCall_1_0()); 
 
             }
 
@@ -5230,21 +4944,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QPE__PathexpressionsAssignment_1"
+    // $ANTLR end "rule__QPE__PathExpressionsAssignment_1"
 
 
     // $ANTLR start "rule__QueryNamespace__IRIAssignment_1"
-    // InternalQPE.g:1703:1: rule__QueryNamespace__IRIAssignment_1 : ( RULE_STRING ) ;
+    // InternalQPE.g:1597:1: rule__QueryNamespace__IRIAssignment_1 : ( RULE_STRING ) ;
     public final void rule__QueryNamespace__IRIAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1707:1: ( ( RULE_STRING ) )
-            // InternalQPE.g:1708:2: ( RULE_STRING )
+            // InternalQPE.g:1601:1: ( ( RULE_STRING ) )
+            // InternalQPE.g:1602:2: ( RULE_STRING )
             {
-            // InternalQPE.g:1708:2: ( RULE_STRING )
-            // InternalQPE.g:1709:3: RULE_STRING
+            // InternalQPE.g:1602:2: ( RULE_STRING )
+            // InternalQPE.g:1603:3: RULE_STRING
             {
              before(grammarAccess.getQueryNamespaceAccess().getIRISTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -5271,17 +4985,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryNamespace__PrefixAssignment_2_1"
-    // InternalQPE.g:1718:1: rule__QueryNamespace__PrefixAssignment_2_1 : ( RULE_ID ) ;
+    // InternalQPE.g:1612:1: rule__QueryNamespace__PrefixAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__QueryNamespace__PrefixAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1722:1: ( ( RULE_ID ) )
-            // InternalQPE.g:1723:2: ( RULE_ID )
+            // InternalQPE.g:1616:1: ( ( RULE_ID ) )
+            // InternalQPE.g:1617:2: ( RULE_ID )
             {
-            // InternalQPE.g:1723:2: ( RULE_ID )
-            // InternalQPE.g:1724:3: RULE_ID
+            // InternalQPE.g:1617:2: ( RULE_ID )
+            // InternalQPE.g:1618:3: RULE_ID
             {
              before(grammarAccess.getQueryNamespaceAccess().getPrefixIDTerminalRuleCall_2_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5307,30 +5021,30 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__QueryNamespace__PrefixAssignment_2_1"
 
 
-    // $ANTLR start "rule__PathExpression__IsRelativeAssignment_0"
-    // InternalQPE.g:1733:1: rule__PathExpression__IsRelativeAssignment_0 : ( ( '.' ) ) ;
-    public final void rule__PathExpression__IsRelativeAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__PathExpression__IsRelativeAssignment_1"
+    // InternalQPE.g:1627:1: rule__PathExpression__IsRelativeAssignment_1 : ( ( '.' ) ) ;
+    public final void rule__PathExpression__IsRelativeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1737:1: ( ( ( '.' ) ) )
-            // InternalQPE.g:1738:2: ( ( '.' ) )
+            // InternalQPE.g:1631:1: ( ( ( '.' ) ) )
+            // InternalQPE.g:1632:2: ( ( '.' ) )
             {
-            // InternalQPE.g:1738:2: ( ( '.' ) )
-            // InternalQPE.g:1739:3: ( '.' )
+            // InternalQPE.g:1632:2: ( ( '.' ) )
+            // InternalQPE.g:1633:3: ( '.' )
             {
-             before(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_0_0()); 
-            // InternalQPE.g:1740:3: ( '.' )
-            // InternalQPE.g:1741:4: '.'
+             before(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_1_0()); 
+            // InternalQPE.g:1634:3: ( '.' )
+            // InternalQPE.g:1635:4: '.'
             {
-             before(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_0_0()); 
+             before(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_1_0()); 
             match(input,23,FOLLOW_2); 
-             after(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_0_0()); 
+             after(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_1_0()); 
 
             }
 
-             after(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_0_0()); 
+             after(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_1_0()); 
 
             }
 
@@ -5349,29 +5063,70 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PathExpression__IsRelativeAssignment_0"
+    // $ANTLR end "rule__PathExpression__IsRelativeAssignment_1"
 
 
-    // $ANTLR start "rule__PathExpression__HeadAssignment_2"
-    // InternalQPE.g:1752:1: rule__PathExpression__HeadAssignment_2 : ( ruleQueryElement ) ;
-    public final void rule__PathExpression__HeadAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__PathExpression__QualifierAssignment_2"
+    // InternalQPE.g:1646:1: rule__PathExpression__QualifierAssignment_2 : ( ruleQualifier ) ;
+    public final void rule__PathExpression__QualifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1756:1: ( ( ruleQueryElement ) )
-            // InternalQPE.g:1757:2: ( ruleQueryElement )
+            // InternalQPE.g:1650:1: ( ( ruleQualifier ) )
+            // InternalQPE.g:1651:2: ( ruleQualifier )
             {
-            // InternalQPE.g:1757:2: ( ruleQueryElement )
-            // InternalQPE.g:1758:3: ruleQueryElement
+            // InternalQPE.g:1651:2: ( ruleQualifier )
+            // InternalQPE.g:1652:3: ruleQualifier
             {
-             before(grammarAccess.getPathExpressionAccess().getHeadQueryElementParserRuleCall_2_0()); 
+             before(grammarAccess.getPathExpressionAccess().getQualifierQualifierParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleQualifier();
+
+            state._fsp--;
+
+             after(grammarAccess.getPathExpressionAccess().getQualifierQualifierParserRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PathExpression__QualifierAssignment_2"
+
+
+    // $ANTLR start "rule__PathExpression__HeadAssignment_4"
+    // InternalQPE.g:1661:1: rule__PathExpression__HeadAssignment_4 : ( ruleQueryElement ) ;
+    public final void rule__PathExpression__HeadAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1665:1: ( ( ruleQueryElement ) )
+            // InternalQPE.g:1666:2: ( ruleQueryElement )
+            {
+            // InternalQPE.g:1666:2: ( ruleQueryElement )
+            // InternalQPE.g:1667:3: ruleQueryElement
+            {
+             before(grammarAccess.getPathExpressionAccess().getHeadQueryElementParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
             ruleQueryElement();
 
             state._fsp--;
 
-             after(grammarAccess.getPathExpressionAccess().getHeadQueryElementParserRuleCall_2_0()); 
+             after(grammarAccess.getPathExpressionAccess().getHeadQueryElementParserRuleCall_4_0()); 
 
             }
 
@@ -5390,33 +5145,33 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PathExpression__HeadAssignment_2"
+    // $ANTLR end "rule__PathExpression__HeadAssignment_4"
 
 
-    // $ANTLR start "rule__QueryElement__QuerynamespaceAssignment_0_0"
-    // InternalQPE.g:1767:1: rule__QueryElement__QuerynamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
-    public final void rule__QueryElement__QuerynamespaceAssignment_0_0() throws RecognitionException {
+    // $ANTLR start "rule__QueryElement__QueryNamespaceAssignment_0_0"
+    // InternalQPE.g:1676:1: rule__QueryElement__QueryNamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
+    public final void rule__QueryElement__QueryNamespaceAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1771:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1772:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1680:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1681:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1772:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1773:3: ( RULE_ID )
+            // InternalQPE.g:1681:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1682:3: ( RULE_ID )
             {
-             before(grammarAccess.getQueryElementAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
-            // InternalQPE.g:1774:3: ( RULE_ID )
-            // InternalQPE.g:1775:4: RULE_ID
+             before(grammarAccess.getQueryElementAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
+            // InternalQPE.g:1683:3: ( RULE_ID )
+            // InternalQPE.g:1684:4: RULE_ID
             {
-             before(grammarAccess.getQueryElementAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             before(grammarAccess.getQueryElementAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getQueryElementAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             after(grammarAccess.getQueryElementAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
 
             }
 
-             after(grammarAccess.getQueryElementAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
+             after(grammarAccess.getQueryElementAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
 
             }
 
@@ -5435,25 +5190,25 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__QueryElement__QuerynamespaceAssignment_0_0"
+    // $ANTLR end "rule__QueryElement__QueryNamespaceAssignment_0_0"
 
 
     // $ANTLR start "rule__QueryElement__FeatureAssignment_1"
-    // InternalQPE.g:1786:1: rule__QueryElement__FeatureAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalQPE.g:1695:1: rule__QueryElement__FeatureAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__QueryElement__FeatureAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1790:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1791:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1699:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1700:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1791:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1792:3: ( RULE_ID )
+            // InternalQPE.g:1700:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1701:3: ( RULE_ID )
             {
              before(grammarAccess.getQueryElementAccess().getFeatureEStructuralFeatureCrossReference_1_0()); 
-            // InternalQPE.g:1793:3: ( RULE_ID )
-            // InternalQPE.g:1794:4: RULE_ID
+            // InternalQPE.g:1702:3: ( RULE_ID )
+            // InternalQPE.g:1703:4: RULE_ID
             {
              before(grammarAccess.getQueryElementAccess().getFeatureEStructuralFeatureIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5484,17 +5239,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__QualifierAssignment_2"
-    // InternalQPE.g:1805:1: rule__QueryElement__QualifierAssignment_2 : ( ruleQualifier ) ;
+    // InternalQPE.g:1714:1: rule__QueryElement__QualifierAssignment_2 : ( ruleQualifier ) ;
     public final void rule__QueryElement__QualifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1809:1: ( ( ruleQualifier ) )
-            // InternalQPE.g:1810:2: ( ruleQualifier )
+            // InternalQPE.g:1718:1: ( ( ruleQualifier ) )
+            // InternalQPE.g:1719:2: ( ruleQualifier )
             {
-            // InternalQPE.g:1810:2: ( ruleQualifier )
-            // InternalQPE.g:1811:3: ruleQualifier
+            // InternalQPE.g:1719:2: ( ruleQualifier )
+            // InternalQPE.g:1720:3: ruleQualifier
             {
              before(grammarAccess.getQueryElementAccess().getQualifierQualifierParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5525,17 +5280,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QueryElement__NextAssignment_3_1"
-    // InternalQPE.g:1820:1: rule__QueryElement__NextAssignment_3_1 : ( ruleQueryElement ) ;
+    // InternalQPE.g:1729:1: rule__QueryElement__NextAssignment_3_1 : ( ruleQueryElement ) ;
     public final void rule__QueryElement__NextAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1824:1: ( ( ruleQueryElement ) )
-            // InternalQPE.g:1825:2: ( ruleQueryElement )
+            // InternalQPE.g:1733:1: ( ( ruleQueryElement ) )
+            // InternalQPE.g:1734:2: ( ruleQueryElement )
             {
-            // InternalQPE.g:1825:2: ( ruleQueryElement )
-            // InternalQPE.g:1826:3: ruleQueryElement
+            // InternalQPE.g:1734:2: ( ruleQueryElement )
+            // InternalQPE.g:1735:3: ruleQueryElement
             {
              before(grammarAccess.getQueryElementAccess().getNextQueryElementParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5565,26 +5320,22 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__QueryElement__NextAssignment_3_1"
 
 
-    // $ANTLR start "rule__Qualifier__PredicateAssignment_1"
-    // InternalQPE.g:1835:1: rule__Qualifier__PredicateAssignment_1 : ( rulePredicate ) ;
-    public final void rule__Qualifier__PredicateAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__IndexAssignment_1_0_0"
+    // InternalQPE.g:1744:1: rule__Qualifier__IndexAssignment_1_0_0 : ( RULE_INT ) ;
+    public final void rule__Qualifier__IndexAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1839:1: ( ( rulePredicate ) )
-            // InternalQPE.g:1840:2: ( rulePredicate )
+            // InternalQPE.g:1748:1: ( ( RULE_INT ) )
+            // InternalQPE.g:1749:2: ( RULE_INT )
             {
-            // InternalQPE.g:1840:2: ( rulePredicate )
-            // InternalQPE.g:1841:3: rulePredicate
+            // InternalQPE.g:1749:2: ( RULE_INT )
+            // InternalQPE.g:1750:3: RULE_INT
             {
-             before(grammarAccess.getQualifierAccess().getPredicatePredicateParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            rulePredicate();
-
-            state._fsp--;
-
-             after(grammarAccess.getQualifierAccess().getPredicatePredicateParserRuleCall_1_0()); 
+             before(grammarAccess.getQualifierAccess().getIndexINTTerminalRuleCall_1_0_0_0()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getQualifierAccess().getIndexINTTerminalRuleCall_1_0_0_0()); 
 
             }
 
@@ -5603,29 +5354,29 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__PredicateAssignment_1"
+    // $ANTLR end "rule__Qualifier__IndexAssignment_1_0_0"
 
 
-    // $ANTLR start "rule__Qualifier__PredicateAssignment_2_1"
-    // InternalQPE.g:1850:1: rule__Qualifier__PredicateAssignment_2_1 : ( rulePredicate ) ;
-    public final void rule__Qualifier__PredicateAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__PredicatesAssignment_1_0_1_1"
+    // InternalQPE.g:1759:1: rule__Qualifier__PredicatesAssignment_1_0_1_1 : ( rulePredicate ) ;
+    public final void rule__Qualifier__PredicatesAssignment_1_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1854:1: ( ( rulePredicate ) )
-            // InternalQPE.g:1855:2: ( rulePredicate )
+            // InternalQPE.g:1763:1: ( ( rulePredicate ) )
+            // InternalQPE.g:1764:2: ( rulePredicate )
             {
-            // InternalQPE.g:1855:2: ( rulePredicate )
-            // InternalQPE.g:1856:3: rulePredicate
+            // InternalQPE.g:1764:2: ( rulePredicate )
+            // InternalQPE.g:1765:3: rulePredicate
             {
-             before(grammarAccess.getQualifierAccess().getPredicatePredicateParserRuleCall_2_1_0()); 
+             before(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_0_1_1_0()); 
             pushFollow(FOLLOW_2);
             rulePredicate();
 
             state._fsp--;
 
-             after(grammarAccess.getQualifierAccess().getPredicatePredicateParserRuleCall_2_1_0()); 
+             after(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_0_1_1_0()); 
 
             }
 
@@ -5644,33 +5395,115 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Qualifier__PredicateAssignment_2_1"
+    // $ANTLR end "rule__Qualifier__PredicatesAssignment_1_0_1_1"
 
 
-    // $ANTLR start "rule__ClassifierPredicate__QuerynamespaceAssignment_0_0"
-    // InternalQPE.g:1865:1: rule__ClassifierPredicate__QuerynamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
-    public final void rule__ClassifierPredicate__QuerynamespaceAssignment_0_0() throws RecognitionException {
+    // $ANTLR start "rule__Qualifier__PredicatesAssignment_1_1_0"
+    // InternalQPE.g:1774:1: rule__Qualifier__PredicatesAssignment_1_1_0 : ( rulePredicate ) ;
+    public final void rule__Qualifier__PredicatesAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1869:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1870:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1778:1: ( ( rulePredicate ) )
+            // InternalQPE.g:1779:2: ( rulePredicate )
             {
-            // InternalQPE.g:1870:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1871:3: ( RULE_ID )
+            // InternalQPE.g:1779:2: ( rulePredicate )
+            // InternalQPE.g:1780:3: rulePredicate
             {
-             before(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
-            // InternalQPE.g:1872:3: ( RULE_ID )
-            // InternalQPE.g:1873:4: RULE_ID
+             before(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_1_0_0()); 
+            pushFollow(FOLLOW_2);
+            rulePredicate();
+
+            state._fsp--;
+
+             after(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_1_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__PredicatesAssignment_1_1_0"
+
+
+    // $ANTLR start "rule__Qualifier__PredicatesAssignment_1_1_1_1"
+    // InternalQPE.g:1789:1: rule__Qualifier__PredicatesAssignment_1_1_1_1 : ( rulePredicate ) ;
+    public final void rule__Qualifier__PredicatesAssignment_1_1_1_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1793:1: ( ( rulePredicate ) )
+            // InternalQPE.g:1794:2: ( rulePredicate )
             {
-             before(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+            // InternalQPE.g:1794:2: ( rulePredicate )
+            // InternalQPE.g:1795:3: rulePredicate
+            {
+             before(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_1_1_1_0()); 
+            pushFollow(FOLLOW_2);
+            rulePredicate();
+
+            state._fsp--;
+
+             after(grammarAccess.getQualifierAccess().getPredicatesPredicateParserRuleCall_1_1_1_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Qualifier__PredicatesAssignment_1_1_1_1"
+
+
+    // $ANTLR start "rule__ClassifierPredicate__QueryNamespaceAssignment_0_0"
+    // InternalQPE.g:1804:1: rule__ClassifierPredicate__QueryNamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
+    public final void rule__ClassifierPredicate__QueryNamespaceAssignment_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalQPE.g:1808:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1809:2: ( ( RULE_ID ) )
+            {
+            // InternalQPE.g:1809:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1810:3: ( RULE_ID )
+            {
+             before(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
+            // InternalQPE.g:1811:3: ( RULE_ID )
+            // InternalQPE.g:1812:4: RULE_ID
+            {
+             before(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             after(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
 
             }
 
-             after(grammarAccess.getClassifierPredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
+             after(grammarAccess.getClassifierPredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
 
             }
 
@@ -5689,25 +5522,25 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClassifierPredicate__QuerynamespaceAssignment_0_0"
+    // $ANTLR end "rule__ClassifierPredicate__QueryNamespaceAssignment_0_0"
 
 
     // $ANTLR start "rule__ClassifierPredicate__ClassifierAssignment_1"
-    // InternalQPE.g:1884:1: rule__ClassifierPredicate__ClassifierAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalQPE.g:1823:1: rule__ClassifierPredicate__ClassifierAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__ClassifierPredicate__ClassifierAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1888:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1889:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1827:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1828:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1889:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1890:3: ( RULE_ID )
+            // InternalQPE.g:1828:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1829:3: ( RULE_ID )
             {
              before(grammarAccess.getClassifierPredicateAccess().getClassifierEClassifierCrossReference_1_0()); 
-            // InternalQPE.g:1891:3: ( RULE_ID )
-            // InternalQPE.g:1892:4: RULE_ID
+            // InternalQPE.g:1830:3: ( RULE_ID )
+            // InternalQPE.g:1831:4: RULE_ID
             {
              before(grammarAccess.getClassifierPredicateAccess().getClassifierEClassifierIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5737,30 +5570,30 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ClassifierPredicate__ClassifierAssignment_1"
 
 
-    // $ANTLR start "rule__AttributePredicate__QuerynamespaceAssignment_0_0"
-    // InternalQPE.g:1903:1: rule__AttributePredicate__QuerynamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
-    public final void rule__AttributePredicate__QuerynamespaceAssignment_0_0() throws RecognitionException {
+    // $ANTLR start "rule__AttributePredicate__QueryNamespaceAssignment_0_0"
+    // InternalQPE.g:1842:1: rule__AttributePredicate__QueryNamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
+    public final void rule__AttributePredicate__QueryNamespaceAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1907:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1908:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1846:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1847:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1908:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1909:3: ( RULE_ID )
+            // InternalQPE.g:1847:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1848:3: ( RULE_ID )
             {
-             before(grammarAccess.getAttributePredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
-            // InternalQPE.g:1910:3: ( RULE_ID )
-            // InternalQPE.g:1911:4: RULE_ID
+             before(grammarAccess.getAttributePredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
+            // InternalQPE.g:1849:3: ( RULE_ID )
+            // InternalQPE.g:1850:4: RULE_ID
             {
-             before(grammarAccess.getAttributePredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             before(grammarAccess.getAttributePredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getAttributePredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             after(grammarAccess.getAttributePredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
 
             }
 
-             after(grammarAccess.getAttributePredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
+             after(grammarAccess.getAttributePredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
 
             }
 
@@ -5779,25 +5612,25 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__AttributePredicate__QuerynamespaceAssignment_0_0"
+    // $ANTLR end "rule__AttributePredicate__QueryNamespaceAssignment_0_0"
 
 
     // $ANTLR start "rule__AttributePredicate__AttributeAssignment_1"
-    // InternalQPE.g:1922:1: rule__AttributePredicate__AttributeAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalQPE.g:1861:1: rule__AttributePredicate__AttributeAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__AttributePredicate__AttributeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1926:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1927:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1865:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1866:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1927:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1928:3: ( RULE_ID )
+            // InternalQPE.g:1866:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1867:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributePredicateAccess().getAttributeEAttributeCrossReference_1_0()); 
-            // InternalQPE.g:1929:3: ( RULE_ID )
-            // InternalQPE.g:1930:4: RULE_ID
+            // InternalQPE.g:1868:3: ( RULE_ID )
+            // InternalQPE.g:1869:4: RULE_ID
             {
              before(grammarAccess.getAttributePredicateAccess().getAttributeEAttributeIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5828,25 +5661,21 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributePredicate__ValueAssignment_3"
-    // InternalQPE.g:1941:1: rule__AttributePredicate__ValueAssignment_3 : ( ruleVALUE ) ;
+    // InternalQPE.g:1880:1: rule__AttributePredicate__ValueAssignment_3 : ( RULE_VALUE ) ;
     public final void rule__AttributePredicate__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1945:1: ( ( ruleVALUE ) )
-            // InternalQPE.g:1946:2: ( ruleVALUE )
+            // InternalQPE.g:1884:1: ( ( RULE_VALUE ) )
+            // InternalQPE.g:1885:2: ( RULE_VALUE )
             {
-            // InternalQPE.g:1946:2: ( ruleVALUE )
-            // InternalQPE.g:1947:3: ruleVALUE
+            // InternalQPE.g:1885:2: ( RULE_VALUE )
+            // InternalQPE.g:1886:3: RULE_VALUE
             {
-             before(grammarAccess.getAttributePredicateAccess().getValueVALUEParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_2);
-            ruleVALUE();
-
-            state._fsp--;
-
-             after(grammarAccess.getAttributePredicateAccess().getValueVALUEParserRuleCall_3_0()); 
+             before(grammarAccess.getAttributePredicateAccess().getValueVALUETerminalRuleCall_3_0()); 
+            match(input,RULE_VALUE,FOLLOW_2); 
+             after(grammarAccess.getAttributePredicateAccess().getValueVALUETerminalRuleCall_3_0()); 
 
             }
 
@@ -5868,30 +5697,30 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__AttributePredicate__ValueAssignment_3"
 
 
-    // $ANTLR start "rule__ReferencePredicate__QuerynamespaceAssignment_0_0"
-    // InternalQPE.g:1956:1: rule__ReferencePredicate__QuerynamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
-    public final void rule__ReferencePredicate__QuerynamespaceAssignment_0_0() throws RecognitionException {
+    // $ANTLR start "rule__ReferencePredicate__QueryNamespaceAssignment_0_0"
+    // InternalQPE.g:1895:1: rule__ReferencePredicate__QueryNamespaceAssignment_0_0 : ( ( RULE_ID ) ) ;
+    public final void rule__ReferencePredicate__QueryNamespaceAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1960:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1961:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1899:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1900:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1961:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1962:3: ( RULE_ID )
+            // InternalQPE.g:1900:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1901:3: ( RULE_ID )
             {
-             before(grammarAccess.getReferencePredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
-            // InternalQPE.g:1963:3: ( RULE_ID )
-            // InternalQPE.g:1964:4: RULE_ID
+             before(grammarAccess.getReferencePredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
+            // InternalQPE.g:1902:3: ( RULE_ID )
+            // InternalQPE.g:1903:4: RULE_ID
             {
-             before(grammarAccess.getReferencePredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             before(grammarAccess.getReferencePredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getReferencePredicateAccess().getQuerynamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
+             after(grammarAccess.getReferencePredicateAccess().getQueryNamespaceQueryNamespaceIDTerminalRuleCall_0_0_0_1()); 
 
             }
 
-             after(grammarAccess.getReferencePredicateAccess().getQuerynamespaceQueryNamespaceCrossReference_0_0_0()); 
+             after(grammarAccess.getReferencePredicateAccess().getQueryNamespaceQueryNamespaceCrossReference_0_0_0()); 
 
             }
 
@@ -5910,25 +5739,25 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ReferencePredicate__QuerynamespaceAssignment_0_0"
+    // $ANTLR end "rule__ReferencePredicate__QueryNamespaceAssignment_0_0"
 
 
     // $ANTLR start "rule__ReferencePredicate__ReferenceAssignment_1"
-    // InternalQPE.g:1975:1: rule__ReferencePredicate__ReferenceAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalQPE.g:1914:1: rule__ReferencePredicate__ReferenceAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__ReferencePredicate__ReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1979:1: ( ( ( RULE_ID ) ) )
-            // InternalQPE.g:1980:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1918:1: ( ( ( RULE_ID ) ) )
+            // InternalQPE.g:1919:2: ( ( RULE_ID ) )
             {
-            // InternalQPE.g:1980:2: ( ( RULE_ID ) )
-            // InternalQPE.g:1981:3: ( RULE_ID )
+            // InternalQPE.g:1919:2: ( ( RULE_ID ) )
+            // InternalQPE.g:1920:3: ( RULE_ID )
             {
              before(grammarAccess.getReferencePredicateAccess().getReferenceEReferenceCrossReference_1_0()); 
-            // InternalQPE.g:1982:3: ( RULE_ID )
-            // InternalQPE.g:1983:4: RULE_ID
+            // InternalQPE.g:1921:3: ( RULE_ID )
+            // InternalQPE.g:1922:4: RULE_ID
             {
              before(grammarAccess.getReferencePredicateAccess().getReferenceEReferenceIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5959,17 +5788,17 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ReferencePredicate__QualifierAssignment_2"
-    // InternalQPE.g:1994:1: rule__ReferencePredicate__QualifierAssignment_2 : ( ruleQualifier ) ;
+    // InternalQPE.g:1933:1: rule__ReferencePredicate__QualifierAssignment_2 : ( ruleQualifier ) ;
     public final void rule__ReferencePredicate__QualifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalQPE.g:1998:1: ( ( ruleQualifier ) )
-            // InternalQPE.g:1999:2: ( ruleQualifier )
+            // InternalQPE.g:1937:1: ( ( ruleQualifier ) )
+            // InternalQPE.g:1938:2: ( ruleQualifier )
             {
-            // InternalQPE.g:1999:2: ( ruleQualifier )
-            // InternalQPE.g:2000:3: ruleQualifier
+            // InternalQPE.g:1938:2: ( ruleQualifier )
+            // InternalQPE.g:1939:3: ruleQualifier
             {
              before(grammarAccess.getReferencePredicateAccess().getQualifierQualifierParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6005,19 +5834,18 @@ public class InternalQPEParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000008A0000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000000A0000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000006030L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000000A0000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000060L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000080000L});
 
 }

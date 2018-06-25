@@ -32,7 +32,7 @@ import org.omg.qpe.model.Qualifier;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.impl.QualifierImpl#getPredicate <em>Predicate</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.QualifierImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link org.omg.qpe.model.impl.QualifierImpl#getIndex <em>Index</em>}</li>
  * </ul>
  *
@@ -40,14 +40,14 @@ import org.omg.qpe.model.Qualifier;
  */
 public class QualifierImpl extends EObjectImpl implements Qualifier {
 	/**
-	 * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference list.
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPredicate()
+	 * @see #getPredicates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Predicate> predicate;
+	protected EList<Predicate> predicates;
 
 	/**
 	 * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
@@ -93,11 +93,11 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Predicate> getPredicate() {
-		if (predicate == null) {
-			predicate = new EObjectContainmentEList<Predicate>(Predicate.class, this, ModelPackage.QUALIFIER__PREDICATE);
+	public EList<Predicate> getPredicates() {
+		if (predicates == null) {
+			predicates = new EObjectContainmentEList<Predicate>(Predicate.class, this, ModelPackage.QUALIFIER__PREDICATES);
 		}
-		return predicate;
+		return predicates;
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	 */
 	public EClassifier getEType() {
 		EClassifier c = null;
-		for (Predicate p : getPredicate()) {
+		for (Predicate p : getPredicates()) {
 			if (p instanceof ClassifierPredicate) {
 				ClassifierPredicate cp = (ClassifierPredicate) p;
 				EClassifier ec = cp.getClassifier();
@@ -159,8 +159,8 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.QUALIFIER__PREDICATE:
-				return ((InternalEList<?>)getPredicate()).basicRemove(otherEnd, msgs);
+			case ModelPackage.QUALIFIER__PREDICATES:
+				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,8 +173,8 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.QUALIFIER__PREDICATE:
-				return getPredicate();
+			case ModelPackage.QUALIFIER__PREDICATES:
+				return getPredicates();
 			case ModelPackage.QUALIFIER__INDEX:
 				return getIndex();
 		}
@@ -190,9 +190,9 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.QUALIFIER__PREDICATE:
-				getPredicate().clear();
-				getPredicate().addAll((Collection<? extends Predicate>)newValue);
+			case ModelPackage.QUALIFIER__PREDICATES:
+				getPredicates().clear();
+				getPredicates().addAll((Collection<? extends Predicate>)newValue);
 				return;
 			case ModelPackage.QUALIFIER__INDEX:
 				setIndex((Integer)newValue);
@@ -209,8 +209,8 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QUALIFIER__PREDICATE:
-				getPredicate().clear();
+			case ModelPackage.QUALIFIER__PREDICATES:
+				getPredicates().clear();
 				return;
 			case ModelPackage.QUALIFIER__INDEX:
 				setIndex(INDEX_EDEFAULT);
@@ -227,8 +227,8 @@ public class QualifierImpl extends EObjectImpl implements Qualifier {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QUALIFIER__PREDICATE:
-				return predicate != null && !predicate.isEmpty();
+			case ModelPackage.QUALIFIER__PREDICATES:
+				return predicates != null && !predicates.isEmpty();
 			case ModelPackage.QUALIFIER__INDEX:
 				return index != INDEX_EDEFAULT;
 		}

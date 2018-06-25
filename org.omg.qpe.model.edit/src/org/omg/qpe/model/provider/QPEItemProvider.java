@@ -77,8 +77,8 @@ public class QPEItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.QPE__PATHEXPRESSIONS);
-			childrenFeatures.add(ModelPackage.Literals.QPE__QUERYNAMESPACES);
+			childrenFeatures.add(ModelPackage.Literals.QPE__PATH_EXPRESSIONS);
+			childrenFeatures.add(ModelPackage.Literals.QPE__QUERY_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +131,8 @@ public class QPEItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(QPE.class)) {
-			case ModelPackage.QPE__PATHEXPRESSIONS:
-			case ModelPackage.QPE__QUERYNAMESPACES:
+			case ModelPackage.QPE__PATH_EXPRESSIONS:
+			case ModelPackage.QPE__QUERY_NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,12 +152,12 @@ public class QPEItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.QPE__PATHEXPRESSIONS,
+				(ModelPackage.Literals.QPE__PATH_EXPRESSIONS,
 				 ModelFactory.eINSTANCE.createPathExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.QPE__QUERYNAMESPACES,
+				(ModelPackage.Literals.QPE__QUERY_NAMESPACES,
 				 ModelFactory.eINSTANCE.createQueryNamespace()));
 	}
 

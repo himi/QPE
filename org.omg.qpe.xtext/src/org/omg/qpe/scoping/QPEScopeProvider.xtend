@@ -7,16 +7,18 @@ import com.google.inject.Inject
 import java.util.Collection
 import java.util.HashSet
 import java.util.Set
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.xtext.resource.IResourceDescriptions
+import org.eclipse.emf.ecore.EcorePackage
+import org.eclipse.xtext.resource.IResourceDescription
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import org.eclipse.xtext.scoping.impl.SimpleScope
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.omg.qpe.model.AttributePredicate
 import org.omg.qpe.model.ClassifierPredicate
 import org.omg.qpe.model.PathExpression
@@ -26,6 +28,7 @@ import org.omg.qpe.model.Qualifier
 import org.omg.qpe.model.QueryElement
 import org.omg.qpe.model.QueryNamespace
 import org.omg.qpe.model.ReferencePredicate
+import org.omg.qpe.model.ModelPackage
 
 /**
  * This class contains custom scoping description.
@@ -33,11 +36,13 @@ import org.omg.qpe.model.ReferencePredicate
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class QPEScopeProvider extends AbstractQPEScopeProvider {
-	@Inject
-    IResourceDescriptions resDescriptions;	
+class QPEScopeProvider extends AbstractQPEScopeProvider
+{
+    
+    @Inject
+    IResourceDescription.Manager rdMgr;
 	
-	def IScope scopeForFeature(Set<EClassifier> classifiers) {
+    def IScope scopeForFeature(Set<EClassifier> classifiers) {
 		val features = new HashSet<EStructuralFeature>();
 		classifiers.forEach[
 			switch(it) {
@@ -50,15 +55,31 @@ class QPEScopeProvider extends AbstractQPEScopeProvider {
 		return Scopes.scopeFor(features);		
 	}
 	
-	def IScope scopeForEClassifier(EClassifier classifier) {
+	def IScope scopeForEClassifier(ClassifierPredicate context, EClassifier classifier) {
 		switch (classifier) {
-			EClass : new SimpleScope(resDescriptions.getExportedObjectsByType(classifier))
-			default: IScope.NULLSCOPE
+			EClass : {
+				// val candidates = EcoreUtil2.getCompatibleTypesOf(classifier);
+                val candidates = new HashSet<EClass>;
+                candidates.add(classifier);
+                val rd = getIResourceDescription(context);
+				// val v = rd.getExportedObjectsByType(classifier);
+				val v = rd.getExportedObjects();
+				
+				v.forEach[
+					val ec = it.getEObjectOrProxy();
+					switch (ec) {
+						EClass case classifier.isSuperTypeOf(ec): candidates.add(ec)
+					}
+				]
+				
+				return Scopes.scopeFor(candidates);
+			}
+			default: return IScope.NULLSCOPE
 		}
 	}
 	
-	def IScope scopeForEClassifier(EStructuralFeature feature) {
-		scopeForEClassifier(feature.EType)
+	def IScope scopeForEClassifier(ClassifierPredicate context, EStructuralFeature feature) {
+		scopeForEClassifier(context, feature.EType)
 	}
 	
 	def IScope scopeForEAttribute(EClassifier ec) {
@@ -101,19 +122,40 @@ class QPEScopeProvider extends AbstractQPEScopeProvider {
 	
 	def QPE getQPE(EObject eo) {
 		for  (var e = eo; eo !== null; e = e.eContainer()) {
-			if (eo instanceof QPE) return eo as QPE;
+			if (e instanceof QPE) return e as QPE;
 		}
 		return null;
 	}
 	
-	def QueryNamespace getDefaultNS(EObject eo) {
-		val qpe = getQPE(eo);
-		if (qpe === null) return null;
-		for (qns : qpe.querynamespaces) {
-			if (qns.prefix === null) return qns;
-		}
-		return null;
-	}
+    def QueryNamespace getDefaultNS(QPE qpe) {
+        for (qns : qpe.queryNamespaces) {
+            val prefix = qns.prefix;
+            if ((prefix === null) || (prefix.length() === 0)) return qns;
+        }
+        return null;
+    }
+
+    def QueryNamespace getDefaultNS(EObject eo) {
+        val qpe = getQPE(eo);
+        if (qpe === null) return null;
+        return getDefaultNS(qpe);
+    }
+
+    def IResourceDescription getIResourceDescription(Predicate p) {
+     	val qns = p.getQueryNamespace();
+     	if (qns === null) {
+     		return getIResourceDescription(getDefaultNS(p));
+     	} else {
+     		return getIResourceDescription(qns);
+     	}
+    }
+
+    def IResourceDescription getIResourceDescription(QueryNamespace ns) {
+        val u = URI.createURI(ns.IRI);
+        val resource = ns.eResource();
+        val r = resource.resourceSet.getResource(u, true);
+        return rdMgr.getResourceDescription(r);
+    }
 	
 	val INVALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5.0";
 	val VALID_NOMAGIC_NSURI = "http://www.nomagic.com/magicdraw/UML/2.5";
@@ -134,15 +176,23 @@ class QPEScopeProvider extends AbstractQPEScopeProvider {
 		return null;
 	}
 	
-	def addAllClassifiers(QueryNamespace qns, Collection<EClassifier> classifiers) {
-		val ep = getEPackage(qns);
-		if (ep === null) return;
-		classifiers.addAll(ep.EClassifiers);
+    def addAllClassifiers(QueryNamespace qns, Collection<EClassifier> classifiers) {
+         val ep = getEPackage(qns);
+         if (ep === null) return;
+         classifiers.addAll(ep.EClassifiers);
+     }
+	
+	// Qualifier's predicate context->Qualifier->(QueryElement | ReferencePredicate)
+	
+	def Qualifier getQualifier(Predicate context) {
+		val parent = context.eContainer();
+		if (!(parent instanceof Qualifier)) return null;
+		return parent as Qualifier;
 	}
 	
-	def IScope scope_QueryElement_feature(QueryElement context, EReference ref) {
+    def IScope scopeForQueryElementFeature(QueryElement context) {
 		val classifiers = new HashSet<EClassifier>;
-		val qns = context.getQuerynamespace();
+		val qns = context.getQueryNamespace();
 		if (qns === null) {
 			val prev = context.prev;
 			if (prev !== null) {
@@ -154,7 +204,7 @@ class QPEScopeProvider extends AbstractQPEScopeProvider {
 					if (pe.isRelative) {
 						addAllClassifiers(getDefaultNS(context), classifiers);
 					} else {
-						
+						addAllClassifiers(getDefaultNS(context), classifiers);
 					}
 				}
 			}
@@ -166,35 +216,38 @@ class QPEScopeProvider extends AbstractQPEScopeProvider {
 		return scopeForFeature(classifiers);
 	}
 	
-	// Qualifier's predicate context->Qualifier->(QueryElement | ReferencePredicate)
-	
-	def Qualifier getQualifier(Predicate context) {
-		val parent = context.eContainer();
-		if (!(parent instanceof Qualifier)) return null;
-		return parent as Qualifier;
-	}
-	
-	def IScope scope_ClassifierPredicate_classifier(ClassifierPredicate context, EReference ref) {
+	def IScope scopeForClassifierPredicateClassifier(ClassifierPredicate context) {
 		val q = getQualifier(context);
 		if (q === null) return IScope.NULLSCOPE;
 		val gp = q.eContainer();
 		switch (gp) {
-			QueryElement: scopeForEClassifier(gp.feature)
-			ReferencePredicate: scopeForEClassifier(gp.reference.EReferenceType)
+			QueryElement: scopeForEClassifier(context, gp.feature)
+			ReferencePredicate: scopeForEClassifier(context, gp.reference.EReferenceType)
+            PathExpression: scopeForEClassifier(context, null)
 			default: IScope.NULLSCOPE
 		}
 		
 	}
 	
-	def IScope scope_AttributePredicate_attribute(AttributePredicate context, EReference ref) {
-		val q = getQualifier(context);
-		if (q === null) return IScope.NULLSCOPE;
-		return scopeForEAttribute(q);
-	}
+	override getScope(EObject context, EReference ref) {
+        switch (context) {
+            QueryElement case ref == ModelPackage.eINSTANCE.getQueryElement_Feature() : scopeForQueryElementFeature(context) 
+            ClassifierPredicate case ref == ModelPackage.eINSTANCE.getClassifierPredicate_Classifier() : scopeForClassifierPredicateClassifier(context) 
+            AttributePredicate: {
+            	val q = getQualifier(context);
+				if (q === null) return IScope.NULLSCOPE;
+            	switch (ref) {
+            		case ModelPackage.eINSTANCE.getAttributePredicate_Attribute() : return scopeForEAttribute(q)
+            		case ModelPackage.eINSTANCE.getAttributePredicate_Value() : return IScope.NULLSCOPE
+            	}
+            }
+            ReferencePredicate case ref == ModelPackage.eINSTANCE.getReferencePredicate_Reference(): {
+            	val q = getQualifier(context);
+				if (q === null) return IScope.NULLSCOPE;
+            	return scopeForEReference(q)
+            }
+            default: return super.getScope(context, ref)
+        }    
+    }
 	
-	def IScope scope_ReferencePredicate_reference(ReferencePredicate context, EReference ref) {
-		val q = getQualifier(context);
-		if (q === null) return IScope.NULLSCOPE;
-		return scopeForEReference(q);
-	}
 }

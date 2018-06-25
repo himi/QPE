@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.QPE#getPathexpressions <em>Pathexpressions</em>}</li>
- *   <li>{@link org.omg.qpe.model.QPE#getQuerynamespaces <em>Querynamespaces</em>}</li>
+ *   <li>{@link org.omg.qpe.model.QPE#getPathExpressions <em>Path Expressions</em>}</li>
+ *   <li>{@link org.omg.qpe.model.QPE#getQueryNamespaces <em>Query Namespaces</em>}</li>
  * </ul>
  *
  * @see org.omg.qpe.model.ModelPackage#getQPE()
@@ -25,35 +25,35 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface QPE extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Pathexpressions</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Path Expressions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.omg.qpe.model.PathExpression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pathexpressions</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Path Expressions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pathexpressions</em>' containment reference list.
-	 * @see org.omg.qpe.model.ModelPackage#getQPE_Pathexpressions()
+	 * @return the value of the '<em>Path Expressions</em>' containment reference list.
+	 * @see org.omg.qpe.model.ModelPackage#getQPE_PathExpressions()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PathExpression> getPathexpressions();
+	EList<PathExpression> getPathExpressions();
 
 	/**
-	 * Returns the value of the '<em><b>Querynamespaces</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Query Namespaces</b></em>' containment reference list.
 	 * The list contents are of type {@link org.omg.qpe.model.QueryNamespace}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Querynamespaces</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Query Namespaces</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Querynamespaces</em>' containment reference list.
-	 * @see org.omg.qpe.model.ModelPackage#getQPE_Querynamespaces()
+	 * @return the value of the '<em>Query Namespaces</em>' containment reference list.
+	 * @see org.omg.qpe.model.ModelPackage#getQPE_QueryNamespaces()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<QueryNamespace> getQuerynamespaces();
+	EList<QueryNamespace> getQueryNamespaces();
 
 } // QPE

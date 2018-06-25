@@ -11,9 +11,7 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.omg.qpe.model.AttributePredicate;
 import org.omg.qpe.model.ClassifierPredicate;
 import org.omg.qpe.model.ModelPackage;
@@ -74,7 +72,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AttributePredicate returns AttributePredicate
 	 *
 	 * Constraint:
-	 *     (querynamespace=[QueryNamespace|ID]? attribute=[EAttribute|ID] value=VALUE)
+	 *     (queryNamespace=[QueryNamespace|ID]? attribute=[EAttribute|ID] value=VALUE)
 	 */
 	protected void sequence_AttributePredicate(ISerializationContext context, AttributePredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -87,7 +85,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ClassifierPredicate returns ClassifierPredicate
 	 *
 	 * Constraint:
-	 *     (querynamespace=[QueryNamespace|ID]? classifier=[EClassifier|ID])
+	 *     (queryNamespace=[QueryNamespace|ID]? classifier=[EClassifier|ID])
 	 */
 	protected void sequence_ClassifierPredicate(ISerializationContext context, ClassifierPredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -99,19 +97,10 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PathExpression returns PathExpression
 	 *
 	 * Constraint:
-	 *     (isRelative?='.' head=QueryElement)
+	 *     (isRelative?='.'? qualifier=Qualifier? head=QueryElement?)
 	 */
 	protected void sequence_PathExpression(ISerializationContext context, PathExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PATH_EXPRESSION__IS_RELATIVE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PATH_EXPRESSION__IS_RELATIVE));
-			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PATH_EXPRESSION__HEAD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PATH_EXPRESSION__HEAD));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPathExpressionAccess().getIsRelativeFullStopKeyword_0_0(), semanticObject.isIsRelative());
-		feeder.accept(grammarAccess.getPathExpressionAccess().getHeadQueryElementParserRuleCall_2_0(), semanticObject.getHead());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -120,7 +109,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     QPE returns QPE
 	 *
 	 * Constraint:
-	 *     (querynamespaces+=QueryNamespace pathexpressions+=PathExpression)
+	 *     (queryNamespaces+=QueryNamespace pathExpressions+=PathExpression)
 	 */
 	protected void sequence_QPE(ISerializationContext context, QPE semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -132,7 +121,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Qualifier returns Qualifier
 	 *
 	 * Constraint:
-	 *     (predicate+=Predicate predicate+=Predicate*)
+	 *     ((index=INT predicates+=Predicate*) | (predicates+=Predicate predicates+=Predicate*))
 	 */
 	protected void sequence_Qualifier(ISerializationContext context, Qualifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -144,7 +133,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     QueryElement returns QueryElement
 	 *
 	 * Constraint:
-	 *     (querynamespace=[QueryNamespace|ID]? feature=[EStructuralFeature|ID] qualifier=Qualifier? next=QueryElement?)
+	 *     (queryNamespace=[QueryNamespace|ID]? feature=[EStructuralFeature|ID] qualifier=Qualifier? next=QueryElement?)
 	 */
 	protected void sequence_QueryElement(ISerializationContext context, QueryElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -169,7 +158,7 @@ public class QPESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ReferencePredicate returns ReferencePredicate
 	 *
 	 * Constraint:
-	 *     (querynamespace=[QueryNamespace|ID]? reference=[EReference|ID] qualifier=Qualifier)
+	 *     (queryNamespace=[QueryNamespace|ID]? reference=[EReference|ID] qualifier=Qualifier)
 	 */
 	protected void sequence_ReferencePredicate(ISerializationContext context, ReferencePredicate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

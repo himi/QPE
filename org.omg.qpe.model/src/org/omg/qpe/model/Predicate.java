@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.Predicate#getQuerynamespace <em>Querynamespace</em>}</li>
+ *   <li>{@link org.omg.qpe.model.Predicate#getQueryNamespace <em>Query Namespace</em>}</li>
  * </ul>
  *
  * @see org.omg.qpe.model.ModelPackage#getPredicate()
@@ -23,28 +23,28 @@ import org.eclipse.emf.ecore.EObject;
 public interface Predicate extends EObject {
 
 	/**
-	 * Returns the value of the '<em><b>Querynamespace</b></em>' reference.
+	 * Returns the value of the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Querynamespace</em>' reference isn't clear,
+	 * If the meaning of the '<em>Query Namespace</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Querynamespace</em>' reference.
-	 * @see #setQuerynamespace(QueryNamespace)
-	 * @see org.omg.qpe.model.ModelPackage#getPredicate_Querynamespace()
+	 * @return the value of the '<em>Query Namespace</em>' reference.
+	 * @see #setQueryNamespace(QueryNamespace)
+	 * @see org.omg.qpe.model.ModelPackage#getPredicate_QueryNamespace()
 	 * @model
 	 * @generated
 	 */
-	QueryNamespace getQuerynamespace();
+	QueryNamespace getQueryNamespace();
 
 	/**
-	 * Sets the value of the '{@link org.omg.qpe.model.Predicate#getQuerynamespace <em>Querynamespace</em>}' reference.
+	 * Sets the value of the '{@link org.omg.qpe.model.Predicate#getQueryNamespace <em>Query Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Querynamespace</em>' reference.
-	 * @see #getQuerynamespace()
+	 * @param value the new value of the '<em>Query Namespace</em>' reference.
+	 * @see #getQueryNamespace()
 	 * @generated
 	 */
-	void setQuerynamespace(QueryNamespace value);
+	void setQueryNamespace(QueryNamespace value);
 } // Predicate

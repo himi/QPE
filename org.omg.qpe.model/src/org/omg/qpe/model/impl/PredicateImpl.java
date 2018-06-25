@@ -21,22 +21,21 @@ import org.omg.qpe.model.QueryNamespace;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.impl.PredicateImpl#getQuerynamespace <em>Querynamespace</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.PredicateImpl#getQueryNamespace <em>Query Namespace</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	/**
-	 * The cached value of the '{@link #getQuerynamespace() <em>Querynamespace</em>}' reference.
+	 * The cached value of the '{@link #getQueryNamespace() <em>Query Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuerynamespace()
+	 * @see #getQueryNamespace()
 	 * @generated
 	 * @ordered
 	 */
-	protected QueryNamespace querynamespace;
-
+	protected QueryNamespace queryNamespace;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +60,16 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryNamespace getQuerynamespace() {
-		if (querynamespace != null && querynamespace.eIsProxy()) {
-			InternalEObject oldQuerynamespace = (InternalEObject)querynamespace;
-			querynamespace = (QueryNamespace)eResolveProxy(oldQuerynamespace);
-			if (querynamespace != oldQuerynamespace) {
+	public QueryNamespace getQueryNamespace() {
+		if (queryNamespace != null && queryNamespace.eIsProxy()) {
+			InternalEObject oldQueryNamespace = (InternalEObject)queryNamespace;
+			queryNamespace = (QueryNamespace)eResolveProxy(oldQueryNamespace);
+			if (queryNamespace != oldQueryNamespace) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.PREDICATE__QUERYNAMESPACE, oldQuerynamespace, querynamespace));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.PREDICATE__QUERY_NAMESPACE, oldQueryNamespace, queryNamespace));
 			}
 		}
-		return querynamespace;
+		return queryNamespace;
 	}
 
 	/**
@@ -78,8 +77,8 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryNamespace basicGetQuerynamespace() {
-		return querynamespace;
+	public QueryNamespace basicGetQueryNamespace() {
+		return queryNamespace;
 	}
 
 	/**
@@ -87,11 +86,11 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuerynamespace(QueryNamespace newQuerynamespace) {
-		QueryNamespace oldQuerynamespace = querynamespace;
-		querynamespace = newQuerynamespace;
+	public void setQueryNamespace(QueryNamespace newQueryNamespace) {
+		QueryNamespace oldQueryNamespace = queryNamespace;
+		queryNamespace = newQueryNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PREDICATE__QUERYNAMESPACE, oldQuerynamespace, querynamespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PREDICATE__QUERY_NAMESPACE, oldQueryNamespace, queryNamespace));
 	}
 
 	/**
@@ -102,9 +101,9 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.PREDICATE__QUERYNAMESPACE:
-				if (resolve) return getQuerynamespace();
-				return basicGetQuerynamespace();
+			case ModelPackage.PREDICATE__QUERY_NAMESPACE:
+				if (resolve) return getQueryNamespace();
+				return basicGetQueryNamespace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,8 +116,8 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.PREDICATE__QUERYNAMESPACE:
-				setQuerynamespace((QueryNamespace)newValue);
+			case ModelPackage.PREDICATE__QUERY_NAMESPACE:
+				setQueryNamespace((QueryNamespace)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,8 +131,8 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.PREDICATE__QUERYNAMESPACE:
-				setQuerynamespace((QueryNamespace)null);
+			case ModelPackage.PREDICATE__QUERY_NAMESPACE:
+				setQueryNamespace((QueryNamespace)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -147,8 +146,8 @@ public abstract class PredicateImpl extends EObjectImpl implements Predicate {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.PREDICATE__QUERYNAMESPACE:
-				return querynamespace != null;
+			case ModelPackage.PREDICATE__QUERY_NAMESPACE:
+				return queryNamespace != null;
 		}
 		return super.eIsSet(featureID);
 	}

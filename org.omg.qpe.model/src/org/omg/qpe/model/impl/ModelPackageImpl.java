@@ -170,7 +170,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQPE_Pathexpressions() {
+	public EReference getQPE_PathExpressions() {
 		return (EReference)qpeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -179,7 +179,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQPE_Querynamespaces() {
+	public EReference getQPE_QueryNamespaces() {
 		return (EReference)qpeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -197,7 +197,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryElement_Querynamespace() {
+	public EReference getQueryElement_QueryNamespace() {
 		return (EReference)queryElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -260,7 +260,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQualifier_Predicate() {
+	public EReference getQualifier_Predicates() {
 		return (EReference)qualifierEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -296,7 +296,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPredicate_Querynamespace() {
+	public EReference getPredicate_QueryNamespace() {
 		return (EReference)predicateEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -431,6 +431,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPathExpression_Qualifier() {
+		return (EReference)pathExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -455,11 +464,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create classes and their features
 		qpeEClass = createEClass(QPE);
-		createEReference(qpeEClass, QPE__PATHEXPRESSIONS);
-		createEReference(qpeEClass, QPE__QUERYNAMESPACES);
+		createEReference(qpeEClass, QPE__PATH_EXPRESSIONS);
+		createEReference(qpeEClass, QPE__QUERY_NAMESPACES);
 
 		queryElementEClass = createEClass(QUERY_ELEMENT);
-		createEReference(queryElementEClass, QUERY_ELEMENT__QUERYNAMESPACE);
+		createEReference(queryElementEClass, QUERY_ELEMENT__QUERY_NAMESPACE);
 		createEReference(queryElementEClass, QUERY_ELEMENT__NEXT);
 		createEReference(queryElementEClass, QUERY_ELEMENT__PREV);
 		createEReference(queryElementEClass, QUERY_ELEMENT__QUALIFIER);
@@ -467,12 +476,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(queryElementEClass, QUERY_ELEMENT___GET_ETYPE);
 
 		qualifierEClass = createEClass(QUALIFIER);
-		createEReference(qualifierEClass, QUALIFIER__PREDICATE);
+		createEReference(qualifierEClass, QUALIFIER__PREDICATES);
 		createEAttribute(qualifierEClass, QUALIFIER__INDEX);
 		createEOperation(qualifierEClass, QUALIFIER___GET_ETYPE);
 
 		predicateEClass = createEClass(PREDICATE);
-		createEReference(predicateEClass, PREDICATE__QUERYNAMESPACE);
+		createEReference(predicateEClass, PREDICATE__QUERY_NAMESPACE);
 
 		classifierPredicateEClass = createEClass(CLASSIFIER_PREDICATE);
 		createEReference(classifierPredicateEClass, CLASSIFIER_PREDICATE__CLASSIFIER);
@@ -492,6 +501,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		pathExpressionEClass = createEClass(PATH_EXPRESSION);
 		createEReference(pathExpressionEClass, PATH_EXPRESSION__HEAD);
 		createEAttribute(pathExpressionEClass, PATH_EXPRESSION__IS_RELATIVE);
+		createEReference(pathExpressionEClass, PATH_EXPRESSION__QUALIFIER);
 	}
 
 	/**
@@ -531,11 +541,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(qpeEClass, org.omg.qpe.model.QPE.class, "QPE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQPE_Pathexpressions(), this.getPathExpression(), null, "pathexpressions", null, 0, -1, org.omg.qpe.model.QPE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQPE_Querynamespaces(), this.getQueryNamespace(), null, "querynamespaces", null, 0, -1, org.omg.qpe.model.QPE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQPE_PathExpressions(), this.getPathExpression(), null, "pathExpressions", null, 0, -1, org.omg.qpe.model.QPE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQPE_QueryNamespaces(), this.getQueryNamespace(), null, "queryNamespaces", null, 0, -1, org.omg.qpe.model.QPE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryElementEClass, QueryElement.class, "QueryElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQueryElement_Querynamespace(), this.getQueryNamespace(), null, "querynamespace", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryElement_QueryNamespace(), this.getQueryNamespace(), null, "queryNamespace", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQueryElement_Next(), this.getQueryElement(), this.getQueryElement_Prev(), "next", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQueryElement_Prev(), this.getQueryElement(), this.getQueryElement_Next(), "prev", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQueryElement_Qualifier(), this.getQualifier(), null, "qualifier", null, 0, 1, QueryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -544,13 +554,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getQueryElement__GetEType(), theEcorePackage.getEClassifier(), "getEType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qualifierEClass, Qualifier.class, "Qualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQualifier_Predicate(), this.getPredicate(), null, "predicate", null, 1, -1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQualifier_Predicates(), this.getPredicate(), null, "predicates", null, 1, -1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQualifier_Index(), ecorePackage.getEInt(), "index", "-1", 0, 1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getQualifier__GetEType(), theEcorePackage.getEClassifier(), "getEType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(predicateEClass, Predicate.class, "Predicate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPredicate_Querynamespace(), this.getQueryNamespace(), null, "querynamespace", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPredicate_QueryNamespace(), this.getQueryNamespace(), null, "queryNamespace", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classifierPredicateEClass, ClassifierPredicate.class, "ClassifierPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassifierPredicate_Classifier(), theEcorePackage.getEClassifier(), null, "classifier", null, 1, 1, ClassifierPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -568,8 +578,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getQueryNamespace_Prefix(), ecorePackage.getEString(), "prefix", "", 1, 1, QueryNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pathExpressionEClass, PathExpression.class, "PathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPathExpression_Head(), this.getQueryElement(), null, "head", null, 1, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPathExpression_Head(), this.getQueryElement(), null, "head", null, 0, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPathExpression_IsRelative(), theEcorePackage.getEBoolean(), "isRelative", "false", 0, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPathExpression_Qualifier(), this.getQualifier(), null, "qualifier", null, 0, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

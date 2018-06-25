@@ -64,6 +64,7 @@ public class PathExpressionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIsRelativePropertyDescriptor(object);
+			addQualifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class PathExpressionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Qualifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQualifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PathExpression_qualifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PathExpression_qualifier_feature", "_UI_PathExpression_type"),
+				 ModelPackage.Literals.PATH_EXPRESSION__QUALIFIER,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

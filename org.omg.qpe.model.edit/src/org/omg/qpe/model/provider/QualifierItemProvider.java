@@ -102,7 +102,7 @@ public class QualifierItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.QUALIFIER__PREDICATE);
+			childrenFeatures.add(ModelPackage.Literals.QUALIFIER__PREDICATES);
 		}
 		return childrenFeatures;
 	}
@@ -159,7 +159,7 @@ public class QualifierItemProvider
 			case ModelPackage.QUALIFIER__INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.QUALIFIER__PREDICATE:
+			case ModelPackage.QUALIFIER__PREDICATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -179,17 +179,17 @@ public class QualifierItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.QUALIFIER__PREDICATE,
+				(ModelPackage.Literals.QUALIFIER__PREDICATES,
 				 ModelFactory.eINSTANCE.createClassifierPredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.QUALIFIER__PREDICATE,
+				(ModelPackage.Literals.QUALIFIER__PREDICATES,
 				 ModelFactory.eINSTANCE.createAttributePredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.QUALIFIER__PREDICATE,
+				(ModelPackage.Literals.QUALIFIER__PREDICATES,
 				 ModelFactory.eINSTANCE.createReferencePredicate()));
 	}
 

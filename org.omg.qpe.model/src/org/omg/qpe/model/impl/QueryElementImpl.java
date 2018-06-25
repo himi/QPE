@@ -30,7 +30,7 @@ import org.omg.qpe.model.QueryNamespace;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.impl.QueryElementImpl#getQuerynamespace <em>Querynamespace</em>}</li>
+ *   <li>{@link org.omg.qpe.model.impl.QueryElementImpl#getQueryNamespace <em>Query Namespace</em>}</li>
  *   <li>{@link org.omg.qpe.model.impl.QueryElementImpl#getNext <em>Next</em>}</li>
  *   <li>{@link org.omg.qpe.model.impl.QueryElementImpl#getPrev <em>Prev</em>}</li>
  *   <li>{@link org.omg.qpe.model.impl.QueryElementImpl#getQualifier <em>Qualifier</em>}</li>
@@ -41,14 +41,14 @@ import org.omg.qpe.model.QueryNamespace;
  */
 public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	/**
-	 * The cached value of the '{@link #getQuerynamespace() <em>Querynamespace</em>}' reference.
+	 * The cached value of the '{@link #getQueryNamespace() <em>Query Namespace</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuerynamespace()
+	 * @see #getQueryNamespace()
 	 * @generated
 	 * @ordered
 	 */
-	protected QueryNamespace querynamespace;
+	protected QueryNamespace queryNamespace;
 
 	/**
 	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference.
@@ -104,16 +104,16 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryNamespace getQuerynamespace() {
-		if (querynamespace != null && querynamespace.eIsProxy()) {
-			InternalEObject oldQuerynamespace = (InternalEObject)querynamespace;
-			querynamespace = (QueryNamespace)eResolveProxy(oldQuerynamespace);
-			if (querynamespace != oldQuerynamespace) {
+	public QueryNamespace getQueryNamespace() {
+		if (queryNamespace != null && queryNamespace.eIsProxy()) {
+			InternalEObject oldQueryNamespace = (InternalEObject)queryNamespace;
+			queryNamespace = (QueryNamespace)eResolveProxy(oldQueryNamespace);
+			if (queryNamespace != oldQueryNamespace) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE, oldQuerynamespace, querynamespace));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE, oldQueryNamespace, queryNamespace));
 			}
 		}
-		return querynamespace;
+		return queryNamespace;
 	}
 
 	/**
@@ -121,8 +121,8 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryNamespace basicGetQuerynamespace() {
-		return querynamespace;
+	public QueryNamespace basicGetQueryNamespace() {
+		return queryNamespace;
 	}
 
 	/**
@@ -130,11 +130,11 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuerynamespace(QueryNamespace newQuerynamespace) {
-		QueryNamespace oldQuerynamespace = querynamespace;
-		querynamespace = newQuerynamespace;
+	public void setQueryNamespace(QueryNamespace newQueryNamespace) {
+		QueryNamespace oldQueryNamespace = queryNamespace;
+		queryNamespace = newQueryNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE, oldQuerynamespace, querynamespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE, oldQueryNamespace, queryNamespace));
 	}
 
 	/**
@@ -376,9 +376,9 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE:
-				if (resolve) return getQuerynamespace();
-				return basicGetQuerynamespace();
+			case ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE:
+				if (resolve) return getQueryNamespace();
+				return basicGetQueryNamespace();
 			case ModelPackage.QUERY_ELEMENT__NEXT:
 				return getNext();
 			case ModelPackage.QUERY_ELEMENT__PREV:
@@ -400,8 +400,8 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE:
-				setQuerynamespace((QueryNamespace)newValue);
+			case ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE:
+				setQueryNamespace((QueryNamespace)newValue);
 				return;
 			case ModelPackage.QUERY_ELEMENT__NEXT:
 				setNext((QueryElement)newValue);
@@ -427,8 +427,8 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE:
-				setQuerynamespace((QueryNamespace)null);
+			case ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE:
+				setQueryNamespace((QueryNamespace)null);
 				return;
 			case ModelPackage.QUERY_ELEMENT__NEXT:
 				setNext((QueryElement)null);
@@ -454,8 +454,8 @@ public class QueryElementImpl extends EObjectImpl implements QueryElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.QUERY_ELEMENT__QUERYNAMESPACE:
-				return querynamespace != null;
+			case ModelPackage.QUERY_ELEMENT__QUERY_NAMESPACE:
+				return queryNamespace != null;
 			case ModelPackage.QUERY_ELEMENT__NEXT:
 				return next != null;
 			case ModelPackage.QUERY_ELEMENT__PREV:

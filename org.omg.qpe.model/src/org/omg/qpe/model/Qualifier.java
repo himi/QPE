@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.omg.qpe.model.Qualifier#getPredicate <em>Predicate</em>}</li>
+ *   <li>{@link org.omg.qpe.model.Qualifier#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link org.omg.qpe.model.Qualifier#getIndex <em>Index</em>}</li>
  * </ul>
  *
@@ -26,20 +26,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Qualifier extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Predicate</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.
 	 * The list contents are of type {@link org.omg.qpe.model.Predicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Predicate</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Predicates</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predicate</em>' containment reference list.
-	 * @see org.omg.qpe.model.ModelPackage#getQualifier_Predicate()
+	 * @return the value of the '<em>Predicates</em>' containment reference list.
+	 * @see org.omg.qpe.model.ModelPackage#getQualifier_Predicates()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Predicate> getPredicate();
+	EList<Predicate> getPredicates();
 
 	/**
 	 * Returns the value of the '<em><b>Index</b></em>' attribute.

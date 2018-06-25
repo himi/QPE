@@ -62,26 +62,26 @@ public class QueryElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addQuerynamespacePropertyDescriptor(object);
+			addQueryNamespacePropertyDescriptor(object);
 			addFeaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Querynamespace feature.
+	 * This adds a property descriptor for the Query Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addQuerynamespacePropertyDescriptor(Object object) {
+	protected void addQueryNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_QueryElement_querynamespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_QueryElement_querynamespace_feature", "_UI_QueryElement_type"),
-				 ModelPackage.Literals.QUERY_ELEMENT__QUERYNAMESPACE,
+				 getString("_UI_QueryElement_queryNamespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QueryElement_queryNamespace_feature", "_UI_QueryElement_type"),
+				 ModelPackage.Literals.QUERY_ELEMENT__QUERY_NAMESPACE,
 				 true,
 				 false,
 				 true,

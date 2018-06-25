@@ -9,11 +9,11 @@
   <genPackages prefix="Model" basePackage="org.omg.qpe" disposableProviderFactory="true"
       ecorePackage="qpe.ecore#/">
     <genClasses ecoreClass="qpe.ecore#//QPE">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QPE/pathexpressions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QPE/querynamespaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QPE/pathExpressions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QPE/queryNamespaces"/>
     </genClasses>
     <genClasses ecoreClass="qpe.ecore#//QueryElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/querynamespace"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/queryNamespace"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/next"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/prev"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//QueryElement/qualifier"/>
@@ -21,12 +21,12 @@
       <genOperations ecoreOperation="qpe.ecore#//QueryElement/getEType"/>
     </genClasses>
     <genClasses ecoreClass="qpe.ecore#//Qualifier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//Qualifier/predicate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//Qualifier/predicates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qpe.ecore#//Qualifier/index"/>
       <genOperations ecoreOperation="qpe.ecore#//Qualifier/getEType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="qpe.ecore#//Predicate">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//Predicate/querynamespace"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//Predicate/queryNamespace"/>
     </genClasses>
     <genClasses ecoreClass="qpe.ecore#//ClassifierPredicate">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//ClassifierPredicate/classifier"/>
@@ -46,6 +46,7 @@
     <genClasses ecoreClass="qpe.ecore#//PathExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qpe.ecore#//PathExpression/head"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qpe.ecore#//PathExpression/isRelative"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qpe.ecore#//PathExpression/qualifier"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

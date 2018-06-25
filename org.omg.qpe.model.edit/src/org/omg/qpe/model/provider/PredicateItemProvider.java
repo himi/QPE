@@ -56,25 +56,25 @@ public class PredicateItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addQuerynamespacePropertyDescriptor(object);
+			addQueryNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Querynamespace feature.
+	 * This adds a property descriptor for the Query Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addQuerynamespacePropertyDescriptor(Object object) {
+	protected void addQueryNamespacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Predicate_querynamespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Predicate_querynamespace_feature", "_UI_Predicate_type"),
-				 ModelPackage.Literals.PREDICATE__QUERYNAMESPACE,
+				 getString("_UI_Predicate_queryNamespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Predicate_queryNamespace_feature", "_UI_Predicate_type"),
+				 ModelPackage.Literals.PREDICATE__QUERY_NAMESPACE,
 				 true,
 				 false,
 				 true,

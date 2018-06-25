@@ -4,26 +4,29 @@ import "http://www.omg.org/spec/SST/QPE/1.0"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 QPE:
-        querynamespaces += QueryNamespace
-        pathexpressions += PathExpression
+        queryNamespaces += QueryNamespace
+        pathExpressions += PathExpression
 ;
 
 QueryNamespace:
         'namespace' IRI=STRING ('as' prefix=ID)?      
 ;
 
-PathExpression:
-	(isRelative?='.') '/' head=QueryElement
+PathExpression: {PathExpression}
+	(isRelative?='.')? (qualifier=Qualifier)? '/' (head=QueryElement)?
 ;
 
 QueryElement:
-	( querynamespace=[QueryNamespace] '::' )? feature=[ecore::EStructuralFeature] /*CustomScope*/
+	( queryNamespace=[QueryNamespace] '::' )? feature=[ecore::EStructuralFeature] /*CustomScope*/
 	( qualifier=Qualifier )?
 	( '/' next=QueryElement )?
 ;
 
 Qualifier:
-	'[' (predicate += Predicate) (',' predicate += Predicate)* ']'
+	'[' 
+	    ((index=INT (',' predicates += Predicate)*) |
+	     ((predicates += Predicate) (',' predicates += Predicate)*))
+	']'
 ;
 
 Predicate:
@@ -31,22 +34,23 @@ Predicate:
 ;
 
 ClassifierPredicate:
-	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? classifier=[ecore::EClassifier] /*CustomScope*/
+	( queryNamespace=[QueryNamespace] /*DefaultScope*/ '::' )? classifier=[ecore::EClassifier] /*CustomScope*/
 ;
 
 AttributePredicate:
-	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? attribute=[ecore::EAttribute] /*CustomScope*/ '=' value=VALUE
+	( queryNamespace=[QueryNamespace] /*DefaultScope*/ '::' )? attribute=[ecore::EAttribute] '=' /*CustomScope*/ value=VALUE
 ;
 
 ReferencePredicate:
-	( querynamespace=[QueryNamespace] /*DefaultScope*/ '::' )? reference=[ecore::EReference] /*CustomScope*/ qualifier=Qualifier
+	( queryNamespace=[QueryNamespace] /*DefaultScope*/ '::' )? reference=[ecore::EReference] /*CustomScope*/ qualifier=Qualifier
 ;
 
 
-VALUE returns ecore::EJavaObject: STRING | INT | LONG | DOUBLE | BOOLEAN;
+terminal VALUE returns ecore::EJavaObject: STRING | INT | LONG | DOUBLE | BOOLEAN;
+// terminal VALUE returns ecore::EJavaObject: STRING;
 
-LONG returns ecore::ELong: INT ("L"|"l");
-DOUBLE returns ecore::EDouble: INT'.'INT;
-BOOLEAN returns ecore::EBoolean: "true" | "false";
+terminal LONG returns ecore::ELong: INT ("L"|"l");
+terminal DOUBLE returns ecore::EDouble: INT'.'INT;
+terminal BOOLEAN returns ecore::EBoolean: "true" | "false";
 
 

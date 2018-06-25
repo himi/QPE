@@ -68,22 +68,22 @@ public interface ModelPackage extends EPackage {
 	int QPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Pathexpressions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Path Expressions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QPE__PATHEXPRESSIONS = 0;
+	int QPE__PATH_EXPRESSIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespaces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Query Namespaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QPE__QUERYNAMESPACES = 1;
+	int QPE__QUERY_NAMESPACES = 1;
 
 	/**
 	 * The number of structural features of the '<em>QPE</em>' class.
@@ -114,13 +114,13 @@ public interface ModelPackage extends EPackage {
 	int QUERY_ELEMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * The feature id for the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_ELEMENT__QUERYNAMESPACE = 0;
+	int QUERY_ELEMENT__QUERY_NAMESPACE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference.
@@ -196,13 +196,13 @@ public interface ModelPackage extends EPackage {
 	int QUALIFIER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Predicate</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUALIFIER__PREDICATE = 0;
+	int QUALIFIER__PREDICATES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Index</b></em>' attribute.
@@ -251,13 +251,13 @@ public interface ModelPackage extends EPackage {
 	int PREDICATE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * The feature id for the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PREDICATE__QUERYNAMESPACE = 0;
+	int PREDICATE__QUERY_NAMESPACE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Predicate</em>' class.
@@ -288,13 +288,13 @@ public interface ModelPackage extends EPackage {
 	int CLASSIFIER_PREDICATE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * The feature id for the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
+	int CLASSIFIER_PREDICATE__QUERY_NAMESPACE = PREDICATE__QUERY_NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' reference.
@@ -334,13 +334,13 @@ public interface ModelPackage extends EPackage {
 	int ATTRIBUTE_PREDICATE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * The feature id for the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
+	int ATTRIBUTE_PREDICATE__QUERY_NAMESPACE = PREDICATE__QUERY_NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -389,13 +389,13 @@ public interface ModelPackage extends EPackage {
 	int REFERENCE_PREDICATE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Querynamespace</b></em>' reference.
+	 * The feature id for the '<em><b>Query Namespace</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_PREDICATE__QUERYNAMESPACE = PREDICATE__QUERYNAMESPACE;
+	int REFERENCE_PREDICATE__QUERY_NAMESPACE = PREDICATE__QUERY_NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
@@ -508,13 +508,22 @@ public interface ModelPackage extends EPackage {
 	int PATH_EXPRESSION__IS_RELATIVE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Qualifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_EXPRESSION__QUALIFIER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Path Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_EXPRESSION_FEATURE_COUNT = 2;
+	int PATH_EXPRESSION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Path Expression</em>' class.
@@ -537,26 +546,26 @@ public interface ModelPackage extends EPackage {
 	EClass getQPE();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.QPE#getPathexpressions <em>Pathexpressions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.QPE#getPathExpressions <em>Path Expressions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pathexpressions</em>'.
-	 * @see org.omg.qpe.model.QPE#getPathexpressions()
+	 * @return the meta object for the containment reference list '<em>Path Expressions</em>'.
+	 * @see org.omg.qpe.model.QPE#getPathExpressions()
 	 * @see #getQPE()
 	 * @generated
 	 */
-	EReference getQPE_Pathexpressions();
+	EReference getQPE_PathExpressions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.QPE#getQuerynamespaces <em>Querynamespaces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.QPE#getQueryNamespaces <em>Query Namespaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Querynamespaces</em>'.
-	 * @see org.omg.qpe.model.QPE#getQuerynamespaces()
+	 * @return the meta object for the containment reference list '<em>Query Namespaces</em>'.
+	 * @see org.omg.qpe.model.QPE#getQueryNamespaces()
 	 * @see #getQPE()
 	 * @generated
 	 */
-	EReference getQPE_Querynamespaces();
+	EReference getQPE_QueryNamespaces();
 
 	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.QueryElement <em>Query Element</em>}'.
@@ -569,15 +578,15 @@ public interface ModelPackage extends EPackage {
 	EClass getQueryElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.omg.qpe.model.QueryElement#getQuerynamespace <em>Querynamespace</em>}'.
+	 * Returns the meta object for the reference '{@link org.omg.qpe.model.QueryElement#getQueryNamespace <em>Query Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Querynamespace</em>'.
-	 * @see org.omg.qpe.model.QueryElement#getQuerynamespace()
+	 * @return the meta object for the reference '<em>Query Namespace</em>'.
+	 * @see org.omg.qpe.model.QueryElement#getQueryNamespace()
 	 * @see #getQueryElement()
 	 * @generated
 	 */
-	EReference getQueryElement_Querynamespace();
+	EReference getQueryElement_QueryNamespace();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.omg.qpe.model.QueryElement#getNext <em>Next</em>}'.
@@ -644,15 +653,15 @@ public interface ModelPackage extends EPackage {
 	EClass getQualifier();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.Qualifier#getPredicate <em>Predicate</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.omg.qpe.model.Qualifier#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Predicate</em>'.
-	 * @see org.omg.qpe.model.Qualifier#getPredicate()
+	 * @return the meta object for the containment reference list '<em>Predicates</em>'.
+	 * @see org.omg.qpe.model.Qualifier#getPredicates()
 	 * @see #getQualifier()
 	 * @generated
 	 */
-	EReference getQualifier_Predicate();
+	EReference getQualifier_Predicates();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.omg.qpe.model.Qualifier#getIndex <em>Index</em>}'.
@@ -686,15 +695,15 @@ public interface ModelPackage extends EPackage {
 	EClass getPredicate();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.omg.qpe.model.Predicate#getQuerynamespace <em>Querynamespace</em>}'.
+	 * Returns the meta object for the reference '{@link org.omg.qpe.model.Predicate#getQueryNamespace <em>Query Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Querynamespace</em>'.
-	 * @see org.omg.qpe.model.Predicate#getQuerynamespace()
+	 * @return the meta object for the reference '<em>Query Namespace</em>'.
+	 * @see org.omg.qpe.model.Predicate#getQueryNamespace()
 	 * @see #getPredicate()
 	 * @generated
 	 */
-	EReference getPredicate_Querynamespace();
+	EReference getPredicate_QueryNamespace();
 
 	/**
 	 * Returns the meta object for class '{@link org.omg.qpe.model.ClassifierPredicate <em>Classifier Predicate</em>}'.
@@ -846,6 +855,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getPathExpression_IsRelative();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.omg.qpe.model.PathExpression#getQualifier <em>Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Qualifier</em>'.
+	 * @see org.omg.qpe.model.PathExpression#getQualifier()
+	 * @see #getPathExpression()
+	 * @generated
+	 */
+	EReference getPathExpression_Qualifier();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -879,20 +899,20 @@ public interface ModelPackage extends EPackage {
 		EClass QPE = eINSTANCE.getQPE();
 
 		/**
-		 * The meta object literal for the '<em><b>Pathexpressions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Path Expressions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QPE__PATHEXPRESSIONS = eINSTANCE.getQPE_Pathexpressions();
+		EReference QPE__PATH_EXPRESSIONS = eINSTANCE.getQPE_PathExpressions();
 
 		/**
-		 * The meta object literal for the '<em><b>Querynamespaces</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Query Namespaces</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QPE__QUERYNAMESPACES = eINSTANCE.getQPE_Querynamespaces();
+		EReference QPE__QUERY_NAMESPACES = eINSTANCE.getQPE_QueryNamespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.QueryElementImpl <em>Query Element</em>}' class.
@@ -905,12 +925,12 @@ public interface ModelPackage extends EPackage {
 		EClass QUERY_ELEMENT = eINSTANCE.getQueryElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Querynamespace</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Query Namespace</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QUERY_ELEMENT__QUERYNAMESPACE = eINSTANCE.getQueryElement_Querynamespace();
+		EReference QUERY_ELEMENT__QUERY_NAMESPACE = eINSTANCE.getQueryElement_QueryNamespace();
 
 		/**
 		 * The meta object literal for the '<em><b>Next</b></em>' containment reference feature.
@@ -963,12 +983,12 @@ public interface ModelPackage extends EPackage {
 		EClass QUALIFIER = eINSTANCE.getQualifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Predicate</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Predicates</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QUALIFIER__PREDICATE = eINSTANCE.getQualifier_Predicate();
+		EReference QUALIFIER__PREDICATES = eINSTANCE.getQualifier_Predicates();
 
 		/**
 		 * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
@@ -997,12 +1017,12 @@ public interface ModelPackage extends EPackage {
 		EClass PREDICATE = eINSTANCE.getPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Querynamespace</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Query Namespace</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PREDICATE__QUERYNAMESPACE = eINSTANCE.getPredicate_Querynamespace();
+		EReference PREDICATE__QUERY_NAMESPACE = eINSTANCE.getPredicate_QueryNamespace();
 
 		/**
 		 * The meta object literal for the '{@link org.omg.qpe.model.impl.ClassifierPredicateImpl <em>Classifier Predicate</em>}' class.
@@ -1125,6 +1145,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATH_EXPRESSION__IS_RELATIVE = eINSTANCE.getPathExpression_IsRelative();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualifier</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATH_EXPRESSION__QUALIFIER = eINSTANCE.getPathExpression_Qualifier();
 
 	}
 
